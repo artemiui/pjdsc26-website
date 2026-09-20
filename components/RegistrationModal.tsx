@@ -36,10 +36,10 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
           {/* Header */}
           <div className="flex items-start justify-between border-b border-zinc-200 dark:border-zinc-800 pb-4">
             <div>
-              <span className="text-[11px] font-mono text-zinc-400 block">
+              <span className="text-[11px] font-semibold text-[#6E9E94] dark:text-[#88beaf] uppercase tracking-wider block">
                 registration / pjdsc 2026
               </span>
-              <h3 className="text-xl font-mono font-bold text-foreground mt-0.5">
+              <h3 className="text-xl font-bold text-[#234766] dark:text-[#7ca5cb] mt-0.5">
                 Team Registration
               </h3>
             </div>
@@ -53,29 +53,29 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
           </div>
 
           {/* Pricing & Deadlines */}
-          <div className="space-y-3 text-xs font-mono">
+          <div className="space-y-3 text-xs">
             <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-900 pb-2">
               <div>
-                <span className="font-semibold text-foreground">Early Registration</span>
-                <span className="text-zinc-400 block text-[11px]">Sept 21 (5:00 PM) – Sept 25 · Quota</span>
+                <span className="font-semibold text-[#234766] dark:text-[#7ca5cb]">Early Registration</span>
+                <span className="text-[#2b4458]/70 dark:text-zinc-400 block text-[11px]">Sept 21 (5:00 PM) – Sept 25 · Quota</span>
               </div>
               <span className="font-bold text-[#234766] dark:text-[#E38363]">₱300.00 / pax</span>
             </div>
 
             <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-900 pb-2">
               <div>
-                <span className="font-semibold text-foreground">Regular Registration</span>
-                <span className="text-zinc-400 block text-[11px]">Sept 28 – Sept 30 · Open Demographic</span>
+                <span className="font-semibold text-[#234766] dark:text-[#7ca5cb]">Regular Registration</span>
+                <span className="text-[#2b4458]/70 dark:text-zinc-400 block text-[11px]">Sept 28 – Sept 30 · Open Demographic</span>
               </div>
-              <span className="font-bold text-foreground">₱350.00 / pax</span>
+              <span className="font-bold text-[#234766] dark:text-[#ee9577]">₱350.00 / pax</span>
             </div>
           </div>
 
           {/* Key Guidelines */}
-          <div className="space-y-2 text-xs font-sans text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            <p>• Teams must comprise <strong>3 to 5 senior high school or university students</strong>.</p>
-            <p>• Early registration enforces a quota of <strong>5 teams per region</strong> (NCR, Luzon, Visayas, Mindanao).</p>
-            <p>• Maximum <strong>40 slots nationwide</strong>. Once slots are validated, registration closes.</p>
+          <div className="space-y-2 text-xs font-sans text-[#2b4458]/85 dark:text-zinc-300 leading-relaxed">
+            <p>• Teams must comprise <strong className="text-[#234766] dark:text-[#7ca5cb]">3 to 5 senior high school or undergraduate students</strong>.</p>
+            <p>• Early registration enforces a quota of <strong className="text-[#234766] dark:text-[#7ca5cb]">5 teams per region</strong> (NCR, Luzon, Visayas, Mindanao).</p>
+            <p>• Maximum <strong className="text-[#234766] dark:text-[#7ca5cb]">40 slots nationwide</strong>. Once slots are validated, registration closes.</p>
             <p>• Strictly non-refundable. Payment proof must be uploaded to confirm your slot.</p>
           </div>
 
@@ -85,15 +85,15 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
               href={siteData.event.registrationLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-1.5 py-2.5 px-4 bg-foreground text-background font-mono text-xs font-semibold hover:opacity-90 transition-opacity"
+              className="w-full flex items-center justify-center gap-1.5 py-2.5 px-4 bg-[#234766] hover:bg-[#1a354c] dark:bg-[#E38363] dark:hover:bg-[#d87556] text-white dark:text-zinc-950 text-xs font-semibold rounded-lg shadow-xs hover:opacity-95 transition-all cursor-pointer"
             >
-              <span>proceed to registration form (google form)</span>
+              <span>Proceed to Registration Form (Google Forms)</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
 
             <div className="text-center">
-              <span className="text-[10px] font-mono text-zinc-400">
-                Placeholder link: [{siteData.event.registrationLink}]
+              <span className="text-[11px] text-[#6E9E94] dark:text-[#88beaf]">
+                Official submission portal managed by UP Data Science Society
               </span>
             </div>
           </div>

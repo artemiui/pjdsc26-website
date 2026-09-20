@@ -43,6 +43,7 @@ export const siteData = {
     proposalTemplateLink: "https://bit.ly/pjdsc2026pptemplate",
     proposalSubmissionLink: "http://bit.ly/pjdsc2026ConceptProposalSubmission",
     finalProjectSubmissionLink: "http://bit.ly/pjdsc2026FinalProjectSubmission",
+    githubRepoLink: "https://github.com/UP-DSSoc/PJDSC-Datasets",
     contactEmail: "pjdsc.updssoc@gmail.com",
     maxTeams: 40,
     teamSize: "3 to 5 members",
@@ -72,10 +73,30 @@ export const siteData = {
   ],
 
   impactStats: [
-    { value: "600+", label: "Participants Nationwide" },
-    { value: "30+", label: "Partner Universities" },
-    { value: "15+", label: "Industry & Academic Speakers" },
-    { value: "5", label: "Past Successful Iterations" },
+    {
+      title: "600+ participants",
+      desc: "A nationwide community of aspiring data scientists and future innovators.",
+    },
+    {
+      title: "30+ Universities",
+      desc: "Bringing together students from leading universities across the Philippines.",
+    },
+    {
+      title: "15+ Industry speakers",
+      desc: "Experts from academia and industry sharing real-world insights and experience.",
+    },
+    {
+      title: "15+ Judges",
+      desc: "Distinguished professionals evaluating innovative, data-driven solutions.",
+    },
+    {
+      title: "20+ partners",
+      desc: "Organizations supporting student innovation through collaboration and sponsorship.",
+    },
+    {
+      title: "150+ teams",
+      desc: "Multidisciplinary teams developing impactful solutions to real-world challenges.",
+    },
   ],
 
   pillars: [
@@ -376,11 +397,11 @@ export const siteData = {
       { year: "2021", theme: "Data Science for Social Good & Disaster Preparedness", primerUrl: "#" },
     ],
     socialLinks: {
-      facebook: "https://facebook.com/updssoc",
-      linkedin: "https://linkedin.com/company/updssoc",
-      github: "https://github.com/updssoc",
+      facebook: "https://www.facebook.com/updatasciencesociety/",
+      linkedin: "https://www.linkedin.com/company/updatasciencesociety/",
+      github: "https://github.com/UP-DSSoc/",
       instagram: "https://instagram.com/updssoc",
-      email: "pjdsc.updssoc@gmail.com",
+      email: "updatasciencesociety@gmail.com",
     },
   },
 

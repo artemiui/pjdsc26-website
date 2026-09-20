@@ -1,7 +1,5 @@
-"use client";
-
-import OrganizerPage from "../organizer/page";
+import OrganizerSection from "@/components/sections/OrganizerSection";
 
 export default function AboutPage() {
-  return <OrganizerPage />;
+  return <OrganizerSection />;
 }

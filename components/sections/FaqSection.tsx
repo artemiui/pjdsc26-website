@@ -2,7 +2,10 @@
 
 import React, { useState } from "react";
 import { Plus, Minus, Mail } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { siteData } from "@/lib/siteData";
+
+const categories = ["all", "eligibility", "teams", "technical", "event"] as const;
 
 export default function FaqSection() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
@@ -17,104 +20,114 @@ export default function FaqSection() {
     return matchesCategory && matchesSearch;
   });
 
-  const toggleAccordion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
-    <section className="space-y-8 py-6">
-      {/* Title */}
-      <div className="space-y-1">
-        <span className="text-xs font-mono text-zinc-400 dark:text-zinc-500 block">
-          frequently asked questions
-        </span>
-        <h2 className="text-2xl font-mono font-bold text-foreground">
-          Frequently Asked Questions
-        </h2>
-        <p className="text-xs sm:text-sm font-sans text-zinc-600 dark:text-zinc-400">
-          Answers regarding team formation, eligibility, technical guidelines, and the finals.
-        </p>
-      </div>
-
-      {/* Filter Tabs & Search */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-200 dark:border-zinc-800 pb-2.5 text-xs font-mono">
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-          {["all", "eligibility", "teams", "technical", "event"].map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`${
-                activeCategory === cat
-                  ? "text-foreground font-semibold border-b border-foreground pb-0.5"
-                  : "text-zinc-500 hover:text-foreground"
-              } transition-colors capitalize cursor-pointer`}
-            >
-              {cat === "event" ? "culmination" : cat}
-            </button>
-          ))}
+    <section className="bg-zinc-50/50 dark:bg-zinc-900/20">
+      <div className="max-w-[1100px] mx-auto px-5 sm:px-8 py-14 sm:py-20">
+        {/* Section Header */}
+        <div className="mb-10">
+          <span className="text-xs font-semibold tracking-widest uppercase text-[#E38363]">
+            Support
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#234766] dark:text-[#7ca5cb] leading-tight mt-2">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-sm text-[#253f56]/85 dark:text-zinc-300 mt-2 max-w-[480px]">
+            Answers about team formation, eligibility, technical guidelines, and the culminating event.
+          </p>
         </div>
 
-        <div>
+        {/* Filter + Search Row */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
+          <div className="flex flex-wrap gap-1 p-1 bg-zinc-100 dark:bg-zinc-800/50 rounded-lg w-fit">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-3 py-1.5 text-xs rounded-md capitalize transition-all cursor-pointer ${
+                  activeCategory === cat
+                    ? "bg-white dark:bg-zinc-700 text-[#234766] dark:text-[#E38363] shadow-sm font-semibold"
+                    : "text-[#234766]/70 dark:text-zinc-400 hover:text-[#234766] dark:hover:text-[#f3f6f8]"
+                }`}
+              >
+                {cat === "event" ? "Culmination" : cat}
+              </button>
+            ))}
+          </div>
+
           <input
             type="text"
-            placeholder="filter..."
+            placeholder="Search questions..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-36 sm:w-44 px-2 py-1 bg-transparent border-b border-zinc-300 dark:border-zinc-700 text-xs font-mono focus:outline-none focus:border-foreground transition-colors"
+            className="w-full sm:w-52 px-3 py-2 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#234766]/20 dark:focus:ring-[#6E9E94]/20 transition-all text-[#234766] dark:text-zinc-100 placeholder:text-zinc-400"
           />
         </div>
-      </div>
 
-      {/* Accordion List (Zero Panel Backgrounds) */}
-      <div className="divide-y divide-zinc-200 dark:divide-zinc-800">
-        {filteredFaqs.length === 0 ? (
-          <div className="py-8 text-center text-xs font-mono text-zinc-400">
-            No matching questions found.
-          </div>
-        ) : (
-          filteredFaqs.map((faq, idx) => {
-            const isOpen = openIndex === idx;
-            return (
-              <div key={idx} className="py-4 space-y-2">
-                <button
-                  onClick={() => toggleAccordion(idx)}
-                  className="w-full text-left flex items-start justify-between gap-4 focus:outline-none cursor-pointer group"
+        {/* FAQ Accordion */}
+        <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-white dark:bg-zinc-800/20">
+          {filteredFaqs.length === 0 ? (
+            <div className="py-12 text-center text-sm text-zinc-400">
+              No matching questions found.
+            </div>
+          ) : (
+            filteredFaqs.map((faq, idx) => {
+              const isOpen = openIndex === idx;
+              return (
+                <div
+                  key={idx}
+                  className={`${
+                    idx !== filteredFaqs.length - 1 ? "border-b border-zinc-200 dark:border-zinc-700/50" : ""
+                  }`}
                 >
-                  <div className="flex items-baseline gap-3">
-                    <span className="text-xs font-mono text-zinc-400 dark:text-zinc-500 shrink-0">
-                      {String(idx + 1).padStart(2, "0")}.
+                  <button
+                    onClick={() => setOpenIndex(isOpen ? null : idx)}
+                    className="w-full text-left flex items-start justify-between gap-4 px-5 py-4 hover:bg-zinc-50 dark:hover:bg-zinc-800/30 transition-colors cursor-pointer group"
+                  >
+                    <div className="flex items-baseline gap-3">
+                      <span className="text-xs text-[#234766] dark:text-[#88beaf] font-bold shrink-0">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="text-sm font-semibold text-[#234766] dark:text-[#f3f6f8] group-hover:text-[#E38363] dark:group-hover:text-[#E38363] transition-colors">
+                        {faq.question}
+                      </h3>
+                    </div>
+                    <span className="text-zinc-400 shrink-0 mt-0.5">
+                      {isOpen ? <Minus className="w-4 h-4 text-[#E38363]" /> : <Plus className="w-4 h-4" />}
                     </span>
-                    <h3 className="text-sm font-mono font-medium text-foreground group-hover:text-[#234766] dark:group-hover:text-[#E38363] transition-colors">
-                      {faq.question}
-                    </h3>
-                  </div>
+                  </button>
 
-                  <span className="text-zinc-400 dark:text-zinc-500 shrink-0 mt-0.5">
-                    {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
-                  </span>
-                </button>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-5 pb-4 pl-12 text-sm text-[#2b4458]/85 dark:text-zinc-300 leading-relaxed">
+                          {faq.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })
+          )}
+        </div>
 
-                {isOpen && (
-                  <div className="pl-7 text-xs sm:text-sm font-sans text-zinc-600 dark:text-zinc-400 leading-relaxed pt-1">
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
-            );
-          })
-        )}
-      </div>
-
-      {/* Support Line */}
-      <div className="pt-4 border-t border-zinc-200 dark:border-zinc-800 text-xs font-mono text-zinc-500 flex items-center justify-between">
-        <span>Have an inquiry not answered here?</span>
-        <a
-          href={`mailto:${siteData.event.contactEmail}`}
-          className="text-foreground hover:underline inline-flex items-center gap-1"
-        >
-          <Mail className="w-3 h-3" />
-          <span>{siteData.event.contactEmail}</span>
-        </a>
+        {/* Contact Support */}
+        <div className="mt-8 flex items-center justify-between text-sm">
+          <span className="text-[#2b4458]/80 dark:text-zinc-400">Have an inquiry not answered here?</span>
+          <a
+            href={`mailto:${siteData.event.contactEmail}`}
+            className="inline-flex items-center gap-1.5 text-[#234766] dark:text-[#E38363] font-semibold text-xs hover:underline transition-colors"
+          >
+            <Mail className="w-3.5 h-3.5" />
+            {siteData.event.contactEmail}
+          </a>
+        </div>
       </div>
     </section>
   );

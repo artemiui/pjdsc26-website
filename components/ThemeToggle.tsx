@@ -42,7 +42,7 @@ export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
           {isDark ? (
             <Sun className="w-4 h-4 text-amber-400" />
           ) : (
-            <Moon className="w-4 h-4 text-zinc-700" />
+            <Moon className="w-4 h-4 text-[#234766]" />
           )}
         </motion.div>
       </AnimatePresence>
