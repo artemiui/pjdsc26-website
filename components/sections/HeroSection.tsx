@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, FileText, Clock, Github, Database, GitBranch, Trophy, FolderGit2, Code2, Facebook, Bell, Megaphone } from "lucide-react";
+import { ArrowUpRight, FileText, Clock, Github, Facebook, Trophy } from "lucide-react";
 import { siteData } from "@/lib/siteData";
 import { useRegistration } from "@/lib/registrationContext";
 import DitheredPlantBackground from "@/components/DitheredPlantBackground";
@@ -475,171 +475,157 @@ export default function HeroSection() {
         </div>
 
         {/* Dedicated PJDSC Facebook Official Updates Panel */}
-        <div className="mt-14 sm:mt-18 relative rounded-2xl border border-zinc-200/90 dark:border-zinc-800/90 bg-gradient-to-br from-white via-zinc-50/70 to-zinc-100/50 dark:from-zinc-900/90 dark:via-zinc-900/60 dark:to-zinc-950/80 p-6 sm:p-8 lg:p-10 shadow-sm overflow-hidden">
+        <div className="mt-14 sm:mt-18 relative rounded-2xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white/70 dark:bg-zinc-900/60 p-6 sm:p-8 lg:p-10 shadow-xs overflow-hidden">
           {/* Subtle Ambient Radial Glow */}
           <div 
-            className="absolute -top-24 -right-24 w-72 h-72 bg-[#1877F2]/10 dark:bg-[#1877F2]/15 rounded-full blur-3xl pointer-events-none" 
+            className="absolute -top-24 -right-24 w-72 h-72 bg-[#1877F2]/8 dark:bg-[#1877F2]/12 rounded-full blur-3xl pointer-events-none" 
             aria-hidden="true" 
           />
           <div 
-            className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#6E9E94]/10 dark:bg-[#6E9E94]/15 rounded-full blur-3xl pointer-events-none" 
+            className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#6E9E94]/8 dark:bg-[#6E9E94]/12 rounded-full blur-3xl pointer-events-none" 
             aria-hidden="true" 
           />
 
-          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             {/* Left Info Column */}
-            <div className="space-y-4 max-w-[620px]">
-              <div className="flex flex-wrap items-center gap-2.5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#1877F2]/10 text-[#1877F2] dark:bg-[#1877F2]/15 dark:text-[#5890FF]">
-                  <Facebook className="w-3.5 h-3.5" />
-                  Official Announcements
-                </span>
-                <span className="text-xs font-semibold text-[#E38363] dark:text-[#ee9577]">
-                  @pjdsc.updssoc
-                </span>
-              </div>
-
+            <div className="lg:col-span-5 space-y-5">
               <div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-[#234766] dark:text-[#7ca5cb] tracking-tight leading-tight">
                   Official Facebook Page
                 </h3>
-                <p className="text-sm sm:text-base text-[#2b4458]/85 dark:text-zinc-300 leading-relaxed mt-2.5">
+                <p className="text-sm sm:text-base text-[#2b4458]/85 dark:text-zinc-300 leading-relaxed mt-3">
                   Follow the official PJDSC Facebook page for timely competition updates, timeline reminders, workshop schedules, and live challenge announcements. All major updates are released here first.
                 </p>
               </div>
 
-              {/* Badges / Specs */}
-              <div className="flex flex-wrap gap-2.5 pt-1">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-[#234766] dark:text-zinc-200">
-                  <Bell className="w-3.5 h-3.5 text-[#1877F2]" />
-                  <span>Competition Updates</span>
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-[#234766] dark:text-zinc-200">
-                  <Clock className="w-3.5 h-3.5 text-[#6E9E94]" />
-                  <span>Timeline Reminders</span>
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-[#234766] dark:text-zinc-200">
-                  <Megaphone className="w-3.5 h-3.5 text-[#E38363]" />
-                  <span>Live Announcements</span>
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-[#234766] dark:text-zinc-200">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>Active Channel</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Action Box */}
-            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0 lg:w-[260px]">
-              <a
-                href={siteData.event.facebookLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#1877F2] hover:bg-[#166fe5] dark:bg-[#1877F2] dark:hover:bg-[#166fe5] text-white text-sm font-bold rounded-xl shadow-md transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
-              >
-                <Facebook className="w-4 h-4" />
-                <span>Visit Facebook Page</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-
-              <div className="p-3 rounded-xl bg-zinc-100/90 dark:bg-zinc-800/60 border border-zinc-200/80 dark:border-zinc-700/60 text-[11px] text-zinc-500 dark:text-zinc-400">
-                <span className="block font-semibold text-[#234766] dark:text-[#7ca5cb] mb-0.5">
-                  Facebook Page:
-                </span>
+              <div className="pt-1 flex flex-col sm:flex-row lg:flex-col gap-3">
                 <a
                   href={siteData.event.facebookLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[11px] select-all break-all text-[#2b4458] dark:text-zinc-300 font-sans hover:underline"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#1877F2] hover:bg-[#166fe5] text-white text-sm font-bold rounded-xl shadow-xs transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer w-fit"
                 >
-                  facebook.com/pjdsc.updssoc
+                  <Facebook className="w-4 h-4" />
+                  <span>Visit Facebook Page</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+
+                <a
+                  href={siteData.event.facebookLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-[#2b4458]/75 dark:text-zinc-400 hover:text-[#1877F2] transition-colors inline-flex items-center gap-1 font-mono"
+                >
+                  <span>facebook.com/pjdsc.updssoc</span>
                 </a>
               </div>
+            </div>
+
+            {/* Right Screenshot Preview */}
+            <div className="lg:col-span-7">
+              <a
+                href={siteData.event.facebookLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block relative rounded-xl border border-zinc-200/80 dark:border-zinc-700/80 bg-zinc-100/50 dark:bg-zinc-800/50 shadow-sm overflow-hidden transition-all hover:shadow-md hover:border-[#1877F2]/40"
+              >
+                {/* Browser-like minimal header bar */}
+                <div className="flex items-center gap-1.5 px-3.5 py-2 border-b border-zinc-200/70 dark:border-zinc-700/70 bg-white/80 dark:bg-zinc-800/80">
+                  <span className="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-600" />
+                  <span className="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-600" />
+                  <span className="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-600" />
+                  <span className="text-[11px] text-zinc-400 dark:text-zinc-400 font-mono ml-2 truncate">
+                    facebook.com/pjdsc.updssoc
+                  </span>
+                </div>
+                {/* Screenshot Image */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-zinc-50 dark:bg-zinc-900">
+                  <Image
+                    src="/assets/facebook-preview.png"
+                    alt="Official PJDSC Facebook Page"
+                    fill
+                    className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                </div>
+              </a>
             </div>
           </div>
         </div>
 
         {/* Dedicated PJDSC GitHub Datasets Repository Panel */}
-        <div className="mt-8 sm:mt-10 relative rounded-2xl border border-zinc-200/90 dark:border-zinc-800/90 bg-gradient-to-br from-white via-zinc-50/70 to-zinc-100/50 dark:from-zinc-900/90 dark:via-zinc-900/60 dark:to-zinc-950/80 p-6 sm:p-8 lg:p-10 shadow-sm overflow-hidden">
+        <div className="mt-8 sm:mt-10 relative rounded-2xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white/70 dark:bg-zinc-900/60 p-6 sm:p-8 lg:p-10 shadow-xs overflow-hidden">
           {/* Subtle Ambient Radial Glow */}
           <div 
-            className="absolute -top-24 -right-24 w-72 h-72 bg-[#6E9E94]/10 dark:bg-[#6E9E94]/15 rounded-full blur-3xl pointer-events-none" 
+            className="absolute -top-24 -right-24 w-72 h-72 bg-[#6E9E94]/8 dark:bg-[#6E9E94]/12 rounded-full blur-3xl pointer-events-none" 
             aria-hidden="true" 
           />
           <div 
-            className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#234766]/10 dark:bg-[#234766]/20 rounded-full blur-3xl pointer-events-none" 
+            className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#234766]/8 dark:bg-[#234766]/12 rounded-full blur-3xl pointer-events-none" 
             aria-hidden="true" 
           />
 
-          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             {/* Left Info Column */}
-            <div className="space-y-4 max-w-[620px]">
-              <div className="flex flex-wrap items-center gap-2.5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#234766]/10 text-[#234766] dark:bg-[#6E9E94]/15 dark:text-[#88beaf]">
-                  <Github className="w-3.5 h-3.5" />
-                  Official Open Data
-                </span>
-                <span className="text-xs font-semibold text-[#E38363] dark:text-[#ee9577]">
-                  UP-DSSoc / PJDSC-Datasets
-                </span>
-              </div>
-
+            <div className="lg:col-span-5 space-y-5">
               <div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-[#234766] dark:text-[#7ca5cb] tracking-tight leading-tight">
                   PJDSC Datasets & Projects Repository
                 </h3>
-                <p className="text-sm sm:text-base text-[#2b4458]/85 dark:text-zinc-300 leading-relaxed mt-2.5">
-                  Access historical projects, challenge datasets, and open sourcecode curated by UP Data Science Society for challenge participants.
+                <p className="text-sm sm:text-base text-[#2b4458]/85 dark:text-zinc-300 leading-relaxed mt-3">
+                  Access historical competition projects, challenge datasets, starter notebooks, and open sourcecode curated by UP Data Science Society for challenge participants.
                 </p>
               </div>
 
-              {/* Badges / Specs */}
-              <div className="flex flex-wrap gap-2.5 pt-1">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-[#234766] dark:text-zinc-200">
-                  <FolderGit2 className="w-3.5 h-3.5 text-[#234766] dark:text-[#88beaf]" />
-                  <span>Historical Projects</span>
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-[#234766] dark:text-zinc-200">
-                  <Database className="w-3.5 h-3.5 text-[#6E9E94]" />
-                  <span>Challenge Datasets</span>
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-[#234766] dark:text-zinc-200">
-                  <Code2 className="w-3.5 h-3.5 text-[#E38363]" />
-                  <span>Open Sourcecode</span>
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-[#234766] dark:text-zinc-200">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>Free & Open Source</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Action Box */}
-            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0 lg:w-[260px]">
-              <a
-                href={siteData.event.githubRepoLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#234766] hover:bg-[#1a354c] dark:bg-[#E38363] dark:hover:bg-[#d87556] text-white dark:text-zinc-950 text-sm font-bold rounded-xl shadow-md transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
-              >
-                <Github className="w-4 h-4" />
-                <span>Open in GitHub</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-
-              <div className="p-3 rounded-xl bg-zinc-100/90 dark:bg-zinc-800/60 border border-zinc-200/80 dark:border-zinc-700/60 text-[11px] text-zinc-500 dark:text-zinc-400">
-                <span className="block font-semibold text-[#234766] dark:text-[#7ca5cb] mb-0.5">
-                  Repository:
-                </span>
+              <div className="pt-1 flex flex-col sm:flex-row lg:flex-col gap-3">
                 <a
                   href={siteData.event.githubRepoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[11px] select-all break-all text-[#2b4458] dark:text-zinc-300 font-sans hover:underline"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#234766] hover:bg-[#1a354c] text-white text-sm font-bold rounded-xl shadow-xs transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer w-fit"
                 >
-                  github.com/UP-DSSoc/PJDSC-Datasets
+                  <Github className="w-4 h-4" />
+                  <span>Open in GitHub</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+
+                <a
+                  href={siteData.event.githubRepoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-[#2b4458]/75 dark:text-zinc-400 hover:text-[#234766] transition-colors inline-flex items-center gap-1 font-mono"
+                >
+                  <span>github.com/UP-DSSoc/PJDSC-Datasets</span>
                 </a>
               </div>
+            </div>
+
+            {/* Right Screenshot Preview */}
+            <div className="lg:col-span-7">
+              <a
+                href={siteData.event.githubRepoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block relative rounded-xl border border-zinc-200/80 dark:border-zinc-700/80 bg-zinc-950 shadow-sm overflow-hidden transition-all hover:shadow-md hover:border-[#234766]/40"
+              >
+                {/* Browser-like minimal header bar */}
+                <div className="flex items-center gap-1.5 px-3.5 py-2 border-b border-zinc-800 bg-zinc-900">
+                  <span className="w-2 h-2 rounded-full bg-zinc-700" />
+                  <span className="w-2 h-2 rounded-full bg-zinc-700" />
+                  <span className="w-2 h-2 rounded-full bg-zinc-700" />
+                  <span className="text-[11px] text-zinc-400 font-mono ml-2 truncate">
+                    github.com/UP-DSSoc/PJDSC-Datasets
+                  </span>
+                </div>
+                {/* Screenshot Image */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-zinc-950">
+                  <Image
+                    src="/assets/github-repo-screenshot.png"
+                    alt="PJDSC GitHub Datasets Repository Preview"
+                    fill
+                    className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                </div>
+              </a>
             </div>
           </div>
         </div>
