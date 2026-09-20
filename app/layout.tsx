@@ -3,9 +3,10 @@ import { Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/themeContext";
 import IntroSplash from "@/components/IntroSplash";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { siteData } from "@/lib/siteData";
+
+import { RegistrationProvider } from "@/lib/registrationContext";
+import Header from "@/components/Header";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -24,16 +25,6 @@ export const metadata: Metadata = {
   title: "PJDSC 2026 | Philippine Junior Data Science Challenge",
   description:
     "The Philippine Junior Data Science Challenge 2026 (PJDSC 2026), organized by the UP Data Science Society (UP DSSoc). Public Health Analytics: Trace the Pattern, Target the Cure.",
-  keywords: [
-    "PJDSC 2026",
-    "Philippine Junior Data Science Challenge",
-    "UP Data Science Society",
-    "UP DSSoc",
-    "Data Science Competition Philippines",
-    "Public Health Analytics",
-    "Bioinformatics Hackathon",
-  ],
-  authors: [{ name: "UP Data Science Society" }],
   icons: {
     icon: "/assets/logos-ver2026/pjdsc 2026/svg/Black Bars_1.svg",
   },
@@ -63,15 +54,21 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased bg-background text-foreground min-h-screen flex flex-col selection:bg-[#234766]/15 dark:selection:bg-[#E38363]/30">
+      <body className="antialiased bg-background text-foreground min-h-screen flex flex-col">
         <ThemeProvider>
-          {/* Minimalist white background intro upon entering with event logo only, gradually fading out */}
-          <IntroSplash />
+          <RegistrationProvider>
+            {/* Minimalist white background intro upon entering with event logo only, gradually fading out */}
+            <IntroSplash />
 
-          {/* Main App Layout */}
-          <div className="flex-1 flex flex-col">
-            {children}
-          </div>
+            {/* Unified Clean Layout Container matching artemiui.github.io */}
+            <div className="min-h-screen flex flex-col">
+              <div className="flex-1 w-full max-w-[768px] mx-auto px-5 sm:px-6 py-6 sm:py-10">
+                <Header />
+                <main className="mt-4">{children}</main>
+              </div>
+              <Footer />
+            </div>
+          </RegistrationProvider>
         </ThemeProvider>
       </body>
     </html>

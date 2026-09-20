@@ -1,11 +1,9 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, FileText, ChevronRight, Activity, Cpu, Users2, Trophy, Sparkles } from "lucide-react";
+import { ArrowUpRight, FileText } from "lucide-react";
 import { siteData } from "@/lib/siteData";
-import AsciiMotif from "@/components/AsciiMotif";
 
 interface HeroSectionProps {
   onOpenRegister?: () => void;
@@ -13,175 +11,134 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onOpenRegister }: HeroSectionProps) {
   return (
-    <section id="overview" className="relative pt-10 sm:pt-16 pb-16 sm:pb-24 overflow-hidden">
-      {/* Background data dot grid */}
-      <div className="absolute inset-0 bg-dot-grid opacity-35 pointer-events-none -z-10" />
-
-      {/* Hero Content Container */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        {/* Status Pill & ASCII Bio-sprout accent */}
-        <div className="flex items-center justify-between gap-4 mb-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono border border-zinc-300/80 dark:border-zinc-700 bg-white/60 dark:bg-zinc-900/60 text-zinc-700 dark:text-zinc-300 backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="uppercase tracking-wider">6th Iteration · Public Health Analytics</span>
-          </div>
-
-          <div className="hidden sm:block">
-            <AsciiMotif variant="plant" className="opacity-75" />
-          </div>
+    <section className="space-y-10 py-6">
+      {/* Theme Introduction */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-mono text-zinc-400 dark:text-zinc-500">
+            01 / theme & challenge
+          </span>
         </div>
 
-        {/* Main Event Title */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shrink-0">
-              <Image
-                src="/assets/logos-ver2026/pjdsc 2026/svg/Black Bars_1.svg"
-                alt="PJDSC Data Bars Logo"
-                width={48}
-                height={36}
-                priority
-                className="w-10 sm:w-12 h-auto object-contain dark:invert"
-              />
-            </div>
-            <div>
-              <p className="text-xs font-mono tracking-widest text-[#234766] dark:text-[#88beaf] uppercase">
-                University of the Philippines Data Science Society Presents
-              </p>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-sans font-extrabold text-zinc-950 dark:text-white tracking-tight leading-tight">
-                Philippine Junior Data Science Challenge 2026
-              </h1>
-            </div>
-          </div>
+        <h2 className="text-2xl sm:text-3xl font-mono font-bold text-foreground leading-snug">
+          “Trace the Pattern, Target the Cure”
+        </h2>
+        <p className="text-sm font-mono text-zinc-500 dark:text-zinc-400">
+          Advancing Public Health Through Data Science
+        </p>
 
-          {/* Theme Banner with Scribe / Isomorphic inspired highlight */}
-          <div className="mt-6 p-5 sm:p-6 rounded-xl wireframe-panel bg-white/60 dark:bg-zinc-900/40 relative overflow-hidden">
-            {/* Subtle corner badge */}
-            <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mb-2">
-              Official 2026 Competition Theme
-            </div>
+        <p className="text-sm font-sans text-zinc-600 dark:text-zinc-400 leading-relaxed pt-1">
+          {siteData.event.challengeStatement}
+        </p>
 
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-sans font-semibold text-zinc-900 dark:text-zinc-100 leading-snug">
-              <span className="inline-block bg-[#234766] text-white dark:bg-[#E38363] dark:text-zinc-950 px-2.5 py-0.5 rounded mr-2 text-lg sm:text-2xl font-bold">
-                “Trace the Pattern, Target the Cure”
-              </span>
-              Advancing Public Health Through Data Science
-            </h2>
-
-            <p className="mt-4 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans max-w-3xl">
-              {siteData.event.challengeStatement}
-            </p>
-          </div>
-        </div>
-
-        {/* Primary CTA Buttons */}
-        <div className="mt-8 flex flex-wrap items-center gap-3 font-mono text-xs">
+        {/* Action Links */}
+        <div className="flex flex-wrap items-center gap-4 pt-2 text-xs font-mono">
           <button
             onClick={onOpenRegister}
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-md bg-[#234766] text-white hover:bg-[#18344c] dark:bg-[#E38363] dark:text-zinc-950 dark:hover:bg-[#d67252] shadow-sm hover:shadow transition-all font-medium"
+            className="inline-flex items-center gap-1 font-semibold text-foreground underline underline-offset-4 hover:text-[#234766] dark:hover:text-[#E38363] transition-colors cursor-pointer"
           >
             <span>register team</span>
-            <ArrowUpRight className="w-4 h-4" />
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </button>
 
-          <a
-            href="#primer"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white/80 dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 transition-colors"
+          <Link
+            href="/primer"
+            className="inline-flex items-center gap-1 text-zinc-500 hover:text-foreground transition-colors"
           >
-            <FileText className="w-4 h-4 text-zinc-500" />
-            <span>read primer content</span>
-          </a>
+            <FileText className="w-3.5 h-3.5" />
+            <span>view primer</span>
+          </Link>
 
           <a
             href="/docs/PJDSC 2026 Sponsorship Deck.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-3 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors"
+            className="inline-flex items-center gap-1 text-zinc-500 hover:text-foreground transition-colors"
           >
             <span>sponsorship deck (pdf)</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
+      </div>
 
-        {/* Quick Numbers Bar (Wireframe modular grid) */}
-        <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {siteData.stats.map((stat, i) => (
-            <div
-              key={i}
-              className="p-4 rounded-lg wireframe-panel bg-white/40 dark:bg-zinc-900/30 text-left"
-            >
-              <div className="text-xl sm:text-2xl font-mono font-bold text-[#234766] dark:text-[#E38363]">
-                {stat.value}
+      {/* Overview Metadata List (No Cards / No Panel Backgrounds) */}
+      <div className="pt-6 border-t border-zinc-200 dark:border-zinc-800 space-y-3">
+        <span className="text-xs font-mono text-zinc-400 dark:text-zinc-500 block">
+          02 / key competition parameters
+        </span>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-8 text-xs font-mono">
+          <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-900 pb-1.5">
+            <span className="text-zinc-500 dark:text-zinc-400">capacity</span>
+            <span className="font-semibold text-foreground">40 teams nationwide</span>
+          </div>
+          <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-900 pb-1.5">
+            <span className="text-zinc-500 dark:text-zinc-400">team size</span>
+            <span className="font-semibold text-foreground">3 to 5 members</span>
+          </div>
+          <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-900 pb-1.5">
+            <span className="text-zinc-500 dark:text-zinc-400">demographics</span>
+            <span className="font-semibold text-foreground">SHS & Tertiary students</span>
+          </div>
+          <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-900 pb-1.5">
+            <span className="text-zinc-500 dark:text-zinc-400">regional quotas</span>
+            <span className="font-semibold text-foreground">NCR, Luzon, Visayas, Mindanao</span>
+          </div>
+          <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-900 pb-1.5">
+            <span className="text-zinc-500 dark:text-zinc-400">early reg fee</span>
+            <span className="font-semibold text-foreground">₱300.00 / member</span>
+          </div>
+          <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-900 pb-1.5">
+            <span className="text-zinc-500 dark:text-zinc-400">regular reg fee</span>
+            <span className="font-semibold text-foreground">₱350.00 / member</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Four Pillars / Flow (Clean editorial list) */}
+      <div className="pt-6 border-t border-zinc-200 dark:border-zinc-800 space-y-4">
+        <span className="text-xs font-mono text-zinc-400 dark:text-zinc-500 block">
+          03 / event structure
+        </span>
+
+        <div className="space-y-4 pl-1 border-l-2 border-zinc-200 dark:border-zinc-800 ml-1">
+          {siteData.pillars.map((pillar, i) => (
+            <div key={i} className="relative pl-5 space-y-1">
+              <div className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-zinc-900 dark:bg-zinc-100" />
+              <div className="flex items-baseline gap-2">
+                <span className="font-mono font-medium text-sm text-foreground">
+                  {pillar.num}. {pillar.title}
+                </span>
+                <span className="text-xs font-mono text-zinc-400 dark:text-zinc-500">
+                  [{pillar.tag}]
+                </span>
               </div>
-              <div className="text-xs font-sans font-semibold text-zinc-800 dark:text-zinc-200 mt-0.5">
-                {stat.label}
-              </div>
-              <div className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 mt-1">
-                {stat.sub}
-              </div>
+              <p className="text-xs font-sans text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                {pillar.desc}
+              </p>
             </div>
           ))}
         </div>
+      </div>
 
-        {/* Focus Sub-Domains Pills */}
-        <div className="mt-10">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
-              Key Public Health Analytical Vectors
-            </span>
-            <span className="text-[11px] font-mono text-zinc-400">10 Focus Areas</span>
-          </div>
+      {/* Focus Topics (Minimal inline list) */}
+      <div className="pt-6 border-t border-zinc-200 dark:border-zinc-800 space-y-3">
+        <span className="text-xs font-mono text-zinc-400 dark:text-zinc-500 block">
+          04 / health analytics focus areas
+        </span>
 
-          <div className="flex flex-wrap gap-2">
-            {siteData.topics.map((t, i) => (
-              <span
-                key={i}
-                title={t.desc}
-                className="inline-flex items-center text-xs font-mono px-3 py-1.5 rounded-full border border-zinc-200/80 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 text-zinc-700 dark:text-zinc-300 hover:border-[#234766]/50 dark:hover:border-[#6E9E94]/50 transition-colors cursor-default"
-              >
-                {t.title}
+        <p className="text-xs font-mono text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          {siteData.topics.map((t, idx) => (
+            <span key={idx}>
+              <span className="hover:text-foreground transition-colors cursor-default" title={t.desc}>
+                {t.title.toLowerCase()}
               </span>
-            ))}
-          </div>
-        </div>
-
-        {/* 4 Pillars of PJDSC */}
-        <div className="mt-14 pt-10 border-t border-zinc-200 dark:border-zinc-800">
-          <div className="mb-6">
-            <span className="text-xs font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
-              The Competition Structure
+              {idx < siteData.topics.length - 1 && (
+                <span className="text-zinc-300 dark:text-zinc-700 mx-2">·</span>
+              )}
             </span>
-            <h3 className="text-xl font-sans font-bold text-zinc-900 dark:text-zinc-100 mt-1">
-              Four Milestones from Proposal to Live Presentation
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {siteData.pillars.map((pillar, i) => (
-              <div
-                key={i}
-                className="p-5 rounded-lg wireframe-panel bg-white/50 dark:bg-zinc-900/30 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-mono font-bold text-[#6E9E94] dark:text-[#88beaf]">
-                      {pillar.num}
-                    </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 uppercase">
-                      {pillar.tag}
-                    </span>
-                  </div>
-                  <h4 className="text-base font-sans font-semibold text-zinc-900 dark:text-zinc-100">
-                    {pillar.title}
-                  </h4>
-                  <p className="text-xs font-sans text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
-                    {pillar.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+          ))}
+        </p>
       </div>
     </section>
   );

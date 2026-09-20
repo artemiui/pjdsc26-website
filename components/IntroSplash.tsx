@@ -61,8 +61,6 @@ export default function IntroSplash({ onComplete }: IntroSplashProps) {
           className="fixed inset-0 z-50 flex items-center justify-center bg-white cursor-pointer select-none"
           title="Click to enter"
         >
-          {/* Subtle bio-data lattice line */}
-          <div className="absolute inset-0 bg-dot-grid opacity-30 pointer-events-none" />
 
           {/* Centered Event Logo Only (No text) */}
           <motion.div
