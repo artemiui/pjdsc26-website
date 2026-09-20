@@ -14,11 +14,36 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://pjdsc.updssoc.org"),
   title: "PJDSC 2026 | Philippine Junior Data Science Challenge",
   description:
     "The Philippine Junior Data Science Challenge 2026 (PJDSC 2026), organized by the UP Data Science Society (UP DSSoc). Public Health Analytics: Trace the Pattern, Target the Cure.",
   icons: {
     icon: "/assets/logos-ver2026/pjdsc 2026/svg/Black Bars_1.svg",
+  },
+  openGraph: {
+    title: "PJDSC 2026 | Philippine Junior Data Science Challenge",
+    description:
+      "Trace the Pattern, Target the Cure: Advancing Public Health with Data Science.",
+    url: "https://pjdsc.updssoc.org",
+    siteName: "PJDSC 2026",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1920,
+        height: 710,
+        alt: "Philippine Junior Data Science Challenge 2026",
+      },
+    ],
+    locale: "en_PH",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PJDSC 2026 | Philippine Junior Data Science Challenge",
+    description:
+      "Trace the Pattern, Target the Cure: Advancing Public Health with Data Science.",
+    images: ["/og-image.png"],
   },
 };
 

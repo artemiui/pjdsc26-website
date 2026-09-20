@@ -56,7 +56,7 @@ Teams will then submit a final proposal package, consisting of a polished slide 
 5. There will be a registration fee for each team member of 300.00 pesos for early registrants and 350.00 pesos for late registrants. A strict no refund policy is enforced.  
 6. Members of the UP Data Science Society may also compete as long as they are not Executive Board (EB) members, Vice-Directors (VD), and PJDSC 2026 managing members of the organization.
 
-Registration Link:  \[[bit.ly/pjdsc2025register](https://bit.ly/pjdsc2025register)\]
+Registration Link:  \[[tinyurl.com/pjdsc2026earlybird](https://tinyurl.com/pjdsc2026earlybird)\]
 
 |  | COMPETITION FLOW |  |
 | :---- | :---: | :---- |

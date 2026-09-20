@@ -39,7 +39,7 @@ export const siteData = {
     subTheme: "Public Health Analytics",
     challengeStatement:
       "Communities across the Philippines face complex public health challenges that require timely, effective, and accessible solutions. From monitoring disease outbreaks and predicting health risks to improving healthcare delivery and resource distribution, data plays an increasingly vital role. How can data analytics and innovative computational approaches be leveraged to develop practical solutions that improve disease prevention, support early intervention, strengthen healthcare systems, and promote healthier communities?",
-    registrationLink: "https://bit.ly/pjdsc2025register", // Placeholder
+    registrationLink: "https://tinyurl.com/pjdsc2026earlybird",
     proposalTemplateLink: "https://bit.ly/pjdsc2026pptemplate",
     proposalSubmissionLink: "http://bit.ly/pjdsc2026ConceptProposalSubmission",
     finalProjectSubmissionLink: "http://bit.ly/pjdsc2026FinalProjectSubmission",
