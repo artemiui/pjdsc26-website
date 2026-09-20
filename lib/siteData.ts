@@ -44,6 +44,7 @@ export const siteData = {
     proposalSubmissionLink: "http://bit.ly/pjdsc2026ConceptProposalSubmission",
     finalProjectSubmissionLink: "http://bit.ly/pjdsc2026FinalProjectSubmission",
     githubRepoLink: "https://github.com/UP-DSSoc/PJDSC-Datasets",
+    facebookLink: "https://www.facebook.com/pjdsc.updssoc",
     contactEmail: "pjdsc.updssoc@gmail.com",
     maxTeams: 40,
     teamSize: "3 to 5 members",

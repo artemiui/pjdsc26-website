@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, FileText, Clock, Github, Database, GitBranch, Trophy, FolderGit2, Code2 } from "lucide-react";
+import { ArrowUpRight, FileText, Clock, Github, Database, GitBranch, Trophy, FolderGit2, Code2, Facebook, Bell, Megaphone } from "lucide-react";
 import { siteData } from "@/lib/siteData";
 import { useRegistration } from "@/lib/registrationContext";
 import DitheredPlantBackground from "@/components/DitheredPlantBackground";
@@ -474,8 +474,93 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Dedicated PJDSC GitHub Datasets Repository Panel */}
+        {/* Dedicated PJDSC Facebook Official Updates Panel */}
         <div className="mt-14 sm:mt-18 relative rounded-2xl border border-zinc-200/90 dark:border-zinc-800/90 bg-gradient-to-br from-white via-zinc-50/70 to-zinc-100/50 dark:from-zinc-900/90 dark:via-zinc-900/60 dark:to-zinc-950/80 p-6 sm:p-8 lg:p-10 shadow-sm overflow-hidden">
+          {/* Subtle Ambient Radial Glow */}
+          <div 
+            className="absolute -top-24 -right-24 w-72 h-72 bg-[#1877F2]/10 dark:bg-[#1877F2]/15 rounded-full blur-3xl pointer-events-none" 
+            aria-hidden="true" 
+          />
+          <div 
+            className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#6E9E94]/10 dark:bg-[#6E9E94]/15 rounded-full blur-3xl pointer-events-none" 
+            aria-hidden="true" 
+          />
+
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+            {/* Left Info Column */}
+            <div className="space-y-4 max-w-[620px]">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#1877F2]/10 text-[#1877F2] dark:bg-[#1877F2]/15 dark:text-[#5890FF]">
+                  <Facebook className="w-3.5 h-3.5" />
+                  Official Announcements
+                </span>
+                <span className="text-xs font-semibold text-[#E38363] dark:text-[#ee9577]">
+                  @pjdsc.updssoc
+                </span>
+              </div>
+
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#234766] dark:text-[#7ca5cb] tracking-tight leading-tight">
+                  Official Facebook Page
+                </h3>
+                <p className="text-sm sm:text-base text-[#2b4458]/85 dark:text-zinc-300 leading-relaxed mt-2.5">
+                  Follow the official PJDSC Facebook page for timely competition updates, timeline reminders, workshop schedules, and live challenge announcements. All major updates are released here first.
+                </p>
+              </div>
+
+              {/* Badges / Specs */}
+              <div className="flex flex-wrap gap-2.5 pt-1">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-[#234766] dark:text-zinc-200">
+                  <Bell className="w-3.5 h-3.5 text-[#1877F2]" />
+                  <span>Competition Updates</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-[#234766] dark:text-zinc-200">
+                  <Clock className="w-3.5 h-3.5 text-[#6E9E94]" />
+                  <span>Timeline Reminders</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-[#234766] dark:text-zinc-200">
+                  <Megaphone className="w-3.5 h-3.5 text-[#E38363]" />
+                  <span>Live Announcements</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/80 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-[#234766] dark:text-zinc-200">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>Active Channel</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Action Box */}
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0 lg:w-[260px]">
+              <a
+                href={siteData.event.facebookLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#1877F2] hover:bg-[#166fe5] dark:bg-[#1877F2] dark:hover:bg-[#166fe5] text-white text-sm font-bold rounded-xl shadow-md transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              >
+                <Facebook className="w-4 h-4" />
+                <span>Visit Facebook Page</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+
+              <div className="p-3 rounded-xl bg-zinc-100/90 dark:bg-zinc-800/60 border border-zinc-200/80 dark:border-zinc-700/60 text-[11px] text-zinc-500 dark:text-zinc-400">
+                <span className="block font-semibold text-[#234766] dark:text-[#7ca5cb] mb-0.5">
+                  Facebook Page:
+                </span>
+                <a
+                  href={siteData.event.facebookLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] select-all break-all text-[#2b4458] dark:text-zinc-300 font-sans hover:underline"
+                >
+                  facebook.com/pjdsc.updssoc
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Dedicated PJDSC GitHub Datasets Repository Panel */}
+        <div className="mt-8 sm:mt-10 relative rounded-2xl border border-zinc-200/90 dark:border-zinc-800/90 bg-gradient-to-br from-white via-zinc-50/70 to-zinc-100/50 dark:from-zinc-900/90 dark:via-zinc-900/60 dark:to-zinc-950/80 p-6 sm:p-8 lg:p-10 shadow-sm overflow-hidden">
           {/* Subtle Ambient Radial Glow */}
           <div 
             className="absolute -top-24 -right-24 w-72 h-72 bg-[#6E9E94]/10 dark:bg-[#6E9E94]/15 rounded-full blur-3xl pointer-events-none" 
