@@ -494,7 +494,7 @@ export const siteData = {
       ],
       slots: [
         { name: "Data Engineering Pilipinas", logo: "/logos/DEP Logo.png", status: "confirmed" },
-        { name: "Philippine Consortium Inc", logo: "/logos/PHCONSORTIUM.avif", status: "confirmed" },
+        { name: "Philippine Consortium Inc", logo: "/logos/ph-consortium-logo.png", status: "confirmed" },
       ],
     },
     {

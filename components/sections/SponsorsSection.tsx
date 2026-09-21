@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Mail, Sparkles, Building2, Radio } from "lucide-react";
+import { Mail, Sparkles } from "lucide-react";
 import { siteData } from "@/lib/siteData";
 import AmbientLighting from "@/components/AmbientLighting";
 
@@ -48,39 +48,47 @@ export default function SponsorsSection() {
                 <div
                   className={`grid ${
                     isOfficialPartners
-                      ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5"
-                      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
+                      ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5"
+                      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
                   }`}
                 >
                   {tier.slots.map((slot, sIdx) => (
                     <div
                       key={sIdx}
-                      className="group relative p-5 sm:p-6 rounded-2xl border border-black/[0.06] dark:border-white/[0.08] bg-white dark:bg-zinc-800/70 hover:border-[#234766]/30 dark:hover:border-[#6E9E94]/40 hover:-translate-y-1 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                      className="group relative p-5 sm:p-6 rounded-2xl border border-black/[0.06] dark:border-white/[0.08] bg-white dark:bg-zinc-800/70 hover:border-[#234766]/30 dark:hover:border-[#6E9E94]/40 hover:-translate-y-1 hover:shadow-lg transition-all duration-200 flex flex-col justify-between"
                     >
-                      {/* Top indicator & category icon / logo */}
-                      <div className="flex items-center justify-between gap-2 mb-4">
-                        {slot.logo ? (
-                          <div className="h-10 w-28 sm:w-32 relative flex items-center">
-                            <Image
-                              src={slot.logo}
-                              alt={slot.name}
-                              width={128}
-                              height={40}
-                              className="max-h-10 w-auto object-contain object-left"
-                            />
-                          </div>
-                        ) : (
-                          <div className="w-8 h-8 rounded-full bg-black/[0.03] dark:bg-white/[0.06] flex items-center justify-center text-zinc-400 group-hover:text-[#234766] dark:group-hover:text-[#E38363] transition-colors">
-                            {isOfficialPartners ? <Radio className="w-3.5 h-3.5" /> : <Building2 className="w-4 h-4" />}
-                          </div>
-                        )}
-                        <span className="text-zinc-300 dark:text-zinc-600 group-hover:text-[#6E9E94] dark:group-hover:text-[#88beaf] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-xs font-bold">
+                      {/* Top directional indicator */}
+                      <div className="flex justify-end mb-3 text-xs">
+                        <span className="text-zinc-300 dark:text-zinc-600 group-hover:text-[#6E9E94] dark:group-hover:text-[#88beaf] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-sm font-bold">
                           ↗
                         </span>
                       </div>
 
+                      {/* Prominent Logo Showcase Container (fits according to aspect ratio) */}
+                      <div
+                        className={`w-full ${
+                          isOfficialPartners ? "h-24 sm:h-28" : "h-32 sm:h-36"
+                        } rounded-xl bg-white dark:bg-white/[0.06] p-4 flex items-center justify-center mb-4 border border-black/[0.04] dark:border-white/[0.06] shadow-xs group-hover:border-black/[0.08] dark:group-hover:border-white/[0.12] transition-colors`}
+                      >
+                        {slot.logo ? (
+                          <div className="relative w-full h-full">
+                            <Image
+                              src={slot.logo}
+                              alt={slot.name}
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                              className="object-contain"
+                            />
+                          </div>
+                        ) : (
+                          <span className="text-xs font-semibold text-zinc-400">
+                            {slot.name}
+                          </span>
+                        )}
+                      </div>
+
                       {/* Partner Name */}
-                      <div>
+                      <div className="pt-1">
                         <h4 className="font-bold text-sm sm:text-base text-[#142433] dark:text-[#f3f6f8] group-hover:text-[#234766] dark:group-hover:text-[#7ca5cb] transition-colors leading-snug">
                           {slot.name}
                         </h4>
