@@ -477,8 +477,9 @@ export const siteData = {
         "Direct access to participant resume book & project repos",
       ],
       slots: [
-        { name: "Platinum Partner Slot 1", status: "finalizing" },
-        { name: "Platinum Partner Slot 2", status: "finalizing" },
+        { name: "Apper Clouds Labs", status: "confirmed" },
+        { name: "999 Venture Studio", status: "confirmed" },
+        { name: "UP Intelligent Systems Center", status: "confirmed" },
       ],
     },
     {
@@ -492,13 +493,12 @@ export const siteData = {
         "Social media spotlight feature across official channels",
       ],
       slots: [
-        { name: "Gold Partner Slot 1", status: "finalizing" },
-        { name: "Gold Partner Slot 2", status: "finalizing" },
-        { name: "Gold Partner Slot 3", status: "finalizing" },
+        { name: "Data Engineering Pilipinas", status: "confirmed" },
+        { name: "Philippine Consortium Inc", status: "confirmed" },
       ],
     },
     {
-      name: "Silver Sponsors",
+      name: "Also Brought To You By",
       tagline: "Silver Partner Tier",
       contribution: "₱10,000",
       benefits: [
@@ -507,23 +507,7 @@ export const siteData = {
         "Acknowledgment during launch and culmination ceremonies",
       ],
       slots: [
-        { name: "Silver Partner Slot 1", status: "finalizing" },
-        { name: "Silver Partner Slot 2", status: "finalizing" },
-        { name: "Silver Partner Slot 3", status: "finalizing" },
-        { name: "Silver Partner Slot 4", status: "finalizing" },
-      ],
-    },
-    {
-      name: "Bronze Sponsors",
-      tagline: "Bronze Partner Tier",
-      contribution: "₱5,000",
-      benefits: [
-        "Official partner logo acknowledgment on website & program deck",
-        "Social media partner mention and appreciation post",
-      ],
-      slots: [
-        { name: "Bronze Partner Slot 1", status: "finalizing" },
-        { name: "Bronze Partner Slot 2", status: "finalizing" },
+        { name: "Junior Achievement of The Philippines, Inc.", status: "confirmed" },
       ],
     },
     {
@@ -535,9 +519,15 @@ export const siteData = {
         "Reciprocal publicity across student networks nationwide",
       ],
       slots: [
-        { name: "Media Partner 1", status: "finalizing" },
-        { name: "Media Partner 2", status: "finalizing" },
-        { name: "Media Partner 3", status: "finalizing" },
+        { name: "COPE UP", status: "confirmed" },
+        { name: "Tekkie Pinas", status: "confirmed" },
+        { name: "UST Technovation Society", status: "confirmed" },
+        { name: "UP Computer Science Guild (UPCSG)", status: "confirmed" },
+        { name: "Ateneo Mathematics Society (AMS)", status: "confirmed" },
+        { name: "Polytechnic University of the Philippines - Association of DOST Scholars", status: "confirmed" },
+        { name: "DOST SA UP CEBU", status: "confirmed" },
+        { name: "Alliance of Computer Science Students - UPLB (ACSS - UPLB)", status: "confirmed" },
+        { name: "Engineers for Genuine Change (ENGAGE UP)", status: "confirmed" },
       ],
     },
   ] as SponsorTier[],

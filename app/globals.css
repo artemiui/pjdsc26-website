@@ -26,6 +26,7 @@ html.dark, :root.dark {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
   overflow-x: hidden;
 }
 
