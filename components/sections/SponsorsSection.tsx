@@ -1,32 +1,10 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Mail, Sparkles, Building2, Radio } from "lucide-react";
 import { siteData } from "@/lib/siteData";
 import AmbientLighting from "@/components/AmbientLighting";
-
-const tierBadgeColors: Record<string, { badge: string; border: string; accent: string }> = {
-  "Co-Presented By": {
-    badge: "bg-[#E38363]/15 text-[#c45a38] dark:bg-[#E38363]/20 dark:text-[#ee9577]",
-    border: "border-l-[#E38363]",
-    accent: "text-[#E38363]",
-  },
-  "In Cooperation With": {
-    badge: "bg-[#234766]/10 text-[#234766] dark:bg-[#7ca5cb]/15 dark:text-[#7ca5cb]",
-    border: "border-l-[#234766] dark:border-l-[#7ca5cb]",
-    accent: "text-[#234766] dark:text-[#7ca5cb]",
-  },
-  "Also Brought To You By": {
-    badge: "bg-[#6E9E94]/15 text-[#2b5950] dark:bg-[#6E9E94]/20 dark:text-[#88beaf]",
-    border: "border-l-[#6E9E94]",
-    accent: "text-[#6E9E94]",
-  },
-  "Official Partners": {
-    badge: "bg-indigo-500/10 text-indigo-700 dark:bg-indigo-400/15 dark:text-indigo-300",
-    border: "border-l-indigo-500",
-    accent: "text-indigo-500",
-  },
-};
 
 export default function SponsorsSection() {
   return (
@@ -52,12 +30,6 @@ export default function SponsorsSection() {
         {/* Sponsor Tiers Bento Grid */}
         <div className="space-y-10 sm:space-y-12">
           {siteData.sponsors.map((tier, idx) => {
-            const style = tierBadgeColors[tier.name] || {
-              badge: "bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300",
-              border: "border-l-zinc-400",
-              accent: "text-zinc-500",
-            };
-
             const isOfficialPartners = tier.name === "Official Partners";
 
             return (
@@ -66,19 +38,10 @@ export default function SponsorsSection() {
                 className="p-7 sm:p-9 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-[0_8px_30px_rgb(0,0,0,0.03)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)]"
               >
                 {/* Tier Title Bar */}
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-6 pb-4 border-b border-black/[0.06] dark:border-white/[0.08]">
-                  <div className="flex items-center gap-3">
-                    <span className={`px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider ${style.badge}`}>
-                      {tier.tagline}
-                    </span>
-                    <h3 className="font-extrabold text-xl sm:text-2xl text-[#234766] dark:text-[#f3f6f8]">
-                      {tier.name}
-                    </h3>
-                  </div>
-
-                  <span className="text-xs font-mono text-zinc-400 dark:text-zinc-500">
-                    {tier.slots.length} {tier.slots.length === 1 ? "Partner" : "Partners"}
-                  </span>
+                <div className="mb-6 pb-4 border-b border-black/[0.06] dark:border-white/[0.08]">
+                  <h3 className="font-extrabold text-xl sm:text-2xl text-[#234766] dark:text-[#f3f6f8]">
+                    {tier.name}
+                  </h3>
                 </div>
 
                 {/* Partners Bento Grid */}
@@ -94,11 +57,23 @@ export default function SponsorsSection() {
                       key={sIdx}
                       className="group relative p-5 sm:p-6 rounded-2xl border border-black/[0.06] dark:border-white/[0.08] bg-white dark:bg-zinc-800/70 hover:border-[#234766]/30 dark:hover:border-[#6E9E94]/40 hover:-translate-y-1 hover:shadow-md transition-all duration-200 flex flex-col justify-between"
                     >
-                      {/* Top indicator & category icon */}
-                      <div className="flex items-center justify-between gap-2 mb-3">
-                        <div className="w-8 h-8 rounded-full bg-black/[0.03] dark:bg-white/[0.06] flex items-center justify-center text-zinc-400 group-hover:text-[#234766] dark:group-hover:text-[#E38363] transition-colors">
-                          {isOfficialPartners ? <Radio className="w-3.5 h-3.5" /> : <Building2 className="w-4 h-4" />}
-                        </div>
+                      {/* Top indicator & category icon / logo */}
+                      <div className="flex items-center justify-between gap-2 mb-4">
+                        {slot.logo ? (
+                          <div className="h-10 w-28 sm:w-32 relative flex items-center">
+                            <Image
+                              src={slot.logo}
+                              alt={slot.name}
+                              width={128}
+                              height={40}
+                              className="max-h-10 w-auto object-contain object-left"
+                            />
+                          </div>
+                        ) : (
+                          <div className="w-8 h-8 rounded-full bg-black/[0.03] dark:bg-white/[0.06] flex items-center justify-center text-zinc-400 group-hover:text-[#234766] dark:group-hover:text-[#E38363] transition-colors">
+                            {isOfficialPartners ? <Radio className="w-3.5 h-3.5" /> : <Building2 className="w-4 h-4" />}
+                          </div>
+                        )}
                         <span className="text-zinc-300 dark:text-zinc-600 group-hover:text-[#6E9E94] dark:group-hover:text-[#88beaf] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-xs font-bold">
                           ↗
                         </span>

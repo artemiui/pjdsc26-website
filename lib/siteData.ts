@@ -477,9 +477,9 @@ export const siteData = {
         "Direct access to participant resume book & project repos",
       ],
       slots: [
-        { name: "Apper Clouds Labs", status: "confirmed" },
-        { name: "999 Venture Studio", status: "confirmed" },
-        { name: "UP Intelligent Systems Center", status: "confirmed" },
+        { name: "Apper Clouds Labs", logo: "/logos/apper_logo@3x (1).png", status: "confirmed" },
+        { name: "999 Venture Studio", logo: "/logos/999 transparent.png", status: "confirmed" },
+        { name: "UP Intelligent Systems Center", logo: "/logos/UPISC_Logo_Short.png", status: "confirmed" },
       ],
     },
     {
@@ -493,8 +493,8 @@ export const siteData = {
         "Social media spotlight feature across official channels",
       ],
       slots: [
-        { name: "Data Engineering Pilipinas", status: "confirmed" },
-        { name: "Philippine Consortium Inc", status: "confirmed" },
+        { name: "Data Engineering Pilipinas", logo: "/logos/DEP Logo.png", status: "confirmed" },
+        { name: "Philippine Consortium Inc", logo: "/logos/PHCONSORTIUM.avif", status: "confirmed" },
       ],
     },
     {
@@ -507,7 +507,7 @@ export const siteData = {
         "Acknowledgment during launch and culmination ceremonies",
       ],
       slots: [
-        { name: "Junior Achievement of The Philippines, Inc.", status: "confirmed" },
+        { name: "Junior Achievement of The Philippines, Inc.", logo: "/logos/02 SECONDARY_JA Philippines.png", status: "confirmed" },
       ],
     },
     {
@@ -519,15 +519,15 @@ export const siteData = {
         "Reciprocal publicity across student networks nationwide",
       ],
       slots: [
-        { name: "COPE UP", status: "confirmed" },
-        { name: "Tekkie Pinas", status: "confirmed" },
-        { name: "UST Technovation Society", status: "confirmed" },
-        { name: "UP Computer Science Guild (UPCSG)", status: "confirmed" },
-        { name: "Ateneo Mathematics Society (AMS)", status: "confirmed" },
-        { name: "Polytechnic University of the Philippines - Association of DOST Scholars", status: "confirmed" },
-        { name: "DOST SA UP CEBU", status: "confirmed" },
-        { name: "Alliance of Computer Science Students - UPLB (ACSS - UPLB)", status: "confirmed" },
-        { name: "Engineers for Genuine Change (ENGAGE UP)", status: "confirmed" },
+        { name: "COPE UP", logo: "/logos/Media Partner Logos (PJDSC 2026)/COPE UP LOGO.jpg", status: "confirmed" },
+        { name: "Tekkie Pinas", logo: "/logos/Media Partner Logos (PJDSC 2026)/TEKKIE PINAS LOGO.png", status: "confirmed" },
+        { name: "UST Technovation Society", logo: "/logos/Media Partner Logos (PJDSC 2026)/UST TECHSOC LOGO.png", status: "confirmed" },
+        { name: "UP Computer Science Guild (UPCSG)", logo: "/logos/Media Partner Logos (PJDSC 2026)/UPCSG LOGO VIOLET.png", status: "confirmed" },
+        { name: "Ateneo Mathematics Society (AMS)", logo: "/logos/Media Partner Logos (PJDSC 2026)/AMS LOGO.png", status: "confirmed" },
+        { name: "Polytechnic University of the Philippines - Association of DOST Scholars", logo: "/logos/Media Partner Logos (PJDSC 2026)/PUP-ADS LOGO.png", status: "confirmed" },
+        { name: "DOST SA UP CEBU", logo: "/logos/Media Partner Logos (PJDSC 2026)/DOST SA UPC LOGO.png", status: "confirmed" },
+        { name: "Alliance of Computer Science Students - UPLB (ACSS - UPLB)", logo: "/logos/Media Partner Logos (PJDSC 2026)/ACSS LOGO/acss-blue-seal-withtext.png", status: "confirmed" },
+        { name: "Engineers for Genuine Change (ENGAGE UP)", logo: "/logos/Media Partner Logos (PJDSC 2026)/ENGAGE UP LOGO.png", status: "confirmed" },
       ],
     },
   ] as SponsorTier[],
