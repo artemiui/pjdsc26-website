@@ -528,6 +528,8 @@ export const siteData = {
         { name: "DOST SA UP CEBU", logo: "/logos/Media Partner Logos (PJDSC 2026)/DOST SA UPC LOGO.png", status: "confirmed" },
         { name: "Alliance of Computer Science Students - UPLB (ACSS - UPLB)", logo: "/logos/Media Partner Logos (PJDSC 2026)/ACSS LOGO/acss-blue-seal-withtext.png", status: "confirmed" },
         { name: "Engineers for Genuine Change (ENGAGE UP)", logo: "/logos/Media Partner Logos (PJDSC 2026)/ENGAGE UP LOGO.png", status: "confirmed" },
+        { name: "Junior Information Systems Security Association QC (JISSA TIP QC)", logo: "/logos/JISSA LOGO.png", status: "confirmed" },
+        { name: "UP Simantikos Statistical Society (UPSSS)", logo: "/logos/UPSSS LOGO (with bg).jpeg", status: "confirmed" },
       ],
     },
   ] as SponsorTier[],
