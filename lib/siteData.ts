@@ -511,7 +511,7 @@ export const siteData = {
       ],
     },
     {
-      name: "Official Media Partners",
+      name: "Official Partners",
       tagline: "Community & Media Alliances",
       benefits: [
         "Logo placement across all official promotional publications",

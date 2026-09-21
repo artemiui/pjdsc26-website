@@ -21,7 +21,7 @@ const tierBadgeColors: Record<string, { badge: string; border: string; accent: s
     border: "border-l-[#6E9E94]",
     accent: "text-[#6E9E94]",
   },
-  "Official Media Partners": {
+  "Official Partners": {
     badge: "bg-indigo-500/10 text-indigo-700 dark:bg-indigo-400/15 dark:text-indigo-300",
     border: "border-l-indigo-500",
     accent: "text-indigo-500",
@@ -58,7 +58,7 @@ export default function SponsorsSection() {
               accent: "text-zinc-500",
             };
 
-            const isMedia = tier.name === "Official Media Partners";
+            const isOfficialPartners = tier.name === "Official Partners";
 
             return (
               <div
@@ -84,7 +84,7 @@ export default function SponsorsSection() {
                 {/* Partners Bento Grid */}
                 <div
                   className={`grid ${
-                    isMedia
+                    isOfficialPartners
                       ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5"
                       : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
                   }`}
@@ -97,10 +97,10 @@ export default function SponsorsSection() {
                       {/* Top indicator & category icon */}
                       <div className="flex items-center justify-between gap-2 mb-3">
                         <div className="w-8 h-8 rounded-full bg-black/[0.03] dark:bg-white/[0.06] flex items-center justify-center text-zinc-400 group-hover:text-[#234766] dark:group-hover:text-[#E38363] transition-colors">
-                          {isMedia ? <Radio className="w-3.5 h-3.5" /> : <Building2 className="w-4 h-4" />}
+                          {isOfficialPartners ? <Radio className="w-3.5 h-3.5" /> : <Building2 className="w-4 h-4" />}
                         </div>
-                        <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-semibold">
-                          Confirmed
+                        <span className="text-zinc-300 dark:text-zinc-600 group-hover:text-[#6E9E94] dark:group-hover:text-[#88beaf] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-xs font-bold">
+                          ↗
                         </span>
                       </div>
 
@@ -109,12 +109,6 @@ export default function SponsorsSection() {
                         <h4 className="font-bold text-sm sm:text-base text-[#142433] dark:text-[#f3f6f8] group-hover:text-[#234766] dark:group-hover:text-[#7ca5cb] transition-colors leading-snug">
                           {slot.name}
                         </h4>
-                      </div>
-
-                      {/* Micro corner indicator */}
-                      <div className="mt-4 pt-2 border-t border-black/[0.03] dark:border-white/[0.05] flex items-center justify-between text-[11px] text-zinc-400">
-                        <span className="font-mono text-[10px]">PJDSC &apos;26 Partner</span>
-                        <span className="text-zinc-300 group-hover:text-[#6E9E94] transition-colors">↗</span>
                       </div>
                     </div>
                   ))}
