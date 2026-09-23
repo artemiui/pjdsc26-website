@@ -6,6 +6,18 @@ export interface TimelineItem {
   highlight?: boolean;
 }
 
+export interface CompetitionMilestone {
+  id: string;
+  name: string;
+  shortName: string;
+  prefix: string;
+  targetDate: string;
+  phase: "registration" | "proposal" | "development" | "finals";
+  badge: string;
+  dateDisplay: string;
+  info: string;
+}
+
 export interface CriteriaItem {
   category: string;
   weight?: string;
@@ -132,7 +144,7 @@ export const siteData = {
       date: "September 21 – 25, 2026",
       title: "Early Registration Period",
       description:
-        "Regional quota of 5 teams each for NCR, Luzon, Visayas, and Mindanao. Early bird fee of ₱300.00/pax. Opens at 5:00 PM Sept 21.",
+        "Regional quota of 5 teams each for NCR, Luzon, Visayas, and Mindanao. Early bird fee of ₱300.00/pax. Opens at 5:00 PM Sept 21 and closes at 11:59 PM Sept 25.",
       phase: "registration",
       highlight: true,
     },
@@ -140,7 +152,7 @@ export const siteData = {
       date: "September 28 – 30, 2026",
       title: "Regular Registration Period",
       description:
-        "Open demographic registration on a first-come, first-served basis up to the 40-team cap. Regular fee of ₱350.00/pax.",
+        "Open demographic registration on a first-come, first-served basis up to the 40-team cap. Starts 5:00 PM Sept 28 and ends 11:59 PM Sept 30. Regular fee of ₱350.00/pax.",
       phase: "registration",
     },
     {
@@ -196,6 +208,119 @@ export const siteData = {
       highlight: true,
     },
   ] as TimelineItem[],
+
+  milestones: [
+    {
+      id: "early-reg-deadline",
+      name: "Early Registration Deadline",
+      shortName: "Early Registration",
+      prefix: "Early Registration Closes In:",
+      targetDate: "2026-09-25T23:59:59+08:00",
+      phase: "registration",
+      badge: "Early Bird",
+      dateDisplay: "Sept 25, 2026 · 11:59 PM",
+      info: "5 teams per region quota · ₱300/pax",
+    },
+    {
+      id: "regular-reg-start",
+      name: "Regular Registration Opens",
+      shortName: "Regular Reg Opens",
+      prefix: "Regular Registration Starts In:",
+      targetDate: "2026-09-28T17:00:00+08:00",
+      phase: "registration",
+      badge: "Open Reg",
+      dateDisplay: "Sept 28, 2026 · 5:00 PM",
+      info: "Open demographic · ₱350/pax · First-come first-served",
+    },
+    {
+      id: "regular-reg-deadline",
+      name: "Regular Registration Deadline",
+      shortName: "Regular Registration",
+      prefix: "Regular Registration Closes In:",
+      targetDate: "2026-09-30T23:59:59+08:00",
+      phase: "registration",
+      badge: "Final Call",
+      dateDisplay: "Sept 30, 2026 · 11:59 PM",
+      info: "Capped at 40 teams nationwide",
+    },
+    {
+      id: "event-launch",
+      name: "Official Event Launch",
+      shortName: "Event Launch",
+      prefix: "Official Event Launch In:",
+      targetDate: "2026-10-10T10:00:00+08:00",
+      phase: "proposal",
+      badge: "Kickoff",
+      dateDisplay: "Oct 10, 2026 · 10:00 AM",
+      info: "Virtual Launch Ceremony & Challenge Dataset Release",
+    },
+    {
+      id: "concept-proposal-deadline",
+      name: "Concept Proposal Deadline",
+      shortName: "Proposal Deadline",
+      prefix: "Concept Proposal Due In:",
+      targetDate: "2026-10-12T23:59:59+08:00",
+      phase: "proposal",
+      badge: "Deliverable",
+      dateDisplay: "Oct 12, 2026 · 11:59 PM",
+      info: "5-page PDF concept proposal submission",
+    },
+    {
+      id: "dev-workshop",
+      name: "Project Development Workshop",
+      shortName: "Dev Workshop",
+      prefix: "Project Dev Workshop In:",
+      targetDate: "2026-10-17T09:00:00+08:00",
+      phase: "development",
+      badge: "Workshop",
+      dateDisplay: "Oct 17, 2026 · 9:00 AM",
+      info: "Data pipelines, predictive modeling & dashboard design",
+    },
+    {
+      id: "final-submission-deadline",
+      name: "Final Project Submission Deadline",
+      shortName: "Final Submission",
+      prefix: "Final Project Due In:",
+      targetDate: "2026-10-24T23:59:59+08:00",
+      phase: "development",
+      badge: "Hard Deadline",
+      dateDisplay: "Oct 24, 2026 · 11:59 PM",
+      info: "20-slide PDF presentation deck, 3-min video demo & repo",
+    },
+    {
+      id: "top-10-announcement",
+      name: "Announcement of Top 10 Finalists",
+      shortName: "Top 10 Reveal",
+      prefix: "Top 10 Finalists Announced In:",
+      targetDate: "2026-11-04T18:00:00+08:00",
+      phase: "finals",
+      badge: "Finalists",
+      dateDisplay: "Nov 04, 2026 · 6:00 PM",
+      info: "Top 10 qualifying teams revealed publicly",
+    },
+    {
+      id: "mentorship-workshop",
+      name: "Advanced Workshop & Dedicated Mentorship",
+      shortName: "Mentorship",
+      prefix: "Mentorship Workshop In:",
+      targetDate: "2026-11-07T09:00:00+08:00",
+      phase: "finals",
+      badge: "Mentorship",
+      dateDisplay: "Nov 07, 2026 · 9:00 AM",
+      info: "Technical masterclass & 1-on-1 industry mentorship",
+    },
+    {
+      id: "grand-finals",
+      name: "Grand Face-to-Face Finals",
+      shortName: "Grand Finals",
+      prefix: "Grand Finals Begin In:",
+      targetDate: "2026-11-14T08:00:00+08:00",
+      phase: "finals",
+      badge: "Championship",
+      dateDisplay: "Nov 14, 2026 · 8:00 AM",
+      info: "Metro Manila · Live Stage Pitch, Q&A & Demo Station",
+    },
+  ] as CompetitionMilestone[],
 
   stages: [
     {

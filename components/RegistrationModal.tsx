@@ -57,7 +57,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
             <div className="p-4 rounded-2xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/[0.04] dark:border-white/[0.06] flex justify-between items-center">
               <div>
                 <span className="font-bold text-sm text-[#234766] dark:text-[#7ca5cb] block">Early Registration</span>
-                <span className="text-[#2b4458]/70 dark:text-zinc-400 text-[11px]">Sept 21 (5:00 PM) – Sept 25 · Regional Quota</span>
+                <span className="text-[#2b4458]/70 dark:text-zinc-400 text-[11px]">Sept 21 (5:00 PM) – Sept 25 (11:59 PM) · Regional Quota</span>
               </div>
               <span className="font-extrabold text-sm text-[#234766] dark:text-[#E38363] font-mono">₱300.00 / pax</span>
             </div>
@@ -65,7 +65,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
             <div className="p-4 rounded-2xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/[0.04] dark:border-white/[0.06] flex justify-between items-center">
               <div>
                 <span className="font-bold text-sm text-[#234766] dark:text-[#7ca5cb] block">Regular Registration</span>
-                <span className="text-[#2b4458]/70 dark:text-zinc-400 text-[11px]">Sept 28 – Sept 30 · Open Demographic</span>
+                <span className="text-[#2b4458]/70 dark:text-zinc-400 text-[11px]">Sept 28 (5:00 PM) – Sept 30 (11:59 PM) · Open Demographic</span>
               </div>
               <span className="font-extrabold text-sm text-[#234766] dark:text-[#ee9577] font-mono">₱350.00 / pax</span>
             </div>

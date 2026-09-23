@@ -13,8 +13,16 @@ const inter = Inter({
   display: "swap",
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "https://pjdsc26-website.vercel.app");
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pjdsc.updssoc.org"),
+  metadataBase: new URL(siteUrl),
   title: "PJDSC 2026 | Philippine Junior Data Science Challenge",
   description:
     "The Philippine Junior Data Science Challenge 2026 (PJDSC 2026), organized by the UP Data Science Society (UP DSSoc). Public Health Analytics: Trace the Pattern, Target the Cure.",
@@ -25,13 +33,13 @@ export const metadata: Metadata = {
     title: "PJDSC 2026 | Philippine Junior Data Science Challenge",
     description:
       "Trace the Pattern, Target the Cure: Advancing Public Health with Data Science.",
-    url: "https://pjdsc.updssoc.org",
+    url: siteUrl,
     siteName: "PJDSC 2026",
     images: [
       {
         url: "/og-image.png",
-        width: 1920,
-        height: 710,
+        width: 1200,
+        height: 630,
         alt: "Philippine Junior Data Science Challenge 2026",
       },
     ],

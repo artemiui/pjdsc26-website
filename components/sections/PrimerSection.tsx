@@ -91,8 +91,8 @@ export default function PrimerSection() {
                     title: "Registration Fees",
                     badge: "Pricing",
                     items: [
-                      "**Early Bird:** ₱300.00 per member (Sept 21–25).",
-                      "**Regular:** ₱350.00 per member (Sept 28–30).",
+                      "**Early Bird:** ₱300.00 per member (Sept 21, 5:00 PM – Sept 25, 11:59 PM).",
+                      "**Regular:** ₱350.00 per member (Sept 28, 5:00 PM – Sept 30, 11:59 PM).",
                       "Covers workshops, mentorship, evaluation, and event access.",
                       "**Strict no-refund policy** once slots are secured.",
                     ],
@@ -144,13 +144,13 @@ export default function PrimerSection() {
                       step: "01",
                       title: "Early Registration",
                       date: "Sept 21–25, 2026",
-                      detail: "Regional quota (5 per region). Early bird fee ₱300/pax. Opens Sept 21 at 5:00 PM.",
+                      detail: "Regional quota (5 per region). Early bird fee ₱300/pax. Sept 21 (5:00 PM) – Sept 25 (11:59 PM).",
                     },
                     {
                       step: "02",
                       title: "Regular Registration",
                       date: "Sept 28–30, 2026",
-                      detail: "Open demographic, first-come first-served until 40-team cap. Standard fee ₱350/pax.",
+                      detail: "Open demographic, first-come first-served until 40-team cap. Sept 28 (5:00 PM) – Sept 30 (11:59 PM). Standard fee ₱350/pax.",
                     },
                     {
                       step: "03",

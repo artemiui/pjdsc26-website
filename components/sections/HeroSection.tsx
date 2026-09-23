@@ -4,7 +4,20 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, FileText, Clock, Github, Facebook, Trophy, Sparkles } from "lucide-react";
+import {
+  ArrowUpRight,
+  FileText,
+  Clock,
+  Github,
+  Facebook,
+  Trophy,
+  Sparkles,
+  ChevronLeft,
+  ChevronRight,
+  CheckCircle2,
+  Calendar,
+  RotateCcw,
+} from "lucide-react";
 import { siteData } from "@/lib/siteData";
 import { useRegistration } from "@/lib/registrationContext";
 import DitheredPlantBackground from "@/components/DitheredPlantBackground";
@@ -13,20 +26,54 @@ import AmbientLighting from "@/components/AmbientLighting";
 export default function HeroSection() {
   const { openRegister } = useRegistration();
 
-  // Countdown timer to Early Registration (Sept 21, 2026 5:00 PM PST / UTC+8)
-  const [timeLeft, setTimeLeft] = useState<{ days: number; hours: number; minutes: number; seconds: number }>({
-    days: 1,
-    hours: 1,
-    minutes: 36,
+  // Multi-event dynamic countdown timer state
+  const [mounted, setMounted] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isManualOverride, setIsManualOverride] = useState(false);
+  const [timeLeft, setTimeLeft] = useState<{
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+    isCompleted: boolean;
+  }>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
     seconds: 0,
+    isCompleted: false,
   });
 
+  // Helper to determine the earliest upcoming milestone relative to current time
+  const getLiveMilestoneIndex = () => {
+    const now = Date.now();
+    const idx = siteData.milestones.findIndex(
+      (m) => new Date(m.targetDate).getTime() > now
+    );
+    return idx !== -1 ? idx : siteData.milestones.length - 1;
+  };
+
   useEffect(() => {
-    const targetDate = new Date("2026-09-21T17:00:00+08:00").getTime();
+    setMounted(true);
+    setActiveIndex(getLiveMilestoneIndex());
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
 
     const updateCountdown = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
+      const now = Date.now();
+      const liveIdx = getLiveMilestoneIndex();
+
+      // Automatically track the live upcoming milestone if user hasn't browsed manually
+      const targetIdx = isManualOverride ? activeIndex : liveIdx;
+      if (!isManualOverride && activeIndex !== liveIdx) {
+        setActiveIndex(liveIdx);
+      }
+
+      const current = siteData.milestones[targetIdx] || siteData.milestones[0];
+      const targetTime = new Date(current.targetDate).getTime();
+      const difference = targetTime - now;
 
       if (difference > 0) {
         setTimeLeft({
@@ -34,16 +81,47 @@ export default function HeroSection() {
           hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
           minutes: Math.floor((difference / 1000 / 60) % 60),
           seconds: Math.floor((difference / 1000) % 60),
+          isCompleted: false,
         });
       } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setTimeLeft({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+          isCompleted: true,
+        });
       }
     };
 
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [mounted, activeIndex, isManualOverride]);
+
+  const liveIndex = mounted ? getLiveMilestoneIndex() : 0;
+  const isCurrentLive = activeIndex === liveIndex;
+  const currentMilestone = siteData.milestones[activeIndex] || siteData.milestones[0];
+
+  const handlePrev = () => {
+    setIsManualOverride(true);
+    setActiveIndex((prev) => Math.max(0, prev - 1));
+  };
+
+  const handleNext = () => {
+    setIsManualOverride(true);
+    setActiveIndex((prev) => Math.min(siteData.milestones.length - 1, prev + 1));
+  };
+
+  const handleResetToLive = () => {
+    setIsManualOverride(false);
+    setActiveIndex(getLiveMilestoneIndex());
+  };
+
+  const handleSelectMilestone = (idx: number) => {
+    setIsManualOverride(true);
+    setActiveIndex(idx);
+  };
 
   return (
     <div className="relative overflow-hidden">
@@ -156,20 +234,136 @@ export default function HeroSection() {
               </Link>
             </motion.div>
 
-            {/* Live Countdown Timer in Refined Status Pill */}
+            {/* Dynamic Multi-Event Countdown Timer in Refined Status Pill */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.42, duration: 0.5 }}
-              className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4 text-xs"
+              className="mt-8 sm:mt-10 flex flex-col items-center justify-center gap-2.5 text-xs select-none"
             >
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border border-black/[0.08] dark:border-white/[0.1] shadow-xs text-zinc-600 dark:text-zinc-300">
-                <Clock className="w-3.5 h-3.5 text-[#E38363]" />
-                <span className="font-medium">Early Registration:</span>
-                <span className="font-bold text-[#234766] dark:text-[#f3f6f8] font-mono tracking-tight">
-                  {timeLeft.days}d {String(timeLeft.hours).padStart(2, "0")}h {String(timeLeft.minutes).padStart(2, "0")}m {String(timeLeft.seconds).padStart(2, "0")}s
+              {/* Main Interactive Countdown Pill */}
+              <div className="relative inline-flex items-center gap-2 sm:gap-3 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/85 dark:bg-zinc-900/85 backdrop-blur-md border border-black/[0.08] dark:border-white/[0.1] shadow-xs text-zinc-700 dark:text-zinc-200 transition-all hover:border-[#234766]/30 dark:hover:border-white/20">
+                {/* Previous Milestone Chevron */}
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  disabled={activeIndex === 0}
+                  aria-label="Previous competition milestone"
+                  title="Previous milestone"
+                  className="p-1 rounded-full text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-100 hover:bg-black/[0.05] dark:hover:bg-white/[0.1] disabled:opacity-20 disabled:hover:bg-transparent disabled:cursor-not-allowed transition-colors cursor-pointer"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+
+                {/* Clock Icon & Dynamic Milestone Label */}
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <div className="relative flex items-center justify-center">
+                    <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E38363] shrink-0" />
+                    {isCurrentLive && (
+                      <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping opacity-75" />
+                    )}
+                  </div>
+                  <span className="font-semibold text-zinc-800 dark:text-zinc-100 text-[11px] sm:text-xs">
+                    <span className="hidden sm:inline">{currentMilestone.prefix}</span>
+                    <span className="sm:hidden">{currentMilestone.shortName}:</span>
+                  </span>
+                </div>
+
+                {/* Live Countdown Digits */}
+                <div className="font-mono font-bold text-[#234766] dark:text-[#f3f6f8] text-xs sm:text-sm px-2.5 py-0.5 rounded-full bg-black/[0.04] dark:bg-white/[0.06] tracking-tight">
+                  {timeLeft.isCompleted ? (
+                    <span className="text-emerald-600 dark:text-emerald-400 font-sans font-semibold text-xs inline-flex items-center gap-1">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      <span>Completed</span>
+                    </span>
+                  ) : (
+                    <span>
+                      {timeLeft.days}d {String(timeLeft.hours).padStart(2, "0")}h {String(timeLeft.minutes).padStart(2, "0")}m {String(timeLeft.seconds).padStart(2, "0")}s
+                    </span>
+                  )}
+                </div>
+
+                {/* Status Indicator (LIVE vs Milestone Index) */}
+                {isCurrentLive ? (
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold tracking-wider uppercase">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="hidden sm:inline">LIVE</span>
+                  </span>
+                ) : (
+                  <span className="text-[10px] text-zinc-400 font-mono px-1.5 py-0.5 rounded bg-black/[0.03] dark:bg-white/[0.05]">
+                    {activeIndex + 1}/{siteData.milestones.length}
+                  </span>
+                )}
+
+                {/* Next Milestone Chevron */}
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  disabled={activeIndex === siteData.milestones.length - 1}
+                  aria-label="Next competition milestone"
+                  title="Next milestone"
+                  className="p-1 rounded-full text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-100 hover:bg-black/[0.05] dark:hover:bg-white/[0.1] disabled:opacity-20 disabled:hover:bg-transparent disabled:cursor-not-allowed transition-colors cursor-pointer"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Sub-bar: Target Date, Description & Quick Controls */}
+              <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[11px] text-[#2b4458]/75 dark:text-zinc-400 px-4 text-center">
+                <span className="font-semibold text-[#234766] dark:text-[#88beaf]">
+                  {currentMilestone.dateDisplay}
                 </span>
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="hidden sm:inline opacity-30">•</span>
+                <span className="hidden sm:inline max-w-[320px] lg:max-w-none truncate">
+                  {currentMilestone.info}
+                </span>
+
+                {isManualOverride && !isCurrentLive && (
+                  <>
+                    <span className="opacity-30">•</span>
+                    <button
+                      type="button"
+                      onClick={handleResetToLive}
+                      className="text-[#E38363] hover:text-[#d46d4a] font-semibold underline underline-offset-2 transition-colors cursor-pointer inline-flex items-center gap-1"
+                    >
+                      <RotateCcw className="w-3 h-3" />
+                      <span>Back to Live ({siteData.milestones[liveIndex]?.shortName})</span>
+                    </button>
+                  </>
+                )}
+
+                <span className="hidden md:inline opacity-30">•</span>
+                <Link
+                  href="/timeline"
+                  className="hidden md:inline-flex items-center gap-0.5 text-zinc-400 hover:text-[#234766] dark:hover:text-zinc-200 transition-colors"
+                >
+                  <span>Full timeline</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </Link>
+              </div>
+
+              {/* Discreet 10-Milestone Interactive Journey Pips */}
+              <div className="flex items-center gap-1.5 pt-0.5">
+                {siteData.milestones.map((m, idx) => {
+                  const isSelected = idx === activeIndex;
+                  const isLivePip = idx === liveIndex;
+                  return (
+                    <button
+                      key={m.id}
+                      type="button"
+                      onClick={() => handleSelectMilestone(idx)}
+                      title={`${m.name} (${m.dateDisplay})`}
+                      aria-label={`Jump to ${m.name}`}
+                      className={`transition-all rounded-full cursor-pointer ${
+                        isSelected
+                          ? "w-4 h-1.5 bg-[#234766] dark:bg-[#E38363]"
+                          : isLivePip
+                          ? "w-2 h-1.5 bg-emerald-500 hover:bg-emerald-600"
+                          : "w-1.5 h-1.5 bg-black/15 dark:bg-white/20 hover:bg-black/35 dark:hover:bg-white/40"
+                      }`}
+                    />
+                  );
+                })}
               </div>
             </motion.div>
 
