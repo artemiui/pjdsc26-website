@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useRegistration } from "@/lib/registrationContext";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -93,7 +93,6 @@ export default function Header() {
               className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 bg-[#234766] hover:bg-[#19344c] dark:bg-[#E38363] dark:hover:bg-[#d87556] text-white dark:text-zinc-950 text-xs font-bold rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] cursor-pointer shadow-sm shadow-[#234766]/15 dark:shadow-[#E38363]/20"
             >
               <span>Register</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
             </button>
 
             {/* Mobile menu toggle button */}
@@ -144,7 +143,6 @@ export default function Header() {
                 className="w-full flex items-center justify-center gap-1.5 px-4 py-2.5 bg-[#234766] dark:bg-[#E38363] text-white dark:text-zinc-950 text-xs font-bold rounded-full cursor-pointer shadow-sm"
               >
                 <span>Register Now</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </motion.div>
