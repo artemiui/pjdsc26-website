@@ -10,8 +10,8 @@ import {
   Clock,
   Github,
   Facebook,
-  Trophy,
   Sparkles,
+  Database,
 } from "lucide-react";
 import { siteData } from "@/lib/siteData";
 import { useRegistration } from "@/lib/registrationContext";
@@ -225,9 +225,6 @@ export default function HeroSection() {
       {/* ========================================================================= */}
       <section className="relative z-10 max-w-[1150px] mx-auto px-5 sm:px-8 py-12 sm:py-16">
         <div className="text-center max-w-xl mx-auto mb-10">
-          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-[#234766]/10 text-[#234766] dark:bg-[#7ca5cb]/15 dark:text-[#7ca5cb] mb-2">
-            Nationwide Reach
-          </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#234766] dark:text-[#7ca5cb] tracking-tight">
             Empowering the Next Generation
           </h2>
@@ -362,9 +359,6 @@ export default function HeroSection() {
             
             {/* Left Header Column */}
             <div className="lg:col-span-4 space-y-3">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-[#E38363]/15 text-[#c45a38] dark:bg-[#E38363]/20 dark:text-[#ee9577]">
-                The 2026 Challenge Theme
-              </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#234766] dark:text-[#7ca5cb] leading-tight">
                 Public Health Analytics
               </h2>
@@ -415,9 +409,6 @@ export default function HeroSection() {
       {/* ========================================================================= */}
       <section className="max-w-[1150px] mx-auto px-5 sm:px-8 py-16 sm:py-24">
         <div className="mb-10 sm:mb-14 max-w-xl">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-[#6E9E94]/15 text-[#2b5950] dark:bg-[#6E9E94]/20 dark:text-[#88beaf] mb-2">
-            Competition Framework
-          </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-[#234766] dark:text-[#7ca5cb] leading-tight">
             Four Pillars of PJDSC 2026
           </h2>
@@ -477,10 +468,6 @@ export default function HeroSection() {
       <section className="border-t border-black/[0.08] dark:border-white/[0.1] bg-zinc-50/50 dark:bg-zinc-950/40 py-16 sm:py-24">
         <div className="max-w-[1150px] mx-auto px-5 sm:px-8">
           <div className="text-center max-w-[620px] mx-auto mb-12">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-[#E38363]/15 text-[#c45a38] dark:bg-[#E38363]/20 dark:text-[#ee9577] mb-2">
-              <Trophy className="w-3.5 h-3.5" />
-              Competition Rewards
-            </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#234766] dark:text-[#7ca5cb] leading-tight">
               ₱50,000 Cash Prize Pool
             </h2>
@@ -585,9 +572,6 @@ export default function HeroSection() {
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             {/* Left Info Column */}
             <div className="lg:col-span-5 space-y-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-[#1877F2]/10 text-[#1877F2]">
-                Official Social Channel
-              </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-[#234766] dark:text-[#7ca5cb] tracking-tight leading-tight">
                 Official Facebook Page
               </h3>
@@ -664,9 +648,6 @@ export default function HeroSection() {
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             {/* Left Info Column */}
             <div className="lg:col-span-5 space-y-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-[#234766]/10 text-[#234766] dark:bg-[#7ca5cb]/15 dark:text-[#7ca5cb]">
-                Open Data & Starter Kits
-              </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-[#234766] dark:text-[#7ca5cb] tracking-tight leading-tight">
                 PJDSC Datasets & Projects Repository
               </h3>
@@ -675,16 +656,27 @@ export default function HeroSection() {
               </p>
 
               <div className="pt-2 flex flex-col sm:flex-row lg:flex-col gap-3">
-                <a
-                  href={siteData.event.githubRepoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#234766] hover:bg-[#1a354c] text-white text-xs font-bold rounded-full shadow-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer w-fit"
-                >
-                  <Github className="w-4 h-4" />
-                  <span>Open in GitHub</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
+                <div className="flex flex-wrap items-center gap-2">
+                  <a
+                    href={siteData.event.githubRepoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#234766] hover:bg-[#1a354c] text-white text-xs font-bold rounded-full shadow-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer w-fit"
+                  >
+                    <Github className="w-4 h-4" />
+                    <span>Open in GitHub</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
+
+                  <Link
+                    href="/catalogue"
+                    className="inline-flex items-center justify-center gap-1.5 px-5 py-3 bg-[#6E9E94]/15 hover:bg-[#6E9E94]/25 text-[#246857] dark:text-[#88beaf] text-xs font-bold rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer w-fit"
+                  >
+                    <Database className="w-3.5 h-3.5" />
+                    <span>Suggested Datasets</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
 
                 <a
                   href={siteData.event.githubRepoLink}
@@ -730,14 +722,23 @@ export default function HeroSection() {
 
         {/* Essential Guidelines Fast Bar */}
         <div className="pt-6 border-t border-black/[0.08] dark:border-white/[0.1] flex flex-wrap items-center justify-between gap-4 text-xs">
-          <div className="flex flex-wrap items-center gap-2 text-[#2b4458]/80 dark:text-zinc-400">
-            <span className="font-semibold text-[#234766] dark:text-[#7ca5cb]">Official Guidelines:</span>
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[#2b4458]/80 dark:text-zinc-400">
+            <span className="font-semibold text-[#234766] dark:text-[#7ca5cb]">Official Resources:</span>
             <Link
               href="/primer"
               className="inline-flex items-center gap-1.5 hover:text-[#234766] dark:hover:text-[#E38363] transition-colors text-[#234766] dark:text-[#88beaf] font-semibold"
             >
               <FileText className="w-3.5 h-3.5 text-[#E38363]" />
-              <span>Interactive Primer & Mechanics</span>
+              <span>Interactive Primer</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+            <span className="text-zinc-300 dark:text-zinc-700">·</span>
+            <Link
+              href="/catalogue"
+              className="inline-flex items-center gap-1.5 hover:text-[#234766] dark:hover:text-[#6E9E94] transition-colors text-[#234766] dark:text-[#88beaf] font-semibold"
+            >
+              <Database className="w-3.5 h-3.5 text-[#6E9E94]" />
+              <span>Dataset Catalogue</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>

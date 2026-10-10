@@ -8,7 +8,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Sparkles,
-  Clock,
   CheckCircle2,
   Award,
 } from "lucide-react";
@@ -102,10 +101,6 @@ export default function TimelineSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#234766]/10 dark:bg-[#6E9E94]/15 text-[#234766] dark:text-[#88beaf] text-xs font-bold tracking-widest uppercase mb-3">
-              <Clock className="w-3.5 h-3.5 text-[#E38363]" />
-              <span>Schedule · Key Milestones</span>
-            </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-[#234766] dark:text-[#7ca5cb] tracking-tight leading-tight">
               Event Timeline
             </h2>

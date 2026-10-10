@@ -29,9 +29,6 @@ export default function FaqSection() {
       <div className="relative z-10 max-w-[1150px] mx-auto px-5 sm:px-8">
         {/* Section Header */}
         <div className="mb-10 sm:mb-12 max-w-2xl">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-[#E38363]/15 text-[#c45a38] dark:bg-[#E38363]/20 dark:text-[#ee9577] mb-2">
-            Support
-          </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-[#234766] dark:text-[#7ca5cb] tracking-tight leading-tight">
             Frequently Asked Questions
           </h2>

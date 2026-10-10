@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/primer", label: "Primer" },
   { href: "/timeline", label: "Timeline" },
+  { href: "/catalogue", label: "Catalogue" },
   { href: "/organizer", label: "Organizer" },
   { href: "/faq", label: "FAQ" },
   { href: "/sponsors", label: "Sponsors" },
@@ -39,7 +40,7 @@ export default function Header() {
   return (
     <>
       {/* Floating Pill-Shaped Navigation Bar */}
-      <header className="fixed top-3.5 sm:top-5 inset-x-0 mx-auto w-[92%] sm:w-auto max-w-[820px] z-50 px-2 sm:px-0 transition-all duration-300">
+      <header className="fixed top-3.5 sm:top-5 inset-x-0 mx-auto w-[92%] sm:w-auto max-w-[890px] z-50 px-2 sm:px-0 transition-all duration-300">
         <div
           className={`rounded-full px-3.5 sm:px-4 py-2 border transition-all duration-300 ${
             scrolled

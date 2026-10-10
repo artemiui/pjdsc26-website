@@ -17,9 +17,6 @@ export default function OrganizerSection() {
       <div className="relative z-10 max-w-[1150px] mx-auto px-5 sm:px-8">
         {/* Section Header */}
         <div className="mb-10 sm:mb-12 max-w-2xl">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-[#234766]/10 text-[#234766] dark:bg-[#7ca5cb]/15 dark:text-[#7ca5cb] mb-2">
-            About the Organizer
-          </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-[#234766] dark:text-[#7ca5cb] tracking-tight leading-tight">
             UP Data Science Society
           </h2>
@@ -107,9 +104,6 @@ export default function OrganizerSection() {
         {/* Vision & Mission (2 Bento Cards) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
           <div className="p-7 sm:p-8 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs hover:-translate-y-1 transition-all duration-200">
-            <span className="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-[#234766]/10 text-[#234766] dark:bg-[#7ca5cb]/15 dark:text-[#7ca5cb] rounded-full mb-3">
-              Vision
-            </span>
             <h4 className="text-xl font-bold text-[#234766] dark:text-[#f3f6f8] mb-2">Our Vision</h4>
             <p className="text-sm text-[#2b4458]/85 dark:text-zinc-300 leading-relaxed">
               {org.vision}
@@ -117,9 +111,6 @@ export default function OrganizerSection() {
           </div>
 
           <div className="p-7 sm:p-8 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs hover:-translate-y-1 transition-all duration-200">
-            <span className="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-[#E38363]/15 text-[#c45a38] dark:bg-[#E38363]/20 dark:text-[#ee9577] rounded-full mb-3">
-              Mission
-            </span>
             <h4 className="text-xl font-bold text-[#234766] dark:text-[#f3f6f8] mb-2">Our Mission</h4>
             <p className="text-sm text-[#2b4458]/85 dark:text-zinc-300 leading-relaxed">
               {org.mission}

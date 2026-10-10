@@ -36,9 +36,6 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
           {/* Header */}
           <div className="flex items-start justify-between border-b border-black/[0.06] dark:border-white/[0.08] pb-4">
             <div>
-              <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#234766]/10 text-[#234766] dark:bg-[#7ca5cb]/15 dark:text-[#7ca5cb] mb-1">
-                registration / pjdsc 2026
-              </span>
               <h3 className="text-xl sm:text-2xl font-extrabold text-[#234766] dark:text-[#7ca5cb]">
                 Team Registration
               </h3>

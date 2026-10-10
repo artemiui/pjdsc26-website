@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Mail, Sparkles } from "lucide-react";
+import { Mail } from "lucide-react";
 import { siteData } from "@/lib/siteData";
 import AmbientLighting from "@/components/AmbientLighting";
 
@@ -15,10 +15,6 @@ export default function SponsorsSection() {
       <div className="relative z-10 max-w-[1150px] mx-auto px-5 sm:px-8">
         {/* Section Header */}
         <div className="mb-12 sm:mb-16 max-w-2xl">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-[#6E9E94]/15 text-[#2b5950] dark:bg-[#6E9E94]/20 dark:text-[#88beaf] mb-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            Partnerships & Alliances
-          </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-[#234766] dark:text-[#7ca5cb] tracking-tight leading-tight">
             Sponsors & Partners
           </h2>
@@ -103,9 +99,6 @@ export default function SponsorsSection() {
 
         {/* Partnership CTA Bento Card */}
         <div className="mt-12 p-8 sm:p-10 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs">
-          <span className="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-[#6E9E94]/15 text-[#2b5950] dark:bg-[#6E9E94]/20 dark:text-[#88beaf] rounded-full mb-3">
-            Collaborate With Us
-          </span>
           <h3 className="text-xl sm:text-2xl font-extrabold text-[#234766] dark:text-[#7ca5cb] mb-3">
             Partner with PJDSC 2026
           </h3>

@@ -78,6 +78,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/catalogue" className="hover:text-white transition-colors">
+                  Dataset Catalogue
+                </Link>
+              </li>
+              <li>
                 <a
                   href={siteData.event.githubRepoLink}
                   target="_blank"
