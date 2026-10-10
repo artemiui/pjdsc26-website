@@ -364,6 +364,7 @@ export const siteData = {
         "Slide deck strictly limited to a maximum of 20 slides (including title and appendices). Deductions apply for excess slides.",
         "Recorded video demo capped at exactly 3 minutes. Deductions apply for overtime.",
         "Clean, well-documented public GitHub repository with reproducible README and dependency instructions.",
+        "Absolute anonymity: No identifying marks (team names, member identities, or school affiliations) must appear in the codebase, slide decks, and videos.",
         "Evaluation selects the Top 10 teams advancing to the finals.",
       ],
     },
