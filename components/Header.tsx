@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { useRegistration } from "@/lib/registrationContext";
 import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
@@ -20,7 +19,6 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
-  const { openRegister } = useRegistration();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -87,19 +85,11 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Right CTA Action Buttons */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={openRegister}
-              className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 bg-[#234766] hover:bg-[#19344c] dark:bg-[#E38363] dark:hover:bg-[#d87556] text-white dark:text-zinc-950 text-xs font-bold rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] cursor-pointer shadow-sm shadow-[#234766]/15 dark:shadow-[#E38363]/20"
-            >
-              <span>Register</span>
-            </button>
-
-            {/* Mobile menu toggle button */}
+          {/* Mobile menu toggle button */}
+          <div className="flex items-center md:hidden">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-1.5 rounded-full text-[#234766] dark:text-zinc-300 hover:bg-black/[0.05] dark:hover:bg-white/[0.08] transition-colors"
+              className="p-1.5 rounded-full text-[#234766] dark:text-zinc-300 hover:bg-black/[0.05] dark:hover:bg-white/[0.08] transition-colors"
               aria-label="Toggle navigation menu"
             >
               {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -134,18 +124,6 @@ export default function Header() {
                 </Link>
               );
             })}
-
-            <div className="pt-2 border-t border-black/[0.06] dark:border-white/[0.08]">
-              <button
-                onClick={() => {
-                  setMobileOpen(false);
-                  openRegister();
-                }}
-                className="w-full flex items-center justify-center gap-1.5 px-4 py-2.5 bg-[#234766] dark:bg-[#E38363] text-white dark:text-zinc-950 text-xs font-bold rounded-full cursor-pointer shadow-sm"
-              >
-                <span>Register Now</span>
-              </button>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>

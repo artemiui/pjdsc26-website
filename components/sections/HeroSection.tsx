@@ -14,13 +14,10 @@ import {
   Database,
 } from "lucide-react";
 import { siteData } from "@/lib/siteData";
-import { useRegistration } from "@/lib/registrationContext";
 import DitheredPlantBackground from "@/components/DitheredPlantBackground";
 import AmbientLighting from "@/components/AmbientLighting";
 
 export default function HeroSection() {
-  const { openRegister } = useRegistration();
-
   // Multi-event dynamic countdown timer state
   const [mounted, setMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState<{
@@ -180,20 +177,21 @@ export default function HeroSection() {
               className="flex flex-wrap items-center justify-center gap-3.5 mt-8 sm:mt-10"
             >
               {/* High-Contrast Primary CTA Pill */}
-              <button
-                onClick={openRegister}
+              <Link
+                href="/primer"
                 className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#234766] hover:bg-[#18354e] dark:bg-[#E38363] dark:hover:bg-[#d87556] text-white dark:text-zinc-950 text-sm font-bold rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] shadow-lg shadow-[#234766]/20 dark:shadow-[#E38363]/25 cursor-pointer"
               >
-                <span>Register Team</span>
-              </button>
+                <FileText className="w-4 h-4 text-[#E38363] dark:text-zinc-950" />
+                <span>Read Primer</span>
+              </Link>
 
               {/* Outlined Ghost CTA Pill */}
               <Link
-                href="/primer"
+                href="/catalogue"
                 className="inline-flex items-center gap-2 px-7 py-3.5 border border-black/[0.12] dark:border-white/[0.15] bg-white/70 dark:bg-zinc-900/60 backdrop-blur-md text-sm font-medium text-[#234766] dark:text-zinc-200 rounded-full hover:bg-black/[0.04] dark:hover:bg-white/[0.08] hover:border-[#234766]/30 dark:hover:border-white/30 transition-all duration-200"
               >
-                <FileText className="w-4 h-4 text-[#E38363]" />
-                <span>Read Primer</span>
+                <Database className="w-4 h-4 text-[#6E9E94]" />
+                <span>Dataset Catalogue</span>
               </Link>
             </motion.div>
 
@@ -215,6 +213,81 @@ export default function HeroSection() {
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               </div>
             </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* SECTION: COMPETITION STATUS & EVENT LAUNCH HIGHLIGHT                      */}
+      {/* ========================================================================= */}
+      <section className="relative z-10 max-w-[1150px] mx-auto px-5 sm:px-8 py-10 sm:py-14">
+        <div className="p-7 sm:p-10 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-[0_8px_30px_rgb(0,0,0,0.03)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            
+            {/* Left Column: Competition Status & Article */}
+            <div className="lg:col-span-6 space-y-4">
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#234766] dark:text-[#7ca5cb] tracking-tight leading-tight">
+                Where we're at
+              </h2>
+
+              <p className="text-sm sm:text-base text-[#2b4458]/85 dark:text-zinc-300 leading-relaxed">
+                The Philippine Junior Data Science Challenge 2026 officially kicked off with its Virtual Event Launch on October 10, 2026, marking the commencement of this year&apos;s nationwide public health analytics competition. 
+              </p>
+              <p className="text-sm sm:text-base text-[#2b4458]/85 dark:text-zinc-300 leading-relaxed">
+                Keynote talks were held by Alexandre Jeandel, Dr. Carol Tan-Lim, Mx. Eusib Pulvera, and Asst. Prof. Alvin Sy with closing remarks by PJDSC 2026 Co-Head Art Arcega.
+              </p>
+
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/timeline"
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-xs font-semibold text-[#234766] dark:text-zinc-200 rounded-full hover:bg-black/[0.05] transition-colors"
+                >
+                  <Clock className="w-3.5 h-3.5 text-[#E38363]" />
+                  <span>View Timeline</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Event Launch Livestream Screenshot Preview */}
+            <div className="lg:col-span-6 flex flex-col justify-center">
+              <a
+                href="https://www.facebook.com/pjdsc.updssoc/videos/2603829270045482"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/stream block relative rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-black overflow-hidden shadow-md transition-all duration-200 hover:shadow-xl hover:border-[#1877F2]/40"
+              >
+
+                {/* Screenshot Image Container */}
+                <div className="relative aspect-video w-full overflow-hidden bg-zinc-950">
+                  <Image
+                    src="/assets/event-launch-ss.png"
+                    alt="PJDSC 2026 Virtual Event Launch Livestream"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover object-top transition-transform duration-300 group-hover/stream:scale-[1.02]"
+                  />
+                  {/* Play / Facebook icon badge */}
+                  <div className="absolute inset-0 bg-black/20 group-hover/stream:bg-black/10 transition-colors flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-white/90 dark:bg-zinc-900/90 text-[#1877F2] flex items-center justify-center shadow-lg group-hover/stream:scale-110 transition-transform">
+                      <Facebook className="w-6 h-6 fill-current" />
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+              <div className="mt-2.5 flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400 px-1 font-mono">
+                <a
+                  href="https://www.facebook.com/pjdsc.updssoc/videos/2603829270045482"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#1877F2] hover:underline inline-flex items-center gap-1 font-sans font-semibold"
+                >
+                  <span>Watch on Facebook</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
 
           </div>
         </div>
@@ -743,12 +816,13 @@ export default function HeroSection() {
             </Link>
           </div>
 
-          <button
-            onClick={openRegister}
-            className="inline-flex items-center gap-1 text-[#234766] dark:text-[#E38363] font-bold hover:underline cursor-pointer"
+          <Link
+            href="/timeline"
+            className="inline-flex items-center gap-1 text-[#234766] dark:text-[#7ca5cb] font-bold hover:underline cursor-pointer"
           >
-            <span>Register Now</span>
-          </button>
+            <span>View Full Timeline</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
 
       </section>

@@ -5,10 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, ArrowUpRight, Github, Facebook, Linkedin, Clock } from "lucide-react";
 import { siteData } from "@/lib/siteData";
-import { useRegistration } from "@/lib/registrationContext";
 
 export default function Footer() {
-  const { openRegister } = useRegistration();
 
   return (
     <footer className="relative border-t border-black/[0.08] dark:border-white/[0.1] bg-[#142433] dark:bg-[#070b0e] text-white overflow-hidden mt-auto">
@@ -190,25 +188,27 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 5: Registration & Fast CTA */}
+          {/* Column 5: Competition Status */}
           <div className="col-span-2 sm:col-span-1 space-y-3">
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-[2px] bg-emerald-400" aria-hidden="true" />
               <h4 className="text-xs font-semibold text-zinc-200 uppercase tracking-wider">
-                Registration
+                Status
               </h4>
             </div>
             <p className="text-xs text-zinc-400 leading-relaxed">
-              Early bird begins Sept 21 at 5:00 PM. Open to 40 teams nationwide.
+              Virtual Launch concluded Oct 10, 2026. Concept proposals in progress.
             </p>
             <div className="pt-1">
-              <button
-                onClick={openRegister}
-                className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-[#E38363] hover:bg-[#d87556] text-zinc-950 text-xs font-bold rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-[#E38363]/20 cursor-pointer"
+              <a
+                href="https://www.facebook.com/pjdsc.updssoc/videos/2603829270045482"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-[#1877F2] hover:bg-[#166fe5] text-white text-xs font-bold rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-[#1877F2]/20 cursor-pointer"
               >
-                <span>Register Team</span>
+                <span>Watch Livestream</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
-              </button>
+              </a>
             </div>
           </div>
         </div>
