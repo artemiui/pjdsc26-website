@@ -346,12 +346,13 @@ export const siteData = {
       summary:
         "Teams formulate an initial project concept that identifies a specific public health problem and outlines an innovative, data-driven methodology.",
       requirements: [
-        "Maximum of five (5) pages excluding title page and references.",
+        "Maximum of five (5) pages including title page and references.",
         "Must detail: Background, Problem Statement, Objectives, Scope, and Methodology.",
         "Use official PJDSC proposal template.",
         "Eligible outputs include web applications, mobile apps, interactive dashboards, or any usable data product.",
         "At least one team member must attend the official event launch on Oct 10.",
       ],
+      note: "Do not worry if you failed to follow this provision. We are very sorry for the confusion the difference of the website primer and PDF primer has caused. With this, we assure that this will yield no consequences to your chances in the eliminations as it has no grading weight.",
     },
     {
       id: "development",
@@ -618,7 +619,8 @@ export const siteData = {
         "Direct access to participant resume book & project repos",
       ],
       slots: [
-        { name: "Apper Clouds Labs", logo: "/logos/apper_logo@3x (1).png", status: "confirmed" },
+        { name: "Apper AI Solutions", logo: "/logos/Apper AI Solutions.png", status: "confirmed" },
+        { name: "Computrade Technology Philippines", logo: "/logos/computrade technology philippines.png", status: "confirmed" },
         { name: "999 Venture Studio", logo: "/logos/999 transparent.png", status: "confirmed" },
         { name: "UP Intelligent Systems Center", logo: "/logos/UPISC_Logo_Short.png", status: "confirmed" },
       ],

@@ -45,6 +45,8 @@ export default function SponsorsSection() {
                   className={`grid ${
                     isOfficialPartners
                       ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5"
+                      : tier.slots.length === 4
+                      ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6"
                       : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
                   }`}
                 >

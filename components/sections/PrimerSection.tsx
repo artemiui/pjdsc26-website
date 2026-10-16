@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { ExternalLink, ArrowUpRight, Github, CheckCircle2, Award } from "lucide-react";
+import { ExternalLink, ArrowUpRight, Github, CheckCircle2, Award, Info } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteData } from "@/lib/siteData";
 import AmbientLighting from "@/components/AmbientLighting";
@@ -241,6 +241,16 @@ export default function PrimerSection() {
                         ))}
                       </ul>
                     </div>
+
+                    {"note" in stg && stg.note && (
+                      <div className="mt-4 p-4 rounded-2xl border border-amber-500/25 bg-amber-50/70 dark:bg-amber-950/25 text-xs text-[#2b4458]/90 dark:text-amber-200/90 leading-relaxed flex items-start gap-3">
+                        <Info className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="font-bold text-amber-900 dark:text-amber-300 block mb-0.5">Note:</strong>
+                          <span>{stg.note}</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
