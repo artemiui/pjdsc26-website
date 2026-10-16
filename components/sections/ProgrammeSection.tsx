@@ -13,33 +13,24 @@ import {
   Check,
   Sparkles,
   ArrowLeft,
-  BookOpen,
   Coffee,
   Users,
-  MessageSquare,
   HelpCircle,
   ShieldCheck,
-  Info,
 } from "lucide-react";
 import { siteData } from "@/lib/siteData";
 import AmbientLighting from "@/components/AmbientLighting";
 
 export default function ProgrammeSection() {
   const [copiedLink, setCopiedLink] = useState(false);
-  const [copiedId, setCopiedId] = useState(false);
 
   const prog = siteData.programme;
 
-  const handleCopy = (text: string, type: "link" | "id") => {
+  const handleCopy = (text: string) => {
     if (typeof navigator !== "undefined" && navigator.clipboard) {
       navigator.clipboard.writeText(text);
-      if (type === "link") {
-        setCopiedLink(true);
-        setTimeout(() => setCopiedLink(false), 2000);
-      } else {
-        setCopiedId(true);
-        setTimeout(() => setCopiedId(false), 2000);
-      }
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 2000);
     }
   };
 
@@ -55,12 +46,12 @@ export default function ProgrammeSection() {
     if (lower.includes("forum") || lower.includes("q&a")) {
       return <HelpCircle className="w-4 h-4 text-[#234766] dark:text-[#7ca5cb]" />;
     }
-    return <BookOpen className="w-4 h-4 text-[#234766] dark:text-[#88beaf]" />;
+    return <Clock className="w-4 h-4 text-zinc-400 dark:text-zinc-500" />;
   };
 
   return (
     <section className="relative overflow-hidden pt-28 sm:pt-36 pb-20 sm:pb-28">
-      {/* Ambient Radial Glow & Beams */}
+      {/* Ambient Lighting */}
       <AmbientLighting variant="section" showBeams={true} showNodeWeb={false} />
 
       <div className="relative z-10 max-w-[1150px] mx-auto px-5 sm:px-8">
@@ -76,38 +67,31 @@ export default function ProgrammeSection() {
           </Link>
         </div>
 
-        {/* Hero Section Header */}
-        <div className="mb-10 sm:mb-12 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase mb-3 bg-[#6E9E94]/15 text-[#2b5950] dark:bg-[#6E9E94]/20 dark:text-[#88beaf] border border-[#6E9E94]/20">
-            <BookOpen className="w-3.5 h-3.5" />
-            <span>Official Event Programme</span>
-          </div>
-
+        {/* Hero Section Header - Simplified without badge */}
+        <div className="mb-8 sm:mb-10 max-w-3xl">
           <h1 className="text-3xl sm:text-5xl font-extrabold text-[#234766] dark:text-[#7ca5cb] tracking-tight leading-tight">
             {prog.title || "Project Development Workshop Programme"}
           </h1>
 
-          <p className="text-sm sm:text-base text-[#253f56]/85 dark:text-zinc-300 mt-3 leading-relaxed">
-            Detailed programme schedule, onsite venue location, and hybrid online session details for the Project Development Workshop.
+          <p className="text-sm sm:text-base text-[#253f56]/80 dark:text-zinc-300 mt-2.5 leading-relaxed">
+            Schedule, onsite venue location, and hybrid online session details for the Project Development Workshop.
           </p>
         </div>
 
         {/* ================================================================= */}
-        {/* Bento Key Details: Date/Time, Onsite Venue, Online Zoom Session   */}
+        {/* Key Details: Date/Time, Onsite Venue, Online Session              */}
         {/* ================================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
           
-          {/* Card 1: Event Details */}
+          {/* Card 1: Event Schedule */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="p-6 sm:p-7 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs flex flex-col justify-between"
+            transition={{ duration: 0.25 }}
+            className="p-6 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs flex flex-col justify-between"
           >
             <div>
-              <div className="w-10 h-10 rounded-2xl bg-[#E38363]/10 text-[#E38363] flex items-center justify-center mb-4">
-                <Calendar className="w-5 h-5" />
-              </div>
+              <Calendar className="w-5 h-5 text-[#E38363] mb-3" />
               <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-400">
                 Event Schedule
               </span>
@@ -119,22 +103,20 @@ export default function ProgrammeSection() {
                 <span>{prog.time}</span>
               </div>
             </div>
-            <div className="mt-6 pt-4 border-t border-black/[0.05] dark:border-white/[0.06] text-xs text-zinc-500 dark:text-zinc-400">
+            <div className="mt-5 pt-3.5 border-t border-black/[0.05] dark:border-white/[0.06] text-xs text-zinc-500 dark:text-zinc-400">
               Philippine Standard Time (PST · UTC+8)
             </div>
           </motion.div>
 
-          {/* Card 2: Onsite Venue */}
+          {/* Card 2: Onsite Session */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.08, duration: 0.3 }}
-            className="p-6 sm:p-7 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs flex flex-col justify-between"
+            transition={{ delay: 0.06, duration: 0.25 }}
+            className="p-6 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs flex flex-col justify-between"
           >
             <div>
-              <div className="w-10 h-10 rounded-2xl bg-[#234766]/10 dark:bg-[#7ca5cb]/15 text-[#234766] dark:text-[#7ca5cb] flex items-center justify-center mb-4">
-                <MapPin className="w-5 h-5" />
-              </div>
+              <MapPin className="w-5 h-5 text-[#234766] dark:text-[#7ca5cb] mb-3" />
               <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-400">
                 Onsite Session
               </span>
@@ -145,7 +127,7 @@ export default function ProgrammeSection() {
                 Face-to-face workshop, mentor engagement, and collaborative review sessions.
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-black/[0.05] dark:border-white/[0.06]">
+            <div className="mt-5 pt-3.5 border-t border-black/[0.05] dark:border-white/[0.06]">
               <a
                 href={prog.venueMapsUrl}
                 target="_blank"
@@ -162,13 +144,11 @@ export default function ProgrammeSection() {
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.16, duration: 0.3 }}
-            className="p-6 sm:p-7 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs flex flex-col justify-between"
+            transition={{ delay: 0.12, duration: 0.25 }}
+            className="p-6 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs flex flex-col justify-between"
           >
             <div>
-              <div className="w-10 h-10 rounded-2xl bg-[#1877F2]/10 text-[#1877F2] flex items-center justify-center mb-4">
-                <Video className="w-5 h-5" />
-              </div>
+              <Video className="w-5 h-5 text-[#1877F2] mb-3" />
               <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-400">
                 Online Session Link
               </span>
@@ -181,7 +161,7 @@ export default function ProgrammeSection() {
                 </p>
               )}
             </div>
-            <div className="mt-6 pt-4 border-t border-black/[0.05] dark:border-white/[0.06] flex items-center justify-between gap-2">
+            <div className="mt-5 pt-3.5 border-t border-black/[0.05] dark:border-white/[0.06] flex items-center justify-between gap-2">
               <a
                 href={prog.zoomUrl}
                 target="_blank"
@@ -192,7 +172,7 @@ export default function ProgrammeSection() {
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
               <button
-                onClick={() => handleCopy(prog.zoomUrl, "link")}
+                onClick={() => handleCopy(prog.zoomUrl)}
                 className="inline-flex items-center gap-1 px-3 py-2 rounded-full border border-black/[0.08] dark:border-white/[0.1] text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:bg-black/[0.04] dark:hover:bg-white/[0.06] transition-colors cursor-pointer"
                 title="Copy Meeting Link"
               >
@@ -205,81 +185,53 @@ export default function ProgrammeSection() {
         </div>
 
         {/* ================================================================= */}
-        {/* Full Programme Schedule Timeline List                             */}
+        {/* Simplified Programme Flow List                                    */}
         {/* ================================================================= */}
-        <div className="p-7 sm:p-10 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs mb-10">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-black/[0.06] dark:border-white/[0.08]">
-            <div>
-              <h2 className="text-xl sm:text-2xl font-extrabold text-[#234766] dark:text-[#7ca5cb] tracking-tight">
-                Programme Flow & Outline
-              </h2>
-              <p className="text-xs sm:text-sm text-[#2b4458]/75 dark:text-zinc-400 mt-1">
-                Synchronized schedule for both onsite attendees and virtual participants.
-              </p>
-            </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/[0.03] dark:bg-white/[0.05] border border-black/[0.06] dark:border-white/[0.08] text-xs font-mono font-semibold text-zinc-600 dark:text-zinc-300">
+        <div className="p-6 sm:p-8 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs mb-10">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-5 border-b border-black/[0.06] dark:border-white/[0.08]">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-[#234766] dark:text-[#7ca5cb] tracking-tight">
+              Programme Flow
+            </h2>
+            <div className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-zinc-500 dark:text-zinc-400">
               <Clock className="w-3.5 h-3.5 text-[#E38363]" />
               <span>12:30 PM – 4:30 PM PST</span>
             </div>
           </div>
 
-          {/* Schedule Line Items */}
-          <div className="space-y-3">
+          {/* Schedule Line Items - Minimalist without secondary tags or box backgrounds */}
+          <div className="space-y-2">
             {prog.schedule.map((item, idx) => {
               const isBreak = item.isBreak;
               return (
                 <div
                   key={idx}
-                  className={`p-4 sm:p-5 rounded-2xl border transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
+                  className={`px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl border transition-all duration-150 flex items-center justify-between gap-3 ${
                     isBreak
-                      ? "bg-[#E38363]/5 border-[#E38363]/25 dark:bg-[#E38363]/10"
-                      : "bg-white dark:bg-zinc-900/80 border-black/[0.06] dark:border-white/[0.08] hover:border-black/[0.12] dark:hover:border-white/[0.16] hover:shadow-xs"
+                      ? "bg-[#E38363]/5 border-[#E38363]/20 dark:bg-[#E38363]/10"
+                      : "bg-white/60 dark:bg-zinc-900/40 border-black/[0.05] dark:border-white/[0.06] hover:bg-white dark:hover:bg-zinc-900/80"
                   }`}
                 >
-                  <div className="flex items-start sm:items-center gap-3.5">
-                    {/* Icon container */}
-                    <div
-                      className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
-                        isBreak
-                          ? "bg-[#E38363]/15 text-[#E38363]"
-                          : "bg-black/[0.03] dark:bg-white/[0.05] border border-black/[0.04] dark:border-white/[0.06]"
-                      }`}
-                    >
+                  <div className="flex items-center gap-3">
+                    <div className="shrink-0">
                       {getItemIcon(item.title, isBreak)}
                     </div>
-
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <h3
-                          className={`text-sm sm:text-base font-bold ${
-                            isBreak
-                              ? "text-[#E38363] dark:text-[#f29a7c]"
-                              : "text-[#234766] dark:text-[#f3f6f8]"
-                          }`}
-                        >
-                          {item.title}
-                        </h3>
-                        {item.tag && (
-                          <span className="hidden sm:inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-black/[0.04] dark:bg-white/[0.06] text-zinc-600 dark:text-zinc-300">
-                            {item.tag}
-                          </span>
-                        )}
-                      </div>
-                      {item.desc && (
-                        <p className="text-xs text-[#2b4458]/75 dark:text-zinc-400 mt-0.5">
-                          {item.desc}
-                        </p>
-                      )}
-                    </div>
+                    <h3
+                      className={`text-sm sm:text-base font-bold ${
+                        isBreak
+                          ? "text-[#E38363] dark:text-[#f29a7c]"
+                          : "text-[#234766] dark:text-[#f3f6f8]"
+                      }`}
+                    >
+                      {item.title}
+                    </h3>
                   </div>
 
-                  {/* Time Badge */}
-                  <div className="self-start sm:self-center shrink-0">
+                  <div className="shrink-0">
                     <span
-                      className={`font-mono text-xs font-bold px-3 py-1 rounded-full ${
+                      className={`font-mono text-xs font-semibold px-2.5 py-0.5 rounded-md ${
                         isBreak
-                          ? "bg-[#E38363]/20 text-[#c25c39] dark:text-[#f4a78c]"
-                          : "bg-[#234766]/10 text-[#234766] dark:bg-[#7ca5cb]/15 dark:text-[#88beaf]"
+                          ? "text-[#c25c39] dark:text-[#f4a78c] bg-[#E38363]/10"
+                          : "text-zinc-500 dark:text-zinc-400 bg-black/[0.03] dark:bg-white/[0.04]"
                       }`}
                     >
                       {item.time}
@@ -294,13 +246,11 @@ export default function ProgrammeSection() {
         {/* ================================================================= */}
         {/* Stage 2 Reminder Callout Banner                                   */}
         {/* ================================================================= */}
-        <div className="p-6 sm:p-8 rounded-3xl border border-[#6E9E94]/30 bg-[#6E9E94]/10 dark:bg-[#6E9E94]/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-2xl bg-[#6E9E94]/20 text-[#245c50] dark:text-[#88beaf] flex items-center justify-center shrink-0 mt-0.5">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
+        <div className="p-6 sm:p-7 rounded-3xl border border-[#6E9E94]/30 bg-[#6E9E94]/10 dark:bg-[#6E9E94]/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+          <div className="flex items-start gap-3.5">
+            <ShieldCheck className="w-5 h-5 text-[#245c50] dark:text-[#88beaf] shrink-0 mt-0.5" />
             <div>
-              <h3 className="text-base sm:text-lg font-extrabold text-[#234766] dark:text-[#f3f6f8]">
+              <h3 className="text-base font-extrabold text-[#234766] dark:text-[#f3f6f8]">
                 Stage 2: Solution Development in Progress
               </h3>
               <p className="text-xs sm:text-sm text-[#253f56]/85 dark:text-zinc-300 mt-1 max-w-2xl leading-relaxed">
@@ -312,7 +262,7 @@ export default function ProgrammeSection() {
           <div className="shrink-0 flex items-center gap-3 w-full sm:w-auto">
             <Link
               href="/primer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-full bg-[#234766] hover:bg-[#1a354c] dark:bg-[#E38363] dark:hover:bg-[#d87556] text-white dark:text-zinc-950 text-xs font-bold transition-all shadow-xs"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-[#234766] hover:bg-[#1a354c] dark:bg-[#E38363] dark:hover:bg-[#d87556] text-white dark:text-zinc-950 text-xs font-bold transition-all shadow-xs"
             >
               <span>View Primer & Rules</span>
               <ExternalLink className="w-3.5 h-3.5" />
