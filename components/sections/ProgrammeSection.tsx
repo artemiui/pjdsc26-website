@@ -55,17 +55,19 @@ export default function ProgrammeSection() {
         <div className="mb-6">
           <Link
             href="/timeline"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-[#234766] dark:text-[#7ca5cb] hover:underline cursor-pointer group"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-[#408374] dark:text-[#88beaf] hover:underline cursor-pointer group"
           >
             <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
             <span>Back to Timeline</span>
           </Link>
         </div>
 
-        {/* Hero Section Header - Simplified without badge */}
+        {/* Hero Section Header */}
         <div className="mb-8 sm:mb-10 max-w-3xl">
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#234766] dark:text-[#7ca5cb] tracking-tight leading-tight">
-            {prog.title || "Project Development Workshop Programme"}
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+            <span className="bg-gradient-to-b from-[#60ab99] via-[#408374] to-[#245c50] dark:from-[#88beaf] dark:via-[#6E9E94] dark:to-[#38665c] bg-clip-text text-transparent">
+              {prog.title || "Project Development Workshop Programme"}
+            </span>
           </h1>
 
           <p className="text-sm sm:text-base text-[#253f56]/80 dark:text-zinc-300 mt-2.5 leading-relaxed">
@@ -86,7 +88,7 @@ export default function ProgrammeSection() {
             className="p-6 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs flex flex-col justify-between"
           >
             <div>
-              <Calendar className="w-5 h-5 text-[#E38363] mb-3" />
+              <Calendar className="w-5 h-5 text-[#408374] dark:text-[#88beaf] mb-3" />
               <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-400">
                 Event Schedule
               </span>
@@ -94,7 +96,7 @@ export default function ProgrammeSection() {
                 {prog.date}
               </h2>
               <div className="flex items-center gap-2 mt-2 text-sm font-semibold text-[#2b4458]/80 dark:text-zinc-300">
-                <Clock className="w-4 h-4 text-[#E38363] shrink-0" />
+                <Clock className="w-4 h-4 text-[#408374] dark:text-[#88beaf] shrink-0" />
                 <span>{prog.time}</span>
               </div>
             </div>
@@ -103,31 +105,31 @@ export default function ProgrammeSection() {
             </div>
           </motion.div>
 
-          {/* Card 2: Onsite Session */}
+          {/* Card 2: Onsite Session (Event Venue Panel - styled in landing page green) */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.06, duration: 0.25 }}
-            className="p-6 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs flex flex-col justify-between"
+            className="p-6 rounded-3xl border border-[#6E9E94]/30 dark:border-[#6E9E94]/40 bg-[#6E9E94]/[0.08] dark:bg-[#6E9E94]/[0.12] backdrop-blur-sm shadow-xs flex flex-col justify-between"
           >
             <div>
-              <MapPin className="w-5 h-5 text-[#234766] dark:text-[#7ca5cb] mb-3" />
-              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-400">
+              <MapPin className="w-5 h-5 text-[#245c50] dark:text-[#88beaf] mb-3" />
+              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#408374] dark:text-[#88beaf]">
                 Onsite Session
               </span>
-              <h2 className="text-lg font-extrabold text-[#234766] dark:text-[#f3f6f8] mt-1">
+              <h2 className="text-lg font-extrabold text-[#245c50] dark:text-[#f3f6f8] mt-1">
                 {prog.venueName}
               </h2>
-              <p className="mt-2 text-xs sm:text-sm text-[#2b4458]/75 dark:text-zinc-300 leading-relaxed">
+              <p className="mt-2 text-xs sm:text-sm text-[#245c50]/85 dark:text-zinc-300 leading-relaxed">
                 Face-to-face workshop, mentor engagement, and collaborative review sessions.
               </p>
             </div>
-            <div className="mt-5 pt-3.5 border-t border-black/[0.05] dark:border-white/[0.06]">
+            <div className="mt-5 pt-3.5 border-t border-[#6E9E94]/20 dark:border-[#6E9E94]/30">
               <a
                 href={prog.venueMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#234766] dark:text-[#88beaf] hover:text-[#E38363] dark:hover:text-[#E38363] transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#245c50] dark:text-[#88beaf] hover:text-[#408374] dark:hover:text-[#a0d0c2] transition-colors"
               >
                 <span>Open Google Maps</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -196,16 +198,16 @@ export default function ProgrammeSection() {
         {/* Workshop Attachment Download Note                                 */}
         {/* ================================================================= */}
         {prog.attachment && (
-          <div className="mb-10 p-5 sm:p-6 rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="mb-10 p-5 sm:p-6 rounded-2xl border border-[#6E9E94]/30 dark:border-[#6E9E94]/35 bg-[#6E9E94]/[0.08] dark:bg-[#6E9E94]/[0.1] backdrop-blur-sm shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-start sm:items-center gap-3.5">
-              <FileDown className="w-5 h-5 text-[#E38363] shrink-0 mt-0.5 sm:mt-0" />
+              <FileDown className="w-5 h-5 text-[#408374] dark:text-[#88beaf] shrink-0 mt-0.5 sm:mt-0" />
               <div>
-                <span className="text-xs font-bold text-[#234766] dark:text-[#7ca5cb] block">
+                <span className="text-xs font-bold text-[#245c50] dark:text-[#88beaf] block">
                   Workshop Materials Notice
                 </span>
-                <p className="text-xs sm:text-sm text-[#2b4458]/85 dark:text-zinc-300 mt-0.5 leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#253f56]/85 dark:text-zinc-300 mt-0.5 leading-relaxed">
                   {prog.attachment.note}{" "}
-                  <span className="font-semibold font-mono text-[#234766] dark:text-[#f3f6f8]">
+                  <span className="font-semibold font-mono text-[#245c50] dark:text-[#88beaf]">
                     {prog.attachment.name}
                   </span>
                   {prog.attachment.fileSize && (
@@ -221,7 +223,7 @@ export default function ProgrammeSection() {
               <a
                 href={prog.attachment.url}
                 download={prog.attachment.name}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-[6px] bg-[#234766] hover:bg-[#1a354c] dark:bg-[#E38363] dark:hover:bg-[#d87556] text-white dark:text-zinc-950 text-xs font-semibold shadow-xs transition-all cursor-pointer active:translate-y-[0.5px]"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-[6px] bg-[#245c50] hover:bg-[#1a443a] dark:bg-[#6E9E94] dark:hover:bg-[#5b877e] text-white dark:text-zinc-950 text-xs font-semibold shadow-xs transition-all cursor-pointer active:translate-y-[0.5px]"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Download Attachment</span>
@@ -239,7 +241,7 @@ export default function ProgrammeSection() {
               Programme Flow
             </h2>
             <div className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-zinc-500 dark:text-zinc-400">
-              <Clock className="w-3.5 h-3.5 text-[#E38363]" />
+              <Clock className="w-3.5 h-3.5 text-[#408374] dark:text-[#88beaf]" />
               <span>12:30 PM – 4:30 PM PST</span>
             </div>
           </div>
@@ -253,14 +255,14 @@ export default function ProgrammeSection() {
                   key={idx}
                   className={`px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl border transition-all duration-150 flex items-center justify-between gap-3 ${
                     isBreak
-                      ? "bg-[#E38363]/5 border-[#E38363]/20 dark:bg-[#E38363]/10"
+                      ? "bg-[#6E9E94]/15 border-[#6E9E94]/35 dark:bg-[#6E9E94]/20 dark:border-[#6E9E94]/40"
                       : "bg-white/60 dark:bg-zinc-900/40 border-black/[0.05] dark:border-white/[0.06] hover:bg-white dark:hover:bg-zinc-900/80"
                   }`}
                 >
                   <h3
                     className={`text-sm sm:text-base font-bold ${
                       isBreak
-                        ? "text-[#E38363] dark:text-[#f29a7c]"
+                        ? "text-[#245c50] dark:text-[#88beaf]"
                         : "text-[#234766] dark:text-[#f3f6f8]"
                     }`}
                   >
@@ -269,9 +271,9 @@ export default function ProgrammeSection() {
 
                   <div className="shrink-0">
                     <span
-                      className={`font-mono text-xs sm:text-sm font-medium ${
+                      className={`font-mono text-xs sm:text-sm font-semibold ${
                         isBreak
-                          ? "text-[#c25c39] dark:text-[#f4a78c]"
+                          ? "text-[#245c50] dark:text-[#88beaf]"
                           : "text-zinc-500 dark:text-zinc-400"
                       }`}
                     >
