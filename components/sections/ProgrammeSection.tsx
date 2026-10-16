@@ -7,7 +7,6 @@ import {
   Calendar,
   Clock,
   MapPin,
-  Video,
   ExternalLink,
   Copy,
   Check,
@@ -20,6 +19,19 @@ import {
 } from "lucide-react";
 import { siteData } from "@/lib/siteData";
 import AmbientLighting from "@/components/AmbientLighting";
+
+function ZoomLogo({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M1.5 5.25a2.25 2.25 0 0 1 2.25-2.25h10.5A2.25 2.25 0 0 1 16.5 5.25v13.5a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 18.75V5.25zM18 8.658l4.032-2.915A.75.75 0 0 1 23.25 6.35v11.3a.75.75 0 0 1-1.218.607L18 15.342V8.658z" />
+    </svg>
+  );
+}
 
 export default function ProgrammeSection() {
   const [copiedLink, setCopiedLink] = useState(false);
@@ -140,7 +152,7 @@ export default function ProgrammeSection() {
             </div>
           </motion.div>
 
-          {/* Card 3: Online Session Link */}
+          {/* Card 3: Online Session Link (Microsoft UI Style Zoom Interface) */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -148,7 +160,7 @@ export default function ProgrammeSection() {
             className="p-6 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs flex flex-col justify-between"
           >
             <div>
-              <Video className="w-5 h-5 text-[#1877F2] mb-3" />
+              <ZoomLogo className="w-5 h-5 text-[#0B5CFF] mb-3" />
               <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-zinc-400">
                 Online Session Link
               </span>
@@ -161,23 +173,36 @@ export default function ProgrammeSection() {
                 </p>
               )}
             </div>
-            <div className="mt-5 pt-3.5 border-t border-black/[0.05] dark:border-white/[0.06] flex items-center justify-between gap-2">
+
+            {/* Microsoft UI Fluent Button Interface */}
+            <div className="mt-5 pt-3.5 border-t border-black/[0.05] dark:border-white/[0.06] flex items-center gap-2">
               <a
                 href={prog.zoomUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#1877F2] hover:bg-[#166fe5] text-white text-xs font-bold transition-all shadow-xs"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-[6px] bg-[#0B5CFF] hover:bg-[#004ee0] active:bg-[#0043c7] text-white text-xs font-semibold shadow-[0_1px_2px_rgba(0,0,0,0.12)] border border-[#004bd9] transition-all duration-150 select-none active:translate-y-[0.5px] cursor-pointer"
               >
-                <span>Launch Zoom</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <ZoomLogo className="w-3.5 h-3.5 fill-white shrink-0" />
+                <span>Join Meeting</span>
+                <ExternalLink className="w-3 h-3 opacity-80" />
               </a>
+
               <button
                 onClick={() => handleCopy(prog.zoomUrl)}
-                className="inline-flex items-center gap-1 px-3 py-2 rounded-full border border-black/[0.08] dark:border-white/[0.1] text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:bg-black/[0.04] dark:hover:bg-white/[0.06] transition-colors cursor-pointer"
-                title="Copy Meeting Link"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-[6px] bg-white dark:bg-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-700/80 active:bg-zinc-100 dark:active:bg-zinc-700 text-[#242424] dark:text-zinc-200 text-xs font-medium border border-[#d1d1d1] dark:border-zinc-700 shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-all duration-150 cursor-pointer select-none active:translate-y-[0.5px]"
+                title="Copy Zoom Meeting Link"
               >
-                {copiedLink ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copiedLink ? "Copied" : "Copy"}</span>
+                {copiedLink ? (
+                  <>
+                    <Check className="w-3.5 h-3.5 text-emerald-600" />
+                    <span className="text-emerald-700 dark:text-emerald-400 font-medium">Copied</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5 text-zinc-500" />
+                    <span>Copy</span>
+                  </>
+                )}
               </button>
             </div>
           </motion.div>
