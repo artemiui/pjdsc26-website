@@ -16,6 +16,8 @@ import {
   Users,
   HelpCircle,
   ShieldCheck,
+  Download,
+  FileDown,
 } from "lucide-react";
 import { siteData } from "@/lib/siteData";
 import AmbientLighting from "@/components/AmbientLighting";
@@ -208,6 +210,44 @@ export default function ProgrammeSection() {
           </motion.div>
 
         </div>
+
+        {/* ================================================================= */}
+        {/* Workshop Attachment Download Note                                 */}
+        {/* ================================================================= */}
+        {prog.attachment && (
+          <div className="mb-10 p-5 sm:p-6 rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-start sm:items-center gap-3.5">
+              <FileDown className="w-5 h-5 text-[#E38363] shrink-0 mt-0.5 sm:mt-0" />
+              <div>
+                <span className="text-xs font-bold text-[#234766] dark:text-[#7ca5cb] block">
+                  Workshop Materials Notice
+                </span>
+                <p className="text-xs sm:text-sm text-[#2b4458]/85 dark:text-zinc-300 mt-0.5 leading-relaxed">
+                  {prog.attachment.note}{" "}
+                  <span className="font-semibold font-mono text-[#234766] dark:text-[#f3f6f8]">
+                    {prog.attachment.name}
+                  </span>
+                  {prog.attachment.fileSize && (
+                    <span className="text-zinc-400 dark:text-zinc-500 font-mono text-xs ml-1.5">
+                      ({prog.attachment.fileSize})
+                    </span>
+                  )}
+                </p>
+              </div>
+            </div>
+
+            <div className="shrink-0">
+              <a
+                href={prog.attachment.url}
+                download={prog.attachment.name}
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-[6px] bg-[#234766] hover:bg-[#1a354c] dark:bg-[#E38363] dark:hover:bg-[#d87556] text-white dark:text-zinc-950 text-xs font-semibold shadow-xs transition-all cursor-pointer active:translate-y-[0.5px]"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Download Attachment</span>
+              </a>
+            </div>
+          </div>
+        )}
 
         {/* ================================================================= */}
         {/* Simplified Programme Flow List                                    */}

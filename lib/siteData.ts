@@ -64,6 +64,13 @@ export interface ProgrammeScheduleItem {
   isBreak?: boolean;
 }
 
+export interface ProgrammeAttachment {
+  name: string;
+  url: string;
+  fileSize?: string;
+  note: string;
+}
+
 export interface ProgrammeConfig {
   enabled: boolean;
   buttonText: string;
@@ -78,6 +85,7 @@ export interface ProgrammeConfig {
   zoomUrl: string;
   zoomMeetingId?: string;
   zoomPasscode?: string;
+  attachment?: ProgrammeAttachment;
   schedule: ProgrammeScheduleItem[];
 }
 
@@ -124,6 +132,12 @@ export const siteData = {
     zoomUrl: "https://us06web.zoom.us/j/2272598755?pwd=CzlU4UdSs4lEclNCgR9baaQka3Nra7.1&omn=83082242723",
     zoomMeetingId: "227 259 8755",
     zoomPasscode: "CzlU4UdSs4lEclNCgR9baaQka3Nra7.1",
+    attachment: {
+      name: "data-sets.pptx",
+      url: "/assets/data-sets.pptx",
+      fileSize: "63 KB",
+      note: "For one of the workshops, the following attachment must be downloaded:",
+    },
     schedule: [
       { time: "12:30 PM – 1:00 PM", title: "Ingress" },
       { time: "1:00 PM – 1:15 PM", title: "Opening Spiel" },
