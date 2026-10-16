@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { siteData } from "@/lib/siteData";
 import {
@@ -10,6 +11,8 @@ import {
   Sparkles,
   CheckCircle2,
   Award,
+  ArrowUpRight,
+  BookOpen,
 } from "lucide-react";
 import AmbientLighting from "@/components/AmbientLighting";
 
@@ -262,6 +265,20 @@ export default function TimelineSection() {
                       <p className="text-xs sm:text-sm text-[#2b4458]/80 dark:text-zinc-300 leading-relaxed mt-2.5">
                         {item.description}
                       </p>
+
+                      {/* Optional Action / Programme Link */}
+                      {item.link && (
+                        <div className="mt-4 pt-1">
+                          <Link
+                            href={item.link}
+                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#234766] hover:bg-[#1a354c] dark:bg-[#E38363] dark:hover:bg-[#d87556] text-white dark:text-zinc-950 text-xs font-bold transition-all duration-200 hover:scale-[1.02] shadow-xs cursor-pointer"
+                          >
+                            <BookOpen className="w-3.5 h-3.5 text-[#E38363] dark:text-zinc-950" />
+                            <span>{item.linkLabel || "Read Programme"}</span>
+                            <ArrowUpRight className="w-3 h-3" />
+                          </Link>
+                        </div>
+                      )}
                     </div>
 
                     {/* Card Bottom Meta */}

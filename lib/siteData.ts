@@ -4,6 +4,8 @@ export interface TimelineItem {
   description: string;
   phase: "registration" | "proposal" | "development" | "finals";
   highlight?: boolean;
+  link?: string;
+  linkLabel?: string;
 }
 
 export interface CompetitionMilestone {
@@ -54,6 +56,31 @@ export interface DatasetItem {
   timeframe?: string;
 }
 
+export interface ProgrammeScheduleItem {
+  time: string;
+  title: string;
+  desc?: string;
+  tag?: string;
+  isBreak?: boolean;
+}
+
+export interface ProgrammeConfig {
+  enabled: boolean;
+  buttonText: string;
+  link: string;
+  expiresAt: string;
+  title: string;
+  date: string;
+  time: string;
+  dateDisplay: string;
+  venueName: string;
+  venueMapsUrl: string;
+  zoomUrl: string;
+  zoomMeetingId?: string;
+  zoomPasscode?: string;
+  schedule: ProgrammeScheduleItem[];
+}
+
 export const siteData = {
   event: {
     title: "Philippine Junior Data Science Challenge 2026",
@@ -79,6 +106,39 @@ export const siteData = {
     registrationFeeEarly: "₱300.00 / pax",
     registrationFeeRegular: "₱350.00 / pax",
   },
+
+  // Configurable event programme (reusable for future workshops/finals)
+  programme: {
+    enabled: true,
+    buttonText: "Read Workshop Programme",
+    // Dedicated full page route
+    link: "/programme",
+    // Button automatically disappears indefinitely from the website on October 18, 2026:
+    expiresAt: "2026-10-18T00:00:00+08:00",
+    title: "Project Development Workshop Programme",
+    date: "October 17, 2026 (Saturday)",
+    time: "12:30 PM – 4:30 PM",
+    dateDisplay: "Saturday, October 17, 2026 · 12:30 PM – 4:30 PM",
+    venueName: "College of Science Admin Auditorium, UP Diliman",
+    venueMapsUrl: "https://maps.app.goo.gl/VFHJ2FMGGk5H6QTJ6",
+    zoomUrl: "https://us06web.zoom.us/j/2272598755?pwd=CzlU4UdSs4lEclNCgR9baaQka3Nra7.1&omn=83082242723",
+    zoomMeetingId: "227 259 8755",
+    zoomPasscode: "CzlU4UdSs4lEclNCgR9baaQka3Nra7.1",
+    schedule: [
+      { time: "12:30 PM – 1:00 PM", title: "Ingress", tag: "Arrival & Registration" },
+      { time: "1:00 PM – 1:15 PM", title: "Opening Spiel", tag: "Welcome & House Rules" },
+      { time: "1:15 PM – 1:35 PM", title: "Keynote Talk", tag: "Keynote Session" },
+      { time: "1:35 PM – 2:05 PM", title: "Workshop # 1 Talk", tag: "Technical Talk" },
+      { time: "2:05 PM – 2:30 PM", title: "Workshop # 1 Activity", tag: "Hands-on Exercise" },
+      { time: "2:30 PM – 2:40 PM", title: "Workshop # 1 Peer-Review Session", tag: "Peer Review" },
+      { time: "2:40 PM – 2:45 PM", title: "Break", isBreak: true },
+      { time: "2:45 PM – 3:15 PM", title: "Workshop # 2 Talk", tag: "Technical Talk" },
+      { time: "3:15 PM – 3:40 PM", title: "Workshop # 2 Activity", tag: "Hands-on Exercise" },
+      { time: "3:40 PM – 3:50 PM", title: "Workshop # 2 Peer-Review Session", tag: "Peer Review" },
+      { time: "3:50 PM – 4:20 PM", title: "Open Forum", tag: "Q&A Session" },
+      { time: "4:20 PM – 4:30 PM", title: "Closing", tag: "Wrap-up & Announcements" },
+    ],
+  } as ProgrammeConfig,
 
   topics: [
     { title: "Disease Surveillance", desc: "Outbreak monitoring and early health warning signals" },
@@ -191,6 +251,8 @@ export const siteData = {
       description:
         "Hands-on workshop covering end-to-end data pipelines, predictive modeling in public health, and user-centered dashboard design.",
       phase: "development",
+      link: "/programme",
+      linkLabel: "Read Workshop Programme",
     },
     {
       date: "October 24, 2026",
@@ -285,10 +347,10 @@ export const siteData = {
       name: "Project Development Workshop",
       shortName: "Dev Workshop",
       prefix: "Project Dev Workshop In:",
-      targetDate: "2026-10-17T09:00:00+08:00",
+      targetDate: "2026-10-17T12:30:00+08:00",
       phase: "development",
       badge: "Workshop",
-      dateDisplay: "Oct 17, 2026 · 9:00 AM",
+      dateDisplay: "Oct 17, 2026 · 12:30 PM",
       info: "Data pipelines, predictive modeling & dashboard design",
     },
     {

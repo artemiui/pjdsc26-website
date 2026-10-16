@@ -12,6 +12,7 @@ import {
   Facebook,
   Sparkles,
   Database,
+  BookOpen,
 } from "lucide-react";
 import { siteData } from "@/lib/siteData";
 import DitheredPlantBackground from "@/components/DitheredPlantBackground";
@@ -20,6 +21,7 @@ import AmbientLighting from "@/components/AmbientLighting";
 export default function HeroSection() {
   // Multi-event dynamic countdown timer state
   const [mounted, setMounted] = useState(false);
+  const [isProgrammeActive, setIsProgrammeActive] = useState(false);
   const [timeLeft, setTimeLeft] = useState<{
     days: number;
     hours: number;
@@ -46,6 +48,11 @@ export default function HeroSection() {
   useEffect(() => {
     setMounted(true);
     setActiveMilestoneIndex(getLiveMilestoneIndex());
+
+    if (siteData.programme?.enabled) {
+      const expiry = new Date(siteData.programme.expiresAt).getTime();
+      setIsProgrammeActive(Date.now() < expiry);
+    }
   }, []);
 
   useEffect(() => {
@@ -55,6 +62,11 @@ export default function HeroSection() {
       const now = Date.now();
       const liveIdx = getLiveMilestoneIndex();
       setActiveMilestoneIndex(liveIdx);
+
+      if (siteData.programme?.enabled) {
+        const expiry = new Date(siteData.programme.expiresAt).getTime();
+        setIsProgrammeActive(now < expiry);
+      }
 
       const current = siteData.milestones[liveIdx] || siteData.milestones[0];
       const targetTime = new Date(current.targetDate).getTime();
@@ -200,7 +212,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.42, duration: 0.5 }}
-              className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4 text-xs"
+              className="mt-8 sm:mt-10 flex flex-col items-center justify-center gap-3 text-xs"
             >
               <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border border-black/[0.08] dark:border-white/[0.1] shadow-xs text-zinc-600 dark:text-zinc-300">
                 <Clock className="w-3.5 h-3.5 text-[#E38363]" />
@@ -212,6 +224,24 @@ export default function HeroSection() {
                 </span>
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               </div>
+
+              {/* Reusable Event Programme Button (Automatically removed from view on October 18, 2026 indefinitely) */}
+              {isProgrammeActive && siteData.programme && (
+                <motion.div
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Link
+                    href={siteData.programme.link || "/programme"}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#234766] hover:bg-[#1a354c] dark:bg-[#E38363] dark:hover:bg-[#d87556] text-white dark:text-zinc-950 text-xs font-bold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-sm shadow-[#234766]/15 dark:shadow-[#E38363]/20 cursor-pointer"
+                  >
+                    <BookOpen className="w-3.5 h-3.5 text-[#E38363] dark:text-zinc-950" />
+                    <span>{siteData.programme.buttonText}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </Link>
+                </motion.div>
+              )}
             </motion.div>
 
           </div>
