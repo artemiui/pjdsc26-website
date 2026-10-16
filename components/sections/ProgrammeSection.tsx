@@ -10,11 +10,7 @@ import {
   ExternalLink,
   Copy,
   Check,
-  Sparkles,
   ArrowLeft,
-  Coffee,
-  Users,
-  HelpCircle,
   ShieldCheck,
   Download,
   FileDown,
@@ -46,21 +42,6 @@ export default function ProgrammeSection() {
       setCopiedLink(true);
       setTimeout(() => setCopiedLink(false), 2000);
     }
-  };
-
-  const getItemIcon = (title: string, isBreak?: boolean) => {
-    if (isBreak) return <Coffee className="w-4 h-4 text-[#E38363]" />;
-    const lower = title.toLowerCase();
-    if (lower.includes("keynote") || lower.includes("talk")) {
-      return <Sparkles className="w-4 h-4 text-[#234766] dark:text-[#88beaf]" />;
-    }
-    if (lower.includes("activity") || lower.includes("peer-review")) {
-      return <Users className="w-4 h-4 text-[#6E9E94]" />;
-    }
-    if (lower.includes("forum") || lower.includes("q&a")) {
-      return <HelpCircle className="w-4 h-4 text-[#234766] dark:text-[#7ca5cb]" />;
-    }
-    return <Clock className="w-4 h-4 text-zinc-400 dark:text-zinc-500" />;
   };
 
   return (
@@ -276,27 +257,22 @@ export default function ProgrammeSection() {
                       : "bg-white/60 dark:bg-zinc-900/40 border-black/[0.05] dark:border-white/[0.06] hover:bg-white dark:hover:bg-zinc-900/80"
                   }`}
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="shrink-0">
-                      {getItemIcon(item.title, isBreak)}
-                    </div>
-                    <h3
-                      className={`text-sm sm:text-base font-bold ${
-                        isBreak
-                          ? "text-[#E38363] dark:text-[#f29a7c]"
-                          : "text-[#234766] dark:text-[#f3f6f8]"
-                      }`}
-                    >
-                      {item.title}
-                    </h3>
-                  </div>
+                  <h3
+                    className={`text-sm sm:text-base font-bold ${
+                      isBreak
+                        ? "text-[#E38363] dark:text-[#f29a7c]"
+                        : "text-[#234766] dark:text-[#f3f6f8]"
+                    }`}
+                  >
+                    {item.title}
+                  </h3>
 
                   <div className="shrink-0">
                     <span
-                      className={`font-mono text-xs font-semibold px-2.5 py-0.5 rounded-md ${
+                      className={`font-mono text-xs sm:text-sm font-medium ${
                         isBreak
-                          ? "text-[#c25c39] dark:text-[#f4a78c] bg-[#E38363]/10"
-                          : "text-zinc-500 dark:text-zinc-400 bg-black/[0.03] dark:bg-white/[0.04]"
+                          ? "text-[#c25c39] dark:text-[#f4a78c]"
+                          : "text-zinc-500 dark:text-zinc-400"
                       }`}
                     >
                       {item.time}
