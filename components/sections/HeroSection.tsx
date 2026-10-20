@@ -249,7 +249,7 @@ export default function HeroSection() {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION: COMPETITION STATUS & EVENT LAUNCH HIGHLIGHT                      */}
+      {/* SECTION: COMPETITION STATUS & WORKSHOP HIGHLIGHT                          */}
       {/* ========================================================================= */}
       <section className="relative z-10 max-w-[1150px] mx-auto px-5 sm:px-8 py-10 sm:py-14">
         <div className="p-7 sm:p-10 rounded-3xl border border-black/[0.08] dark:border-white/[0.1] bg-white/80 dark:bg-zinc-900/60 backdrop-blur-sm shadow-[0_8px_30px_rgb(0,0,0,0.03)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)]">
@@ -262,13 +262,20 @@ export default function HeroSection() {
               </h2>
 
               <p className="text-sm sm:text-base text-[#2b4458]/85 dark:text-zinc-300 leading-relaxed">
-                The Philippine Junior Data Science Challenge 2026 officially kicked off with its Virtual Event Launch on October 10, 2026, marking the commencement of this year&apos;s nationwide public health analytics competition. 
+                The Philippine Junior Data Science Challenge 2026 successfully conducted its Project Development Workshop on October 17, 2026, bringing together participating teams onsite at the College of Science Admin Auditorium, UP Diliman and online via Zoom.
               </p>
               <p className="text-sm sm:text-base text-[#2b4458]/85 dark:text-zinc-300 leading-relaxed">
-                Keynote talks were held by Alexandre Jeandel, Dr. Carol Tan-Lim, Mx. Eusib Pulvera, and Asst. Prof. Alvin Sy with closing remarks by PJDSC 2026 Co-Head Art Arcega.
+                Insightful talks and technical guidance were delivered by Dr. Zuniga, Ms. Uriel Alonso, and Dr. Paulyn Claro, equipping contenders with practical analytics tools and public health methodologies as they build their solutions.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/programme"
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 border border-[#6E9E94]/30 bg-[#6E9E94]/10 dark:bg-[#6E9E94]/20 text-xs font-semibold text-[#245c50] dark:text-[#88beaf] rounded-full hover:bg-[#6E9E94]/20 transition-colors"
+                >
+                  <BookOpen className="w-3.5 h-3.5 text-[#408374] dark:text-[#88beaf]" />
+                  <span>Workshop Programme</span>
+                </Link>
                 <Link
                   href="/timeline"
                   className="inline-flex items-center gap-1.5 px-4 py-2.5 border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-xs font-semibold text-[#234766] dark:text-zinc-200 rounded-full hover:bg-black/[0.05] transition-colors"
@@ -279,43 +286,32 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Right Column: Event Launch Livestream Screenshot Preview */}
+            {/* Right Column: Project Development Workshop Group Photo */}
             <div className="lg:col-span-6 flex flex-col justify-center">
-              <a
-                href="https://www.facebook.com/pjdsc.updssoc/videos/2603829270045482"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/stream block relative rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-black overflow-hidden shadow-md transition-all duration-200 hover:shadow-xl hover:border-[#1877F2]/40"
-              >
-
-                {/* Screenshot Image Container */}
-                <div className="relative aspect-video w-full overflow-hidden bg-zinc-950">
+              <div className="group/photo block relative rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-zinc-950 overflow-hidden shadow-md transition-all duration-200 hover:shadow-xl">
+                {/* Photo Image Container */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-zinc-950">
                   <Image
-                    src="/assets/event-launch-ss.png"
-                    alt="PJDSC 2026 Virtual Event Launch Livestream"
+                    src="/assets/workshop-group.png"
+                    alt="PJDSC 2026 Project Development Workshop Attendees and Speakers"
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover object-top transition-transform duration-300 group-hover/stream:scale-[1.02]"
+                    className="object-cover object-center transition-transform duration-300 group-hover/photo:scale-[1.02]"
                   />
-                  {/* Play / Facebook icon badge */}
-                  <div className="absolute inset-0 bg-black/20 group-hover/stream:bg-black/10 transition-colors flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full bg-white/90 dark:bg-zinc-900/90 text-[#1877F2] flex items-center justify-center shadow-lg group-hover/stream:scale-110 transition-transform">
-                      <Facebook className="w-6 h-6 fill-current" />
-                    </div>
-                  </div>
                 </div>
-              </a>
+              </div>
 
               <div className="mt-2.5 flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400 px-1 font-mono">
-                <a
-                  href="https://www.facebook.com/pjdsc.updssoc/videos/2603829270045482"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#1877F2] hover:underline inline-flex items-center gap-1 font-sans font-semibold"
+                <span className="font-sans text-zinc-600 dark:text-zinc-400">
+                  Project Development Workshop · Oct 17, 2026
+                </span>
+                <Link
+                  href="/programme"
+                  className="text-[#234766] dark:text-[#7ca5cb] hover:underline inline-flex items-center gap-1 font-sans font-semibold"
                 >
-                  <span>Watch on Facebook</span>
+                  <span>View Details</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
+                </Link>
               </div>
             </div>
 
