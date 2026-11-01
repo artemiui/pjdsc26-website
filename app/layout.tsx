@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/themeContext";
-import IntroSplash from "@/components/IntroSplash";
+
 import Footer from "@/components/Footer";
 import { RegistrationProvider } from "@/lib/registrationContext";
 import Header from "@/components/Header";
 
-const inter = Inter({
+const inter = localFont({
   variable: "--font-inter",
-  subsets: ["latin"],
+  src: [{ path: "../public/fonts/inter-latin-variable.woff2", weight: "100 900", style: "normal" }, { path: "../public/fonts/inter-latin-ext-variable.woff2", weight: "100 900", style: "normal" }],
   display: "swap",
 });
 
@@ -77,10 +77,10 @@ export default function RootLayout({
       <body className="antialiased bg-background text-foreground min-h-screen">
         <ThemeProvider>
           <RegistrationProvider>
-            <IntroSplash />
+
             <div className="min-h-screen flex flex-col">
               <Header />
-              <main className="flex-1">{children}</main>
+              <main id="main-content" className="flex-1">{children}</main>
               <Footer />
             </div>
           </RegistrationProvider>
