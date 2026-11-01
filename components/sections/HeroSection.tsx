@@ -3,27 +3,21 @@ import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Database, FileText, Github } from "lucide-react";
 import { siteData } from "@/lib/siteData";
 import MilestoneCountdown from "@/components/MilestoneCountdown";
+import DitheredPlantBackground from "@/components/DitheredPlantBackground";
 
 function PatternArtwork() {
   return (
     <div className="pattern-art" aria-hidden="true">
       <div className="art-topline"><span>PUBLIC HEALTH ANALYTICS</span><span>PH / 2026</span></div>
       <svg viewBox="0 0 520 540" fill="none">
-        <defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#a8c7bc" opacity=".3" /></pattern></defs>
-        <rect width="520" height="540" fill="url(#dots)" />
-        <circle cx="260" cy="267" r="192" stroke="#a8c7bc" strokeOpacity=".22" />
-        <circle cx="260" cy="267" r="145" stroke="#a8c7bc" strokeOpacity=".35" />
-        <circle cx="260" cy="267" r="96" stroke="#a8c7bc" strokeOpacity=".25" />
-        <path d="M260 50V480M43 267H477" stroke="#a8c7bc" strokeOpacity=".25" strokeDasharray="4 8" />
         {Array.from({length: 15}, (_, i) => {
           const height = 90 + Math.sin(i * .48) * 85 + i * 8;
-          return <rect key={i} x={83+i*24} y={390-height} width="13" height={height} rx="6.5" fill={i > 9 ? "#e38363" : "#91b7a9"} opacity={.45 + i*.032} />;
+          return <rect className="signal-bar" style={{ animationDelay: `${i * -0.23}s` }} key={i} x={83+i*24} y={390-height} width="13" height={height} rx="6.5" fill={i > 9 ? "#e38363" : "#91b7a9"} opacity={.45 + i*.032} />;
         })}
-        <path d="M53 300H135L161 268L188 316L222 202L251 341L285 247L308 279H352L380 230L408 263H467" stroke="#f6f3eb" strokeWidth="3" strokeLinejoin="round" />
-        <circle cx="380" cy="230" r="7" fill="#e38363" stroke="#234766" strokeWidth="3" />
+        <path className="health-signal" pathLength="1" d="M53 300H135L161 268L188 316L222 202L251 341L285 247L308 279H352L380 230L408 263H467" stroke="#f6f3eb" strokeWidth="3" strokeLinejoin="round" />
+        <circle className="signal-marker" cx="380" cy="230" r="7" fill="#e38363" stroke="#234766" strokeWidth="3" />
         <path d="M380 223V151H440" stroke="#e38363" strokeWidth="1" />
         <text x="380" y="138" fill="#f6f3eb" fontSize="10" fontFamily="sans-serif" letterSpacing="2">FIND THE SIGNAL</text>
-        <text x="64" y="464" fill="#a8c7bc" fontSize="10" fontFamily="sans-serif" letterSpacing="2">DATA → INSIGHT → IMPACT</text>
       </svg>
       <div className="art-bottomline"><span>Trace the pattern.</span><span>Target the cure. ↗</span></div>
     </div>
@@ -34,6 +28,7 @@ export default function HeroSection() {
   return (
     <div className="event-home">
       <section className="event-hero">
+        <DitheredPlantBackground className="hero-cell-background" />
         
         <div className="hero-layout">
           <div className="hero-copy">

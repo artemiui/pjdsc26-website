@@ -81,6 +81,7 @@ export default function DitheredPlantBackground({
     if (!ctx) return;
 
     let animationFrameId: number;
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
     let width = (canvas.width = canvas.parentElement?.clientWidth || window.innerWidth);
     let height = (canvas.height = canvas.parentElement?.clientHeight || window.innerHeight);
 
@@ -93,7 +94,7 @@ export default function DitheredPlantBackground({
     window.addEventListener("resize", handleResize);
 
     // Initialize Spores / Dither Particles
-    const particlesCount = 40;
+    const particlesCount = width < 760 ? 65 : 100;
     const particles: Particle[] = [];
     const colorsList: ("teal" | "coral" | "navy" | "mint")[] = [
       "teal",
@@ -136,7 +137,7 @@ export default function DitheredPlantBackground({
       "cluster",
     ];
 
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < (width < 760 ? 14 : 22); i++) {
       const rx = Math.random() * width;
       floatingCrosses.push({
         x: rx,
@@ -535,6 +536,51 @@ export default function DitheredPlantBackground({
       },
     ];
 
+    // Small ASCII organisms: membranes, nuclei, and rod-shaped cells.
+    // Normalized positions keep the field balanced when the viewport changes.
+    const cells = Array.from({ length: width < 760 ? 18 : 30 }, (_, index) => ({
+      x: (index * 0.61803398875 + 0.07) % 1,
+      y: (index * 0.38196601125 + 0.12) % 1,
+      size: 15 + (index % 5) * 5,
+      phase: index * 2.39996,
+      kind: index % 3,
+      speed: 0.006 + (index % 4) * 0.002,
+    }));
+
+    const drawAsciiCells = (time: number) => {
+      ctx.save();
+      ctx.font = "9px ui-monospace, Consolas, monospace";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      cells.forEach((cell, index) => {
+        const x = cell.x * width + Math.sin(time * 0.45 + cell.phase) * 18;
+        const y = ((cell.y - time * cell.speed) % 1 + 1) % 1 * (height + 90) - 45;
+        const breath = 1 + Math.sin(time * 0.85 + cell.phase) * 0.08;
+        // Cells remain visible around the copy, quieter beneath the reading area.
+        const beneathCopy = x > width * 0.07 && x < width * (width < 760 ? 0.9 : 0.5)
+          && y < height * (width < 760 ? 0.4 : 0.8);
+        ctx.globalAlpha = (beneathCopy ? 0.12 : 0.3) * (0.8 + Math.sin(time + cell.phase) * 0.2);
+        ctx.fillStyle = index % 5 === 0 ? "#bc6348" : index % 3 === 0 ? "#234766" : "#347765";
+        const points = cell.kind === 1 ? 18 : 24;
+        for (let point = 0; point < points; point++) {
+          const angle = point / points * Math.PI * 2;
+          const ripple = 1 + Math.sin(angle * 5 + time * 0.7 + cell.phase) * 0.09;
+          const radius = cell.size * breath * ripple;
+          const stretch = cell.kind === 1 ? 1.6 : 1;
+          const px = Math.cos(angle) * radius * stretch;
+          const py = Math.sin(angle) * radius * (cell.kind === 1 ? 0.58 : 1);
+          ctx.fillText(point % 3 === 0 ? "+" : point % 2 === 0 ? ":" : ".", x + px, y + py);
+          if (cell.kind === 2 && point % 2 === 0) {
+            ctx.fillText("·", x + px * 1.27, y + py * 1.27);
+          }
+        }
+        ctx.fillText(cell.kind === 1 ? "::" : "⊙", x, y);
+        ctx.fillText("·", x + cell.size * 0.38, y - cell.size * 0.23);
+        ctx.fillText(":", x - cell.size * 0.3, y + cell.size * 0.25);
+      });
+      ctx.restore();
+    };
+
     let time = 0;
 
     const render = () => {
@@ -549,6 +595,8 @@ export default function DitheredPlantBackground({
       ctx.clearRect(0, 0, width, height);
 
       const colors = getColors();
+
+      drawAsciiCells(time);
 
       // 1. Draw Ambient Big Anchor Medical Crosses (Parallax & Gentle Breathing)
       anchorCrosses.forEach((ac, idx) => {
@@ -754,13 +802,19 @@ export default function DitheredPlantBackground({
         }
       });
 
-      animationFrameId = requestAnimationFrame(render);
+      if (!motionPreference.matches) animationFrameId = requestAnimationFrame(render);
     };
 
+    const onMotionChange = () => {
+      cancelAnimationFrame(animationFrameId);
+      render();
+    };
+    motionPreference.addEventListener("change", onMotionChange);
     render();
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      motionPreference.removeEventListener("change", onMotionChange);
       window.removeEventListener("resize", handleResize);
     };
   }, [isDark]);
