@@ -309,3 +309,38 @@ main > section > div > div:first-child { max-width: 900px; }
     transform: none !important;
   }
 }
+
+.announcements-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: clamp(28px, 5vw, 76px);
+  padding-block: clamp(52px, 7vw, 96px);
+  border-bottom: 1px solid var(--event-line);
+}
+.announcements-heading h2 { margin: 0; }
+.announcement-letter {
+  min-width: 0;
+  border-top: 2px solid #347765;
+  padding-top: 22px;
+}
+.announcement-title {
+  font-size: clamp(22px, 2.7vw, 36px);
+  font-weight: 650;
+  letter-spacing: -.04em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.announcement-body {
+  max-width: 70ch;
+  margin-top: 22px;
+  color: #526574;
+  font-size: 15px;
+  line-height: 1.75;
+}
+.announcement-body p + p { margin-top: 14px; }
+.announcement-body p:last-child { color: #234766; }
+.milestone-strip p.milestone-date { font-size: 13px; font-weight: 600; }
+.milestone-strip p.milestone-note { margin-top: 5px; line-height: 1.5; }
+@media (max-width: 760px) {
+  .announcements-section { grid-template-columns: 1fr; }
+}

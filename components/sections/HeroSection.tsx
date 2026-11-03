@@ -44,6 +44,21 @@ export default function HeroSection() {
         <div className="hero-baseline"><span>SCIENCE WITH PURPOSE. DATA WITH DIRECTION.</span><a href="#challenge">Discover PJDSC <ArrowDown size={14} /></a></div>
       </section>
       <MilestoneCountdown />
+      <section className="event-section announcements-section" aria-labelledby="announcements-heading">
+        <div className="section-heading announcements-heading">
+          <h2 id="announcements-heading">
+            Announcements
+          </h2>
+        </div>
+        <article className="announcement-letter">
+          <h3 className="announcement-title">Finalists release moved to November 6</h3>
+          <div className="announcement-body">
+            <p>Finalists will be announced on <strong>Friday, November 6 at 8:00 PM Philippine time</strong>, moved from November 4. This is to give elimination judges more time to review all submissions thoroughly.</p>
+            <p>In addition, please be informed that the dates for the Advanced Workshop initially scheduled for November 7, and Event Culmination on November 14, are likely subject to change due to this adjustment. Check this section or your email inboxes for further schedule updates.</p>
+            <p>Thank you to all participants for your dedication, patience, and understanding.</p>
+          </div>
+        </article>
+      </section>
       <section id="challenge" className="event-section challenge-section">
         <div className="section-heading"><h2>Big questions.<br /><span>Meaningful solutions.</span></h2></div>
         <div className="challenge-content"><p className="section-lead">Better public health starts with a better understanding of data.</p><p>From disease surveillance to healthcare access, PJDSC challenges senior high school and tertiary students to transform real-world datasets into practical solutions for Filipino communities.</p><Link className="editorial-link" href="/about">Get to know PJDSC <ArrowUpRight size={18} /></Link></div>

@@ -277,7 +277,7 @@ export const siteData = {
       highlight: true,
     },
     {
-      date: "November 04, 2026",
+      date: "November 06, 2026 · 8:00 PM PHT",
       title: "Announcement of Top 10 Finalists",
       description:
         "Public announcement of the Top 10 qualifying teams via PJDSC official social channels and direct team correspondence.",
@@ -383,10 +383,10 @@ export const siteData = {
       name: "Announcement of Top 10 Finalists",
       shortName: "Top 10 Reveal",
       prefix: "Top 10 Finalists Announced In:",
-      targetDate: "2026-11-04T18:00:00+08:00",
+      targetDate: "2026-11-06T20:00:00+08:00",
       phase: "finals",
       badge: "Finalists",
-      dateDisplay: "Nov 04, 2026 · 6:00 PM",
+      dateDisplay: "Friday, November 6, 2026 · 8:00 PM PHT",
       info: "Top 10 qualifying teams revealed publicly",
     },
     {
