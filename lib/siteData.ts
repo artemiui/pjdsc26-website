@@ -394,10 +394,10 @@ export const siteData = {
       name: "Advanced Workshop & Dedicated Mentorship",
       shortName: "Mentorship",
       prefix: "Mentorship Workshop In:",
-      targetDate: "2026-11-07T09:00:00+08:00",
+      targetDate: "2026-11-14T12:30:00+08:00",
       phase: "finals",
       badge: "Mentorship",
-      dateDisplay: "Nov 07, 2026 · 9:00 AM",
+      dateDisplay: "Nov 14, 2026 · 12:30 PM",
       info: "Technical masterclass & 1-on-1 industry mentorship",
     },
     {
@@ -405,10 +405,10 @@ export const siteData = {
       name: "Grand Face-to-Face Finals",
       shortName: "Grand Finals",
       prefix: "Grand Finals Begin In:",
-      targetDate: "2026-11-14T08:00:00+08:00",
+      targetDate: "2026-11-21T08:00:00+08:00",
       phase: "finals",
       badge: "Championship",
-      dateDisplay: "Nov 14, 2026 · 8:00 AM",
+      dateDisplay: "Nov 21, 2026 · 8:00 AM",
       info: "Metro Manila · Live Stage Pitch, Q&A & Demo Station",
     },
   ] as CompetitionMilestone[],
@@ -448,7 +448,7 @@ export const siteData = {
     {
       id: "mentorship",
       name: "Stage 3: Advanced Mentorship",
-      date: "Nov 07, 2026",
+      date: "Nov 14, 2026",
       deliverable: "Online Masterclass & 1-on-1 Mentoring",
       summary:
         "Top 10 finalists receive targeted technical feedback and strategic guidance from domain experts in biostatistics, AI, and healthcare.",
@@ -461,7 +461,7 @@ export const siteData = {
     {
       id: "finals",
       name: "Stage 4: Culminating Event",
-      date: "Nov 14, 2026",
+      date: "Nov 21, 2026",
       deliverable: "Live Pitch + Booth Demonstration",
       summary:
         "The grand face-to-face climax in Metro Manila featuring live pitches before an esteemed judging panel and interactive prototype exhibits.",
