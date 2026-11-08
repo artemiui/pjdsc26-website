@@ -284,14 +284,14 @@ export const siteData = {
       phase: "finals",
     },
     {
-      date: "November 07, 2026",
+      date: "November 14, 2026",
       title: "Advanced Workshop & Dedicated Mentorship",
       description:
         "Advanced technical masterclass followed by personalized 1-on-1 mentorship breakout sessions for each finalist team.",
       phase: "finals",
     },
     {
-      date: "November 14, 2026",
+      date: "November 21, 2026",
       title: "Final Culminating Event & Pitching",
       description:
         "Grand Face-to-Face Finals in Metro Manila. 10-min stage presentation, 10-min judge Q&A, and interactive demo station exhibit.",
