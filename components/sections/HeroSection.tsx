@@ -51,11 +51,14 @@ export default function HeroSection() {
           </h2>
         </div>
         <article className="announcement-letter">
-          <h3 className="announcement-title">Finalists release moved to November 6</h3>
+          <h3 className="announcement-title">Results Rolling Out</h3>
           <div className="announcement-body">
-            <p>Finalists will be announced on <strong>Friday, November 6 at 8:00 PM Philippine time</strong>, moved from November 4. This is to give elimination judges more time to review all submissions thoroughly.</p>
-            <p>In addition, please be informed that the dates for the Advanced Workshop initially scheduled for November 7, and Event Culmination on November 14, are likely subject to change due to this adjustment. Check this section or your email inboxes for further schedule updates.</p>
-            <p>Thank you to all participants for your dedication, patience, and understanding.</p>
+            <p>Dear Participants,</p>
+            <p>We want to commend you for your dedication and participation. Your analytical insights and commitment to data science truly stood out, and we hope you will continue to hone your skills and pursue future challenges.</p>
+            <p>With that, we would like to announce that the schedule for the upcoming events has been adjusted. The whole PJDSC Team would also like to deeply apologize for the delay of the finalists announcement. The initial delay occurred because a few of our designated judges requested an extension to complete their evaluations.</p>
+            <p>The Advanced Workshop will be on <strong>Saturday, November 14 at 12:30 PM Philippine time</strong>, moved from November 7.</p>
+            <p>The finals will be on <strong>Saturday, November 21 at 8:00 AM Philippine time</strong>, moved from November 14.</p>
+            <p>We apologize for the inconvenience and thank you for your understanding.</p>
           </div>
         </article>
       </section>
