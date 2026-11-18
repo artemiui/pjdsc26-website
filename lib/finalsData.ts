@@ -93,6 +93,25 @@ export const finalsData = {
         "Each team has 10 minutes on stage, followed by a 10-minute Q&A with the panel of judges. The time limit is strictly enforced: teams that reach 10 minutes are stopped immediately and no extra time is given.",
     },
     {
+      question: "Will we have time to test our presentation beforehand?",
+      answer:
+        "Each team gets 1 minute to test before presenting, and we will check the audio. You present from your own device, so make sure your videos and GIFs play properly on it ahead of time. Extra setup time is only given if the problem is on our side, such as no audio or a faulty microphone.",
+    },
+    {
+      question: "Will a presentation clicker and microphones be provided?",
+      answer:
+        "No clicker will be provided. Each team gets one microphone. More than one member may present, but we recommend designating one presenter to save time.",
+    },
+    {
+      question: "Can we bring props for our presentation?",
+      answer: "Yes, you may bring props.",
+    },
+    {
+      question: "A member has a conflict in the morning. Can we present in the afternoon block?",
+      answer:
+        "Yes. Request the afternoon block and send proof of the conflict, such as a class schedule or an official notice, to pjdsc.updssoc@gmail.com.",
+    },
+    {
       question: "Is the demo station part of the scoring?",
       answer:
         "No. Every team gets a demonstration station in addition to the stage presentation, but it is for exhibit and viewing only and is not included in the official evaluation.",
