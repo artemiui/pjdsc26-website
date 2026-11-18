@@ -547,8 +547,7 @@ export const siteData = {
     },
   ] as CriteriaItem[],
 
-  // Finals rubric. Descriptors ending in "…" were cut off in the source
-  // rubric; replace them with the full wording when available.
+  // Finals rubric, matching the Final Round Scoresheet template.
   criteriaFinals: [
     {
       category: "Demonstrated Functionality & Technical Robustness",
@@ -565,17 +564,17 @@ export const siteData = {
             {
               label: "Unsatisfactory",
               range: "0–4%",
-              text: "The live application or model exhibits significant functional flaws, frequent crashes, or poor speed, rendering it unreliable or unusable…"
+              text: "The live application or model exhibits significant functional flaws, frequent crashes, or poor speed, rendering it unreliable or unusable."
             },
             {
               label: "Satisfactory",
               range: "5–7%",
-              text: "The live application or model generally functions as intended, but may have minor bugs, occasional performance lags, or require specific conditions for stable…"
+              text: "The live application or model generally functions as intended, but may have minor bugs, occasional performance lags, or require specific conditions for stable operation."
             },
             {
               label: "Excellent",
               range: "8–10%",
-              text: "The live application or model demonstrates outstanding technical execution, performing efficiently and reliably under various conditions, showcasing…"
+              text: "The live application or model demonstrates outstanding technical execution, performing efficiently and reliably under various conditions, showcasing robust engineering."
             }
           ]
         },
@@ -596,7 +595,7 @@ export const siteData = {
             {
               label: "Excellent",
               range: "8–10%",
-              text: "The methods are well suited to the problem and data, with justified design choices, rigorous validation, careful handling of bias, and a transparent account of…"
+              text: "The methods are well suited to the problem and data, with justified design choices, rigorous validation, careful handling of bias, and a transparent account of limitations."
             }
           ]
         }
@@ -627,7 +626,7 @@ export const siteData = {
             {
               label: "Excellent",
               range: "8–10%",
-              text: "The project makes a clear, well-demonstrated contribution beyond existing approaches through a novel idea, a demonstrated methodological improvement, or a thoughtful adaptation to a new context…"
+              text: "The project makes a clear, well-demonstrated contribution beyond existing approaches through a novel idea, a demonstrated methodological improvement, or a thoughtful adaptation to a new context."
             }
           ]
         },
@@ -643,12 +642,12 @@ export const siteData = {
             {
               label: "Satisfactory",
               range: "3–4%",
-              text: "The problem is clearly defined and the public health context generally understood, but the data context, target population, or equity considerations are only lightly…"
+              text: "The problem is clearly defined and the public health context generally understood, but the data context, target population, or equity considerations are only lightly addressed."
             },
             {
               label: "Excellent",
               range: "5%",
-              text: "The project frames a precise, well-motivated public health problem and demonstrates strong understanding of its data context and target population…"
+              text: "The project frames a precise, well-motivated public health problem and demonstrates strong understanding of its data context and target population."
             }
           ]
         }
@@ -679,7 +678,7 @@ export const siteData = {
             {
               label: "Excellent",
               range: "8–10%",
-              text: "The live presentation is exceptionally well-structured, well-paced, and engaging, delivered with clarity and confidence to effectively capture attention and convey…"
+              text: "The live presentation is exceptionally well-structured, well-paced, and engaging, delivered with clarity and confidence to effectively capture attention and convey the project's story."
             }
           ]
         },
@@ -732,7 +731,7 @@ export const siteData = {
             {
               label: "Excellent",
               range: "8–10%",
-              text: "The project clearly demonstrates significant and quantifiable real-world value for target stakeholders, addressing a pressing problem with clear, evidence-…"
+              text: "The project clearly demonstrates significant and quantifiable real-world value for target stakeholders, addressing a pressing problem with clear, evidence-based benefits and outcomes."
             }
           ]
         },
@@ -743,7 +742,7 @@ export const siteData = {
             {
               label: "Unsatisfactory",
               range: "0–4%",
-              text: "The project shows no consideration for real-world deployment or handling larger datasets/user loads, making future expansion or widespread use…"
+              text: "The project shows no consideration for real-world deployment or handling larger datasets/user loads, making future expansion or widespread use impossible."
             },
             {
               label: "Satisfactory",
@@ -753,7 +752,7 @@ export const siteData = {
             {
               label: "Excellent",
               range: "8–10%",
-              text: "The project is designed with real-world deployment and scalability clearly in mind, demonstrating a robust architecture ready for larger datasets, more users, and widespread…"
+              text: "The project is designed with real-world deployment and scalability clearly in mind, demonstrating a robust architecture ready for larger datasets, more users, and widespread adoption."
             }
           ]
         },
@@ -796,7 +795,7 @@ export const siteData = {
             {
               label: "Unsatisfactory",
               range: "0–4%",
-              text: "The interface is confusing, difficult to use, or inaccessible to non-technical target users (e.g., jargon, poor readability), requiring extensive external…"
+              text: "The interface is confusing, difficult to use, or inaccessible to non-technical target users (e.g., jargon, poor readability), requiring extensive external guidance."
             },
             {
               label: "Satisfactory",
@@ -806,7 +805,7 @@ export const siteData = {
             {
               label: "Excellent",
               range: "8–10%",
-              text: "The interface is exceptionally intuitive and inclusive, immediately accessible to diverse and non-technical users without prior…"
+              text: "The interface is exceptionally intuitive and inclusive, immediately accessible to diverse and non-technical users without prior instruction (e.g., plain language, clear readability)."
             }
           ]
         },
@@ -817,7 +816,7 @@ export const siteData = {
             {
               label: "Unsatisfactory",
               range: "0–2%",
-              text: "Navigation and workflows are cumbersome, inconsistent, or unresponsive, hindering completion…"
+              text: "Navigation and workflows are cumbersome, inconsistent, or unresponsive, hindering completion of key tasks."
             },
             {
               label: "Satisfactory",
@@ -827,7 +826,7 @@ export const siteData = {
             {
               label: "Excellent",
               range: "5%",
-              text: "Navigation and workflows are seamless, consistent, and responsive, allowing key tasks to be completed…"
+              text: "Navigation and workflows are seamless, consistent, and responsive, allowing key tasks to be completed efficiently."
             }
           ]
         },
@@ -838,17 +837,17 @@ export const siteData = {
             {
               label: "Unsatisfactory",
               range: "0–2%",
-              text: "Charts, maps, or model outputs are unclear or disorganized, or fail to convey meaningful insights, making results difficult to…"
+              text: "Charts, maps, or model outputs are unclear or disorganized, or fail to convey meaningful insights, making results difficult to interpret."
             },
             {
               label: "Satisfactory",
               range: "3–4%",
-              text: "Charts and outputs are understandable, but could be presented more clearly or directly to communicate…"
+              text: "Charts and outputs are understandable, but could be presented more clearly or directly to communicate insights."
             },
             {
               label: "Excellent",
               range: "5%",
-              text: "Outputs are exceptionally clear, using effective visualizations, concise summaries, and insightful explanations to…"
+              text: "Outputs are exceptionally clear, using effective visualizations, concise summaries, and insightful explanations to communicate actionable insights."
             }
           ]
         }
