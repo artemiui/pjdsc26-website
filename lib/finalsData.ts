@@ -95,7 +95,7 @@ export const finalsData = {
     {
       question: "Will we have time to test our presentation beforehand?",
       answer:
-        "Each team gets 1 minute to test before presenting, and we will check the audio. You present from your own device, so make sure your videos and GIFs play properly on it ahead of time. Extra setup time is only given if the problem is on our side, such as no audio or a faulty microphone.",
+        "Each team gets 1 minute to test before presenting, and we will check the audio. You present from your own device, so prepare it ahead of time and make sure everything in your presentation works on it. Extra setup time is only given if the problem is on our side, such as no audio or a faulty microphone.",
     },
     {
       question: "Will a presentation clicker and microphones be provided?",
