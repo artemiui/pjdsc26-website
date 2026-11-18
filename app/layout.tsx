@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/lib/themeContext";
 import Footer from "@/components/Footer";
 import { RegistrationProvider } from "@/lib/registrationContext";
 import Header from "@/components/Header";
+import FinalsAnnouncement from "@/components/FinalsAnnouncement";
 
 const inter = localFont({
   variable: "--font-inter",
@@ -82,6 +83,7 @@ export default function RootLayout({
               <Header />
               <main id="main-content" className="flex-1">{children}</main>
               <Footer />
+              <FinalsAnnouncement />
             </div>
           </RegistrationProvider>
         </ThemeProvider>

@@ -8,18 +8,18 @@ import DitheredPlantBackground from "@/components/DitheredPlantBackground";
 function PatternArtwork() {
   return (
     <div className="pattern-art" aria-hidden="true">
-      <div className="art-topline"><span>PUBLIC HEALTH ANALYTICS</span><span>PH / 2026</span></div>
+      <div className="art-topline"><span>Public health analytics</span><span>PH / 2026</span></div>
       <svg viewBox="0 0 520 540" fill="none">
         {Array.from({length: 15}, (_, i) => {
           const height = 90 + Math.sin(i * .48) * 85 + i * 8;
           return <rect className="signal-bar" style={{ animationDelay: `${i * -0.23}s` }} key={i} x={83+i*24} y={390-height} width="13" height={height} rx="6.5" fill={i > 9 ? "#e38363" : "#91b7a9"} opacity={.45 + i*.032} />;
         })}
-        <path className="health-signal" pathLength="1" d="M53 300H135L161 268L188 316L222 202L251 341L285 247L308 279H352L380 230L408 263H467" stroke="#f6f3eb" strokeWidth="3" strokeLinejoin="round" />
+        <path className="health-signal" pathLength="1" d="M53 300H135L161 268L188 316L222 202L251 341L285 247L308 279H352L380 230L408 263H467" stroke="#fafafa" strokeWidth="3" strokeLinejoin="round" />
         <circle className="signal-marker" cx="380" cy="230" r="7" fill="#e38363" stroke="#234766" strokeWidth="3" />
         <path d="M380 223V151H440" stroke="#e38363" strokeWidth="1" />
-        <text x="380" y="138" fill="#f6f3eb" fontSize="10" fontFamily="sans-serif" letterSpacing="2">FIND THE SIGNAL</text>
+        <text x="380" y="138" fill="#fafafa" fontSize="10" fontFamily="sans-serif" letterSpacing="0">Find the signal</text>
       </svg>
-      <div className="art-bottomline"><span>Trace the pattern.</span><span>Target the cure. ↗</span></div>
+      <div className="art-bottomline"><span>Trace the pattern.</span><span>Target the cure.</span></div>
     </div>
   );
 }
@@ -33,15 +33,16 @@ export default function HeroSection() {
         <div className="hero-layout">
           <div className="hero-copy">
             
+            <Link href="/finals" className="final-round-tag"><span className="final-round-label">FINAL ROUND</span><span className="final-round-date">Sat, Nov 21 · 8:00 AM</span></Link>
             <h1>Philippine Junior<br /><span>Data Science</span><br />Challenge<span className="title-period">.</span></h1>
             <p className="hero-theme">Trace the Pattern, Target the Cure.</p>
             <p className="hero-description">Turn data into discoveries that matter. Bringing the next generation of Filipino data scientists together to advance public health.</p>
-            <div className="hero-actions"><Link href="/primer" className="event-button primary">Explore the challenge <ArrowUpRight size={18} /></Link><Link href="/catalogue" className="event-button secondary">Browse datasets <ArrowUpRight size={18} /></Link></div>
+            <div className="hero-actions"><Link href="/primer" className="event-button primary">Explore the challenge <ArrowUpRight size={18} /></Link><Link href="/finals" className="event-button secondary">Finalist primer <ArrowUpRight size={18} /></Link></div>
             <div className="hero-organizer"><Image src="/assets/logos-ver2026/up dssoc/updssoclogoicon.png" alt="" width={32} height={32} /><span>Organized by<br /><strong>UP Data Science Society</strong></span></div>
           </div>
           <PatternArtwork />
         </div>
-        <div className="hero-baseline"><span>SCIENCE WITH PURPOSE. DATA WITH DIRECTION.</span><a href="#challenge">Discover PJDSC <ArrowDown size={14} /></a></div>
+        <div className="hero-baseline"><span>Science with purpose. Data with direction.</span><a href="#challenge">Discover PJDSC <ArrowDown size={14} /></a></div>
       </section>
       <MilestoneCountdown />
       <section className="event-section announcements-section" aria-labelledby="announcements-heading">
@@ -51,14 +52,11 @@ export default function HeroSection() {
           </h2>
         </div>
         <article className="announcement-letter">
-          <h3 className="announcement-title">Results Rolling Out</h3>
+          <h3 className="announcement-title">See you at the finals</h3>
           <div className="announcement-body">
-            <p>Dear Participants,</p>
-            <p>We want to commend you for your dedication and participation. Your analytical insights and commitment to data science truly stood out, and we hope you will continue to hone your skills and pursue future challenges.</p>
-            <p>With that, we would like to announce that the schedule for the upcoming events has been adjusted. The whole PJDSC Team would also like to deeply apologize for the delay of the finalists announcement. The initial delay occurred because a few of our designated judges requested an extension to complete their evaluations.</p>
-            <p>The Advanced Workshop will be on <strong>Saturday, November 14 at 12:30 PM Philippine time</strong>, moved from November 7.</p>
-            <p>The finals will be on <strong>Saturday, November 21 at 8:00 AM Philippine time</strong>, moved from November 14.</p>
-            <p>We apologize for the inconvenience and thank you for your understanding.</p>
+            <p>Ten teams advance to the face-to-face final round on <strong>Saturday, November 21, 2026</strong>, at the <strong>CS Auditorium, National Science Complex, UP Diliman</strong>. Ingress starts at 8:00 AM.</p>
+            <p>Finalists, the finalist primer has the program flow, venue details, your seating plan, and answers to common questions.</p>
+            <p><Link className="editorial-link" href="/finals">Open the finalist primer <ArrowUpRight size={18} /></Link></p>
           </div>
         </article>
       </section>
@@ -68,7 +66,7 @@ export default function HeroSection() {
         <div className="event-stats">{siteData.stats.map(stat => <div key={stat.label}><strong>{stat.value}</strong><span>{stat.label === "Slots Available" ? "Team capacity" : stat.label}</span><p>{stat.label === "Slots Available" ? "Across the Philippines" : stat.sub}</p></div>)}</div>
       </section>
       <section className="workshop-feature">
-        <div className="workshop-image"><Image src="/assets/workshop-group.png" alt="Participants and speakers at the PJDSC 2026 Project Development Workshop" fill sizes="(max-width: 760px) 100vw, 55vw" className="object-cover" /><span>THE PJDSC COMMUNITY / OCTOBER 17, 2026</span></div>
+        <div className="workshop-image"><Image src="/assets/workshop-group.png" alt="Participants and speakers at the PJDSC 2026 Project Development Workshop" fill sizes="(max-width: 760px) 100vw, 55vw" className="object-cover" /><span>The PJDSC community · October 17, 2026</span></div>
         <div className="workshop-copy"><h2>Learning together.<br />Building what’s next.</h2><p>Our Project Development Workshop brought teams together at UP Diliman and online for practical analytics tools, expert guidance, and fresh perspectives on public health.</p><p>Dr. Zuniga, Ms. Uriel Alonso, and Dr. Paulyn Claro shared insights to help contenders turn their ideas into working solutions.</p><Link href="/programme" className="editorial-link">Explore the workshop programme <ArrowUpRight size={18} /></Link></div>
       </section>
       <section className="event-section resources-section"><div className="resource-heading"><div><h2>Good work starts here.</h2></div><p>The guidance, data, and tools<br />to take your project further.</p></div>

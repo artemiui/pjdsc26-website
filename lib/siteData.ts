@@ -20,11 +20,24 @@ export interface CompetitionMilestone {
   info: string;
 }
 
+export interface RubricLevel {
+  label: "Unsatisfactory" | "Satisfactory" | "Excellent";
+  range: string;
+  text: string;
+}
+
+export interface RubricSubcriterion {
+  name: string;
+  weight: string;
+  levels: RubricLevel[];
+}
+
 export interface CriteriaItem {
   category: string;
   weight?: string;
-  description: string;
+  description?: string;
   points: string[];
+  subcriteria?: RubricSubcriterion[];
 }
 
 export interface FaqItem {
@@ -534,53 +547,313 @@ export const siteData = {
     },
   ] as CriteriaItem[],
 
+  // Finals rubric. Descriptors ending in "…" were cut off in the source
+  // rubric; replace them with the full wording when available.
   criteriaFinals: [
     {
       category: "Demonstrated Functionality & Technical Robustness",
+      weight: "20%",
+      points: [
+        "Technical Execution and Performance (10%)",
+        "Methodological Soundness and Validity (10%)"
+      ],
+      subcriteria: [
+        {
+          name: "Technical Execution and Performance",
+          weight: "10%",
+          levels: [
+            {
+              label: "Unsatisfactory",
+              range: "0–4%",
+              text: "The live application or model exhibits significant functional flaws, frequent crashes, or poor speed, rendering it unreliable or unusable…"
+            },
+            {
+              label: "Satisfactory",
+              range: "5–7%",
+              text: "The live application or model generally functions as intended, but may have minor bugs, occasional performance lags, or require specific conditions for stable…"
+            },
+            {
+              label: "Excellent",
+              range: "8–10%",
+              text: "The live application or model demonstrates outstanding technical execution, performing efficiently and reliably under various conditions, showcasing…"
+            }
+          ]
+        },
+        {
+          name: "Methodological Soundness and Validity",
+          weight: "10%",
+          levels: [
+            {
+              label: "Unsatisfactory",
+              range: "0–4%",
+              text: "The chosen methods are poorly suited to the problem or data, key choices are unjustified, or validation is absent or flawed."
+            },
+            {
+              label: "Satisfactory",
+              range: "5–7%",
+              text: "The methods are reasonable and adequately explained, but alternatives, bias, or validation are only partially addressed."
+            },
+            {
+              label: "Excellent",
+              range: "8–10%",
+              text: "The methods are well suited to the problem and data, with justified design choices, rigorous validation, careful handling of bias, and a transparent account of…"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      category: "Innovation & Problem Understanding",
+      weight: "15%",
+      points: [
+        "Innovation and Improvement (10%)",
+        "Problem Framing and Domain Insight (5%)"
+      ],
+      subcriteria: [
+        {
+          name: "Innovation and Improvement",
+          weight: "10%",
+          levels: [
+            {
+              label: "Unsatisfactory",
+              range: "0–4%",
+              text: "The project replicates existing approaches with no clear improvement, adaptation, or new insight."
+            },
+            {
+              label: "Satisfactory",
+              range: "5–7%",
+              text: "The project offers a modest improvement, adaptation, or novel application, but the contribution is incremental or not clearly demonstrated."
+            },
+            {
+              label: "Excellent",
+              range: "8–10%",
+              text: "The project makes a clear, well-demonstrated contribution beyond existing approaches through a novel idea, a demonstrated methodological improvement, or a thoughtful adaptation to a new context…"
+            }
+          ]
+        },
+        {
+          name: "Problem Framing and Domain Insight",
+          weight: "5%",
+          levels: [
+            {
+              label: "Unsatisfactory",
+              range: "0–2%",
+              text: "The problem is vaguely defined or the public health context is misunderstood."
+            },
+            {
+              label: "Satisfactory",
+              range: "3–4%",
+              text: "The problem is clearly defined and the public health context generally understood, but the data context, target population, or equity considerations are only lightly…"
+            },
+            {
+              label: "Excellent",
+              range: "5%",
+              text: "The project frames a precise, well-motivated public health problem and demonstrates strong understanding of its data context and target population…"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      category: "Presentation & Communication",
+      weight: "15%",
+      points: [
+        "Presentation Quality and Engagement (10%)",
+        "Q&A Competence (5%)"
+      ],
+      subcriteria: [
+        {
+          name: "Presentation Quality and Engagement",
+          weight: "10%",
+          levels: [
+            {
+              label: "Unsatisfactory",
+              range: "0–4%",
+              text: "The live presentation is disorganized, poorly paced, or difficult to follow, showing weak storytelling, poor delivery, or a lack of preparation."
+            },
+            {
+              label: "Satisfactory",
+              range: "5–7%",
+              text: "The live presentation is generally clear and covers necessary information within time, but may lack strong storytelling, visual flow, or dynamic delivery."
+            },
+            {
+              label: "Excellent",
+              range: "8–10%",
+              text: "The live presentation is exceptionally well-structured, well-paced, and engaging, delivered with clarity and confidence to effectively capture attention and convey…"
+            }
+          ]
+        },
+        {
+          name: "Q&A Competence",
+          weight: "5%",
+          levels: [
+            {
+              label: "Unsatisfactory",
+              range: "0–2%",
+              text: "The presenter struggles to answer judges' questions, provides incorrect information, or demonstrates a lack of understanding of their methodology and limitations."
+            },
+            {
+              label: "Satisfactory",
+              range: "3–4%",
+              text: "The presenter answers most questions adequately, but may occasionally hesitate, lack depth in responses, or struggle with complex follow-up questions."
+            },
+            {
+              label: "Excellent",
+              range: "5%",
+              text: "The presenter answers all questions directly, accurately, and with exceptional depth, demonstrating comprehensive technical and domain mastery even for challenging inquiries."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      category: "Impact and Real-World Applicability",
       weight: "30%",
-      description: "Execution quality and live performance",
       points: [
-        "Working prototype reliability during live demonstration",
-        "Robustness against edge cases, latency, and sample inputs",
-        "Architectural elegance, data pipeline stability, and security",
+        "Tangible Impact (10%)",
+        "Scalability and Deployment (10%)",
+        "Sustainability (10%)"
       ],
+      subcriteria: [
+        {
+          name: "Tangible Impact",
+          weight: "10%",
+          levels: [
+            {
+              label: "Unsatisfactory",
+              range: "0–4%",
+              text: "The project has no clear real-world value for target stakeholders, or its contribution is negligible and unsupported by reliable evidence."
+            },
+            {
+              label: "Satisfactory",
+              range: "5–7%",
+              text: "The project demonstrates some real-world value for target stakeholders, though its scope is limited or the supporting evidence is not fully compelling."
+            },
+            {
+              label: "Excellent",
+              range: "8–10%",
+              text: "The project clearly demonstrates significant and quantifiable real-world value for target stakeholders, addressing a pressing problem with clear, evidence-…"
+            }
+          ]
+        },
+        {
+          name: "Scalability and Deployment",
+          weight: "10%",
+          levels: [
+            {
+              label: "Unsatisfactory",
+              range: "0–4%",
+              text: "The project shows no consideration for real-world deployment or handling larger datasets/user loads, making future expansion or widespread use…"
+            },
+            {
+              label: "Satisfactory",
+              range: "5–7%",
+              text: "The project has basic elements that allow for future deployment or larger data/user loads, but lacks a comprehensive rollout plan or robust architecture."
+            },
+            {
+              label: "Excellent",
+              range: "8–10%",
+              text: "The project is designed with real-world deployment and scalability clearly in mind, demonstrating a robust architecture ready for larger datasets, more users, and widespread…"
+            }
+          ]
+        },
+        {
+          name: "Sustainability",
+          weight: "10%",
+          levels: [
+            {
+              label: "Unsatisfactory",
+              range: "0–4%",
+              text: "The project lacks any plan for long-term maintenance, data privacy/security, or ethical and environmental considerations, making its future viability questionable."
+            },
+            {
+              label: "Satisfactory",
+              range: "5–7%",
+              text: "Some basic considerations for long-term maintenance, data privacy, or ethical aspects are present, but may not be fully developed or integrated."
+            },
+            {
+              label: "Excellent",
+              range: "8–10%",
+              text: "The project demonstrates strong consideration for long-term sustainability, addressing ongoing maintenance, ethical implications, data privacy/security, and environmental impact comprehensively."
+            }
+          ]
+        }
+      ]
     },
     {
-      category: "Impact & Real-World Applicability",
-      weight: "25%",
-      description: "Scalability and healthcare translation",
-      points: [
-        "Measurable benefit to Philippine public health outcomes",
-        "Deployment feasibility, cost viability, and scalability",
-        "Long-term operational and data maintenance sustainability",
-      ],
-    },
-    {
-      category: "User Experience & Interface Design",
+      category: "User Experience & Design",
       weight: "20%",
-      description: "Human-centered design and clarity",
       points: [
-        "Intuitive interaction design tailored for health workers or citizens",
-        "Accessibility, responsiveness, and aesthetic polish",
-        "Cognitive clarity of charts, data visualizations, and metrics",
+        "Accessibility and Intuitiveness (10%)",
+        "Interaction Design (5%)",
+        "Output Clarity and Insight Communication (5%)"
       ],
-    },
-    {
-      category: "Presentation & Communication Competence",
-      weight: "20%",
-      description: "Stage pitch and defense",
-      points: [
-        "Pacing, delivery, and adherence to the 10-minute stage limit",
-        "Mastery, poise, and technical precision during judge Q&A",
-        "Compelling storytelling and articulation of core value proposition",
-      ],
-    },
-    {
-      category: "Sources & Citations",
-      weight: "5%",
-      description: "Scholarly attribution",
-      points: ["Consistent, verified APA 7th Edition attribution."],
-    },
+      subcriteria: [
+        {
+          name: "Accessibility and Intuitiveness",
+          weight: "10%",
+          levels: [
+            {
+              label: "Unsatisfactory",
+              range: "0–4%",
+              text: "The interface is confusing, difficult to use, or inaccessible to non-technical target users (e.g., jargon, poor readability), requiring extensive external…"
+            },
+            {
+              label: "Satisfactory",
+              range: "5–7%",
+              text: "The interface is generally usable for target users, but some features are unintuitive or not fully inclusive, requiring a learning curve."
+            },
+            {
+              label: "Excellent",
+              range: "8–10%",
+              text: "The interface is exceptionally intuitive and inclusive, immediately accessible to diverse and non-technical users without prior…"
+            }
+          ]
+        },
+        {
+          name: "Interaction Design",
+          weight: "5%",
+          levels: [
+            {
+              label: "Unsatisfactory",
+              range: "0–2%",
+              text: "Navigation and workflows are cumbersome, inconsistent, or unresponsive, hindering completion…"
+            },
+            {
+              label: "Satisfactory",
+              range: "3–4%",
+              text: "Navigation and workflows are functional, but lack smoothness, responsiveness, or consistency."
+            },
+            {
+              label: "Excellent",
+              range: "5%",
+              text: "Navigation and workflows are seamless, consistent, and responsive, allowing key tasks to be completed…"
+            }
+          ]
+        },
+        {
+          name: "Output Clarity and Insight Communication",
+          weight: "5%",
+          levels: [
+            {
+              label: "Unsatisfactory",
+              range: "0–2%",
+              text: "Charts, maps, or model outputs are unclear or disorganized, or fail to convey meaningful insights, making results difficult to…"
+            },
+            {
+              label: "Satisfactory",
+              range: "3–4%",
+              text: "Charts and outputs are understandable, but could be presented more clearly or directly to communicate…"
+            },
+            {
+              label: "Excellent",
+              range: "5%",
+              text: "Outputs are exceptionally clear, using effective visualizations, concise summaries, and insightful explanations to…"
+            }
+          ]
+        }
+      ]
+    }
   ] as CriteriaItem[],
 
   organizer: {
@@ -630,7 +903,7 @@ export const siteData = {
       question:
         "I am not from Computer Science, Statistics, or Engineering. Am I still allowed to register?",
       answer:
-        "Absolutely! The competition is warmly open to all undergraduate and senior high school students from any accredited Philippine institution, with no restrictions on academic degree program. Multidisciplinary teams that combine domain knowledge (e.g. biology, public health, psychology, communications) with analytical skills are strongly encouraged.",
+        "Yes. The competition is open to all undergraduate and senior high school students from any accredited Philippine institution, with no restrictions on academic degree program. Multidisciplinary teams that combine domain knowledge (e.g. biology, public health, psychology, communications) with analytical skills are strongly encouraged.",
     },
     {
       category: "eligibility",
@@ -642,7 +915,7 @@ export const siteData = {
       category: "teams",
       question: "Can our team have members from different universities and regions?",
       answer:
-        "Yes! Cross-university and cross-regional collaborations are fully permitted and celebrated. You are free to team up with peers across NCR, Luzon, Visayas, and Mindanao as long as every member satisfies the eligibility criteria.",
+        "Yes. Cross-university and cross-regional teams are allowed. You can team up with peers across NCR, Luzon, Visayas, and Mindanao as long as every member satisfies the eligibility criteria.",
     },
     {
       category: "teams",
@@ -672,19 +945,19 @@ export const siteData = {
       category: "event",
       question: "Where will the hybrid and face-to-face culminating events take place?",
       answer:
-        "The face-to-face Culminating Event on November 14, 2026 will be held at a premier university venue in Metro Manila (exact hall to be announced). All earlier workshops and proposal stages will be conducted online.",
+        "The face-to-face final round is on Saturday, November 21, 2026, at the CS Auditorium, National Science Complex, UP Diliman. The finalist primer has directions and the full program.",
     },
     {
       category: "event",
       question: "Can non-finalist participants and visitors attend the final culminating day?",
       answer:
-        "Yes! Subject to the venue's health and safety seating capacity, non-finalist teams and guests are welcome to attend as gallery visitors to explore the demonstration stations, network with sponsors, and attend keynotes.",
+        "Yes. Subject to the venue's seating capacity, non-finalist teams and guests are welcome as visitors to explore the demo stations, meet sponsors, and attend the talk.",
     },
   ] as FaqItem[],
 
   sponsors: [
     {
-      name: "Co-Presented By",
+      name: "Co-presented by",
       tagline: "Platinum Partner Tier",
       contribution: "₱20,000",
       benefits: [
@@ -702,7 +975,7 @@ export const siteData = {
       ],
     },
     {
-      name: "In Cooperation With",
+      name: "In cooperation with",
       tagline: "Gold Partner Tier",
       contribution: "₱15,000",
       benefits: [
@@ -717,7 +990,7 @@ export const siteData = {
       ],
     },
     {
-      name: "Also Brought To You By",
+      name: "Also brought to you by",
       tagline: "Silver Partner Tier",
       contribution: "₱10,000",
       benefits: [
@@ -730,7 +1003,7 @@ export const siteData = {
       ],
     },
     {
-      name: "Official Partners",
+      name: "Official partners",
       tagline: "Community & Media Alliances",
       benefits: [
         "Logo placement across all official promotional publications",

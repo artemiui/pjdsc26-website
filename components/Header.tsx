@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 
-const links = [{href:"/",label:"Home"},{href:"/primer",label:"Primer"},{href:"/timeline",label:"Timeline"},{href:"/catalogue",label:"Catalogue"},{href:"/organizer",label:"Organizer"},{href:"/faq",label:"FAQ"},{href:"/sponsors",label:"Sponsors"}];
+const links = [{href:"/",label:"Home"},{href:"/finals",label:"Finals"},{href:"/primer",label:"Primer"},{href:"/timeline",label:"Timeline"},{href:"/catalogue",label:"Catalogue"},{href:"/organizer",label:"Organizer"},{href:"/faq",label:"FAQ"},{href:"/sponsors",label:"Sponsors"}];
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
